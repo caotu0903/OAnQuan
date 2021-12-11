@@ -1,14 +1,20 @@
 package com.mygdx.gameco;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Camera;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+
+import java.util.Locale;
 
 public class GameScreen implements Screen {
 
@@ -34,6 +40,9 @@ public class GameScreen implements Screen {
     //game objects
     private OCo[] oCo;
 
+    //Head-Up Display
+    BitmapFont font;
+
     GameScreen() {
 
         camera = new OrthographicCamera();
@@ -54,6 +63,8 @@ public class GameScreen implements Screen {
 
         //set up game object
         initCellArray();
+
+        prepareHUD();
     }
 
     @Override
@@ -66,6 +77,9 @@ public class GameScreen implements Screen {
         //O Co
         for (int i=0; i<12; i++)
             oCo[i].draw(batch);
+
+        //hud rendering
+        updateAndRenderHUD();
 
         batch.end();
     }
@@ -83,13 +97,13 @@ public class GameScreen implements Screen {
         oCo[2] = new OCo(5, false, false, WORLD_WIDTH*0.504f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
         oCo[3] = new OCo(5, false, false, WORLD_WIDTH*0.386f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
         oCo[4] = new OCo(5, false, false, WORLD_WIDTH*0.259f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
-        oCo[5] = new OCo(5, true, true, WORLD_WIDTH*0.143f, WORLD_HEIGHT*0.501f, 10, 20, oCoYellow[8]);
+        oCo[5] = new OCo(10, true, true, WORLD_WIDTH*0.143f, WORLD_HEIGHT*0.501f, 10, 20, oCoYellow[0]);
         oCo[6] = new OCo(5, false, false, WORLD_WIDTH*0.259f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
         oCo[7] = new OCo(5, false, false, WORLD_WIDTH*0.386f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
         oCo[8] = new OCo(5, false, false, WORLD_WIDTH*0.504f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
         oCo[9] = new OCo(5, false, false, WORLD_WIDTH*0.631f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
         oCo[10] = new OCo(5, false, false, WORLD_WIDTH*0.751f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
-        oCo[11] = new OCo(5, true, true, WORLD_WIDTH*0.860f, WORLD_HEIGHT*0.501f, 10, 20, oCoBlue[8]);
+        oCo[11] = new OCo(10, true, true, WORLD_WIDTH*0.860f, WORLD_HEIGHT*0.501f, 10, 20, oCoBlue[0]);
     }
 
     private void initTextureRegion() {
@@ -127,6 +141,36 @@ public class GameScreen implements Screen {
         oCoBlue[7] = textureOCo.findRegion("blue-7");
         oCoBlue[8] = textureOCo.findRegion("blue-many");
         oCoBlue[9] = textureOCo.findRegion("quan-null");
+    }
+
+    private void prepareHUD() {
+        //Create a BitmapFont from our font file
+        FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("PartyConfettiRegular-eZOn3.ttf"));
+        FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+
+        fontParameter.size = 30;
+        fontParameter.color = new Color(Color.BLACK);
+
+        font = fontGenerator.generateFont(fontParameter);
+
+        //scale the font to fit world
+        font.getData().setScale(0.085f);
+    }
+
+    private void updateAndRenderHUD() {
+        //render
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[0].getNumberCo()), WORLD_WIDTH*0.6993f, WORLD_HEIGHT*0.330f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[1].getNumberCo()), WORLD_WIDTH*0.580f, WORLD_HEIGHT*0.330f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[2].getNumberCo()), WORLD_WIDTH*0.455f, WORLD_HEIGHT*0.330f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[3].getNumberCo()), WORLD_WIDTH*0.335f, WORLD_HEIGHT*0.330f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[4].getNumberCo()), WORLD_WIDTH*0.2073f, WORLD_HEIGHT*0.330f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[5].getNumberCo()), WORLD_WIDTH*0.174f, WORLD_HEIGHT*0.340f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[6].getNumberCo()), WORLD_WIDTH*0.2073f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[7].getNumberCo()), WORLD_WIDTH*0.335f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[8].getNumberCo()), WORLD_WIDTH*0.455f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[9].getNumberCo()), WORLD_WIDTH*0.580f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[10].getNumberCo()), WORLD_WIDTH*0.6993f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[11].getNumberCo()), WORLD_WIDTH*0.820f, WORLD_HEIGHT*0.344f, 0, Align.left, false);
     }
 
     @Override
