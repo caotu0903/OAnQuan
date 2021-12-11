@@ -1,0 +1,27 @@
+
+image.png
+size: 8192, 2048
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+5-rock
+  rotate: false
+  xy: 0, 0
+  size: 2000, 2000
+  orig: 2000, 2000
+  offset: 0, 0
+  index: -1
+o-an-quan
+  rotate: false
+  xy: 3987, 1280
+  size: 1280, 720
+  orig: 1280, 720
+  offset: 0, 0
+  index: -1
+rock_five_black
+  rotate: false
+  xy: 2000, 13
+  size: 1987, 1987
+  orig: 1987, 1987
+  offset: 0, 0
+  index: -1
