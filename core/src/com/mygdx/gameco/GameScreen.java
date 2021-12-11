@@ -19,10 +19,10 @@ public class GameScreen implements Screen {
     //graphics
     private SpriteBatch batch;
 
-    private TextureAtlas textureAtlas,textureAtlas2;
+    private TextureAtlas textureOCo, textureBackground;
 
-    private TextureRegion[] oCoTexureRegions;
-    private TextureRegion oCoTextureRegion,backGroundRegion;
+    private TextureRegion[] oCoThuongRegions, oCoYellow, oCoBlue;
+    private TextureRegion backGroundRegion;
 
     //timing
     private int backgroundOffset;
@@ -40,41 +40,65 @@ public class GameScreen implements Screen {
         viewport = new StretchViewport(WORLD_WIDTH,WORLD_HEIGHT,camera);
 
         //set up the texture atlas
-        textureAtlas = new TextureAtlas("image.atlas");
-        textureAtlas2 = new TextureAtlas("image2.atlas");
+        textureOCo = new TextureAtlas("o_co_image.atlas");
+        textureBackground = new TextureAtlas("background_image.atlas");
+
 
         //initialize texture regions
-        oCoTexureRegions = new TextureRegion[9];
-        oCoTexureRegions[0] = textureAtlas.findRegion("0-rock");
-        oCoTexureRegions[1] = textureAtlas.findRegion("1-rock");
-        oCoTexureRegions[2] = textureAtlas.findRegion("2-rock");
-        oCoTexureRegions[3] = textureAtlas.findRegion("3-rock");
-        oCoTexureRegions[4] = textureAtlas.findRegion("4-rock");
-        oCoTexureRegions[5] = textureAtlas.findRegion("5-rock");
-        oCoTexureRegions[6] = textureAtlas.findRegion("6-rock");
-        oCoTexureRegions[7] = textureAtlas2.findRegion("7-rock");
-        oCoTexureRegions[8] = textureAtlas2.findRegion("n-rock");
+        oCoThuongRegions = new TextureRegion[9];
+        oCoThuongRegions[0] = textureOCo.findRegion("0-rock");
+        oCoThuongRegions[1] = textureOCo.findRegion("1-rock");
+        oCoThuongRegions[2] = textureOCo.findRegion("2-rock");
+        oCoThuongRegions[3] = textureOCo.findRegion("3-rock");
+        oCoThuongRegions[4] = textureOCo.findRegion("4-rock");
+        oCoThuongRegions[5] = textureOCo.findRegion("5-rock");
+        oCoThuongRegions[6] = textureOCo.findRegion("6-rock");
+        oCoThuongRegions[7] = textureOCo.findRegion("7-rock");
+        oCoThuongRegions[8] = textureOCo.findRegion("n-rock");
 
+        oCoYellow = new TextureRegion[10];
+        oCoYellow[0] = textureOCo.findRegion("yellow-0");
+        oCoYellow[1] = textureOCo.findRegion("yellow-1");
+        oCoYellow[2] = textureOCo.findRegion("yellow-2");
+        oCoYellow[3] = textureOCo.findRegion("yellow-3");
+        oCoYellow[4] = textureOCo.findRegion("yellow-4");
+        oCoYellow[5] = textureOCo.findRegion("yellow-5");
+        oCoYellow[6] = textureOCo.findRegion("yellow-6");
+        oCoYellow[7] = textureOCo.findRegion("yellow-7");
+        oCoYellow[8] = textureOCo.findRegion("yellow-many");
+        oCoYellow[9] = textureOCo.findRegion("quan-null");
 
-        backGroundRegion = textureAtlas2.findRegion("o-an-quan");
+        oCoBlue = new TextureRegion[10];
+        oCoBlue[0] = textureOCo.findRegion("blue-0");
+        oCoBlue[1] = textureOCo.findRegion("blue-1");
+        oCoBlue[2] = textureOCo.findRegion("blue-2");
+        oCoBlue[3] = textureOCo.findRegion("blue-3");
+        oCoBlue[4] = textureOCo.findRegion("blue-4");
+        oCoBlue[5] = textureOCo.findRegion("blue-5");
+        oCoBlue[6] = textureOCo.findRegion("blue-6");
+        oCoBlue[7] = textureOCo.findRegion("blue-7");
+        oCoBlue[8] = textureOCo.findRegion("blue-many");
+        oCoBlue[9] = textureOCo.findRegion("quan-null");
+
+        backGroundRegion = textureBackground.findRegion("o-an-quan");
         backgroundOffset = 0;
 
         batch = new SpriteBatch();
 
         //set up game object
         oCo = new OCo[12];
-        oCo[0] = new OCo(5, false, false, WORLD_WIDTH*0.751f, WORLD_HEIGHT*0.4f, 15, 15, oCoTexureRegions[5]);
-        oCo[1] = new OCo(5, false, false, WORLD_WIDTH*0.631f, WORLD_HEIGHT*0.4f, 15, 15, oCoTexureRegions[5]);
-        oCo[2] = new OCo(5, false, false, WORLD_WIDTH*0.504f, WORLD_HEIGHT*0.4f, 15, 15, oCoTexureRegions[5]);
-        oCo[3] = new OCo(5, false, false, WORLD_WIDTH*0.386f, WORLD_HEIGHT*0.4f, 15, 15, oCoTexureRegions[5]);
-        oCo[4] = new OCo(5, false, false, WORLD_WIDTH*0.259f, WORLD_HEIGHT*0.4f, 15, 15, oCoTexureRegions[5]);
-        oCo[5] = new OCo(5, true, true, WORLD_WIDTH*0.143f, WORLD_HEIGHT*0.501f, 15, 15, oCoTexureRegions[8]);
-        oCo[6] = new OCo(5, false, false, WORLD_WIDTH*0.259f, WORLD_HEIGHT*0.605f, 15, 15, oCoTexureRegions[5]);
-        oCo[7] = new OCo(5, false, false, WORLD_WIDTH*0.386f, WORLD_HEIGHT*0.605f, 15, 15, oCoTexureRegions[5]);
-        oCo[8] = new OCo(5, false, false, WORLD_WIDTH*0.504f, WORLD_HEIGHT*0.605f, 15, 15, oCoTexureRegions[5]);
-        oCo[9] = new OCo(5, false, false, WORLD_WIDTH*0.631f, WORLD_HEIGHT*0.605f, 15, 15, oCoTexureRegions[5]);
-        oCo[10] = new OCo(5, false, false, WORLD_WIDTH*0.751f, WORLD_HEIGHT*0.605f, 15, 15, oCoTexureRegions[5]);
-        oCo[11] = new OCo(5, true, true, WORLD_WIDTH*0.860f, WORLD_HEIGHT*0.501f, 15, 15, oCoTexureRegions[8]);
+        oCo[0] = new OCo(5, false, false, WORLD_WIDTH*0.751f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
+        oCo[1] = new OCo(5, false, false, WORLD_WIDTH*0.631f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
+        oCo[2] = new OCo(5, false, false, WORLD_WIDTH*0.504f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
+        oCo[3] = new OCo(5, false, false, WORLD_WIDTH*0.386f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
+        oCo[4] = new OCo(5, false, false, WORLD_WIDTH*0.259f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
+        oCo[5] = new OCo(5, true, true, WORLD_WIDTH*0.143f, WORLD_HEIGHT*0.501f, 10, 20, oCoYellow[8]);
+        oCo[6] = new OCo(5, false, false, WORLD_WIDTH*0.259f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
+        oCo[7] = new OCo(5, false, false, WORLD_WIDTH*0.386f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
+        oCo[8] = new OCo(5, false, false, WORLD_WIDTH*0.504f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
+        oCo[9] = new OCo(5, false, false, WORLD_WIDTH*0.631f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
+        oCo[10] = new OCo(5, false, false, WORLD_WIDTH*0.751f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
+        oCo[11] = new OCo(5, true, true, WORLD_WIDTH*0.860f, WORLD_HEIGHT*0.501f, 10, 20, oCoBlue[8]);
 
     }
 

@@ -40,4 +40,8 @@ public class OCo {
         center[1] = boundingBox.y;
         return center;
     }
+
+    void setOcoTexture (TextureRegion texture) {
+        this.ocoTexture = texture;
+    }
 }
