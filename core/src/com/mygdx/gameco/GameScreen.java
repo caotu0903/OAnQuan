@@ -45,6 +45,54 @@ public class GameScreen implements Screen {
 
 
         //initialize texture regions
+        initTextureRegion();
+
+        backGroundRegion = textureBackground.findRegion("o-an-quan");
+        backgroundOffset = 0;
+
+        batch = new SpriteBatch();
+
+        //set up game object
+        initCellArray();
+    }
+
+    @Override
+    public void render(float delta) {
+        batch.begin();
+
+        //Background
+        batch.draw(backGroundRegion, 0,0,WORLD_WIDTH,WORLD_HEIGHT);
+
+        //O Co
+        for (int i=0; i<12; i++)
+            oCo[i].draw(batch);
+
+        batch.end();
+    }
+
+    @Override
+    public void resize(int width, int height) {
+        viewport.update(width, height, true);
+        batch.setProjectionMatrix(camera.combined);
+    }
+
+    private void initCellArray() {
+        oCo = new OCo[12];
+        oCo[0] = new OCo(5, false, false, WORLD_WIDTH*0.751f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
+        oCo[1] = new OCo(5, false, false, WORLD_WIDTH*0.631f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
+        oCo[2] = new OCo(5, false, false, WORLD_WIDTH*0.504f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
+        oCo[3] = new OCo(5, false, false, WORLD_WIDTH*0.386f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
+        oCo[4] = new OCo(5, false, false, WORLD_WIDTH*0.259f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
+        oCo[5] = new OCo(5, true, true, WORLD_WIDTH*0.143f, WORLD_HEIGHT*0.501f, 10, 20, oCoYellow[8]);
+        oCo[6] = new OCo(5, false, false, WORLD_WIDTH*0.259f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
+        oCo[7] = new OCo(5, false, false, WORLD_WIDTH*0.386f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
+        oCo[8] = new OCo(5, false, false, WORLD_WIDTH*0.504f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
+        oCo[9] = new OCo(5, false, false, WORLD_WIDTH*0.631f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
+        oCo[10] = new OCo(5, false, false, WORLD_WIDTH*0.751f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
+        oCo[11] = new OCo(5, true, true, WORLD_WIDTH*0.860f, WORLD_HEIGHT*0.501f, 10, 20, oCoBlue[8]);
+    }
+
+    private void initTextureRegion() {
         oCoThuongRegions = new TextureRegion[9];
         oCoThuongRegions[0] = textureOCo.findRegion("0-rock");
         oCoThuongRegions[1] = textureOCo.findRegion("1-rock");
@@ -79,47 +127,6 @@ public class GameScreen implements Screen {
         oCoBlue[7] = textureOCo.findRegion("blue-7");
         oCoBlue[8] = textureOCo.findRegion("blue-many");
         oCoBlue[9] = textureOCo.findRegion("quan-null");
-
-        backGroundRegion = textureBackground.findRegion("o-an-quan");
-        backgroundOffset = 0;
-
-        batch = new SpriteBatch();
-
-        //set up game object
-        oCo = new OCo[12];
-        oCo[0] = new OCo(5, false, false, WORLD_WIDTH*0.751f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
-        oCo[1] = new OCo(5, false, false, WORLD_WIDTH*0.631f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
-        oCo[2] = new OCo(5, false, false, WORLD_WIDTH*0.504f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
-        oCo[3] = new OCo(5, false, false, WORLD_WIDTH*0.386f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
-        oCo[4] = new OCo(5, false, false, WORLD_WIDTH*0.259f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
-        oCo[5] = new OCo(5, true, true, WORLD_WIDTH*0.143f, WORLD_HEIGHT*0.501f, 10, 20, oCoYellow[8]);
-        oCo[6] = new OCo(5, false, false, WORLD_WIDTH*0.259f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
-        oCo[7] = new OCo(5, false, false, WORLD_WIDTH*0.386f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
-        oCo[8] = new OCo(5, false, false, WORLD_WIDTH*0.504f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
-        oCo[9] = new OCo(5, false, false, WORLD_WIDTH*0.631f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
-        oCo[10] = new OCo(5, false, false, WORLD_WIDTH*0.751f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
-        oCo[11] = new OCo(5, true, true, WORLD_WIDTH*0.860f, WORLD_HEIGHT*0.501f, 10, 20, oCoBlue[8]);
-
-    }
-
-    @Override
-    public void render(float delta) {
-        batch.begin();
-
-        //Background
-        batch.draw(backGroundRegion, 0,0,WORLD_WIDTH,WORLD_HEIGHT);
-
-        //O Co
-        for (int i=0; i<12; i++)
-            oCo[i].draw(batch);
-
-        batch.end();
-    }
-
-    @Override
-    public void resize(int width, int height) {
-        viewport.update(width, height, true);
-        batch.setProjectionMatrix(camera.combined);
     }
 
     @Override

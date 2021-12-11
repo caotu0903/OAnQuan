@@ -41,6 +41,18 @@ public class OCo {
         return center;
     }
 
+    public int getNumberCo() {
+        return numberCo;
+    }
+
+    public boolean isQuan() {
+        return isQuan;
+    }
+
+    public boolean isAliveQuan() {
+        return isAliveQuan;
+    }
+
     void setOcoTexture (TextureRegion texture) {
         this.ocoTexture = texture;
     }
