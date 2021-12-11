@@ -33,4 +33,11 @@ public class OCo {
     public void update(int numberCo) {
 
     }
+
+    public float[] getCenterXY() {
+        float[] center = new float[2];
+        center[0] = boundingBox.x;
+        center[1] = boundingBox.y;
+        return center;
+    }
 }

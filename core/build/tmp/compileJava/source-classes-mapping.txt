@@ -1,6 +1,6 @@
-com/mygdx/gameco/OCo.java
- com.mygdx.gameco.OCo
-com/mygdx/gameco/GameScreen.java
- com.mygdx.gameco.GameScreen
 com/mygdx/gameco/OAnQuanGame.java
  com.mygdx.gameco.OAnQuanGame
+com/mygdx/gameco/GameScreen.java
+ com.mygdx.gameco.GameScreen
+com/mygdx/gameco/OCo.java
+ com.mygdx.gameco.OCo
