@@ -18,9 +18,10 @@ public class GameScreen implements Screen {
 
     //graphics
     private SpriteBatch batch;
-    private Texture background;
-    private TextureAtlas textureAtlas;
 
+    private TextureAtlas textureAtlas,textureAtlas2;
+
+    private TextureRegion[] oCoTexureRegions;
     private TextureRegion oCoTextureRegion,backGroundRegion;
 
     //timing
@@ -31,7 +32,7 @@ public class GameScreen implements Screen {
     private final int WORLD_HEIGHT = 72;
 
     //game objects
-    private OCo oCo;
+    private OCo[] oCo;
 
     GameScreen() {
 
@@ -40,17 +41,40 @@ public class GameScreen implements Screen {
 
         //set up the texture atlas
         textureAtlas = new TextureAtlas("image.atlas");
+        textureAtlas2 = new TextureAtlas("image2.atlas");
 
         //initialize texture regions
-        oCoTextureRegion = textureAtlas.findRegion("5-rock");
+        oCoTexureRegions = new TextureRegion[9];
+        oCoTexureRegions[0] = textureAtlas.findRegion("0-rock");
+        oCoTexureRegions[1] = textureAtlas.findRegion("1-rock");
+        oCoTexureRegions[2] = textureAtlas.findRegion("2-rock");
+        oCoTexureRegions[3] = textureAtlas.findRegion("3-rock");
+        oCoTexureRegions[4] = textureAtlas.findRegion("4-rock");
+        oCoTexureRegions[5] = textureAtlas.findRegion("5-rock");
+        oCoTexureRegions[6] = textureAtlas.findRegion("6-rock");
+        oCoTexureRegions[7] = textureAtlas2.findRegion("7-rock");
+        oCoTexureRegions[8] = textureAtlas2.findRegion("n-rock");
 
-        backGroundRegion = textureAtlas.findRegion("o-an-quan");
+
+        backGroundRegion = textureAtlas2.findRegion("o-an-quan");
         backgroundOffset = 0;
 
         batch = new SpriteBatch();
 
-        //set up game objects
-        oCo = new OCo (5, false, false, WORLD_WIDTH*0.386f, WORLD_HEIGHT*0.4f, 15, 15, oCoTextureRegion);
+        //set up game object
+        oCo = new OCo[12];
+        oCo[0] = new OCo(5, false, false, WORLD_WIDTH*0.751f, WORLD_HEIGHT*0.4f, 15, 15, oCoTexureRegions[5]);
+        oCo[1] = new OCo(5, false, false, WORLD_WIDTH*0.631f, WORLD_HEIGHT*0.4f, 15, 15, oCoTexureRegions[5]);
+        oCo[2] = new OCo(5, false, false, WORLD_WIDTH*0.504f, WORLD_HEIGHT*0.4f, 15, 15, oCoTexureRegions[5]);
+        oCo[3] = new OCo(5, false, false, WORLD_WIDTH*0.386f, WORLD_HEIGHT*0.4f, 15, 15, oCoTexureRegions[5]);
+        oCo[4] = new OCo(5, false, false, WORLD_WIDTH*0.259f, WORLD_HEIGHT*0.4f, 15, 15, oCoTexureRegions[5]);
+        oCo[5] = new OCo(5, true, true, WORLD_WIDTH*0.143f, WORLD_HEIGHT*0.501f, 15, 15, oCoTexureRegions[8]);
+        oCo[6] = new OCo(5, false, false, WORLD_WIDTH*0.259f, WORLD_HEIGHT*0.605f, 15, 15, oCoTexureRegions[5]);
+        oCo[7] = new OCo(5, false, false, WORLD_WIDTH*0.386f, WORLD_HEIGHT*0.605f, 15, 15, oCoTexureRegions[5]);
+        oCo[8] = new OCo(5, false, false, WORLD_WIDTH*0.504f, WORLD_HEIGHT*0.605f, 15, 15, oCoTexureRegions[5]);
+        oCo[9] = new OCo(5, false, false, WORLD_WIDTH*0.631f, WORLD_HEIGHT*0.605f, 15, 15, oCoTexureRegions[5]);
+        oCo[10] = new OCo(5, false, false, WORLD_WIDTH*0.751f, WORLD_HEIGHT*0.605f, 15, 15, oCoTexureRegions[5]);
+        oCo[11] = new OCo(5, true, true, WORLD_WIDTH*0.860f, WORLD_HEIGHT*0.501f, 15, 15, oCoTexureRegions[8]);
 
     }
 
@@ -62,7 +86,8 @@ public class GameScreen implements Screen {
         batch.draw(backGroundRegion, 0,0,WORLD_WIDTH,WORLD_HEIGHT);
 
         //O Co
-        oCo.draw(batch);
+        for (int i=0; i<12; i++)
+            oCo[i].draw(batch);
 
         batch.end();
     }

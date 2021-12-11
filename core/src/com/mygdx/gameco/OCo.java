@@ -29,4 +29,8 @@ public class OCo {
     public void draw(Batch batch) {
         batch.draw(ocoTexture, boundingBox.x, boundingBox.y, boundingBox.width, boundingBox.height);
     }
+
+    public void update(int numberCo) {
+
+    }
 }
