@@ -1,4 +1,0 @@
-com/mygdx/gameco/GameScreen.java
- com.mygdx.gameco.GameScreen
-com/mygdx/gameco/OAnQuanGame.java
- com.mygdx.gameco.OAnQuanGame

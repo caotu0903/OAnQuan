@@ -1,2 +1,0 @@
-com/mygdx/gameco/desktop/DesktopLauncher.java
- com.mygdx.gameco.desktop.DesktopLauncher
