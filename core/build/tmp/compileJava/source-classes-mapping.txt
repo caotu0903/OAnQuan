@@ -6,6 +6,8 @@ com/mygdx/gameco/Hand.java
  com.mygdx.gameco.Hand
 com/mygdx/gameco/Direction.java
  com.mygdx.gameco.Direction
+ com.mygdx.gameco.Direction$1
+ com.mygdx.gameco.Direction$2
 com/mygdx/gameco/GameScreen.java
  com.mygdx.gameco.GameScreen
 com/mygdx/gameco/OAnQuanGame.java

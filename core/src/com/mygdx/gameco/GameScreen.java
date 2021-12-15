@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Align;
@@ -53,14 +54,20 @@ public class GameScreen implements Screen {
     //direction
     int nextCell;
     int originCell;
-    boolean isShowDirection;
+//    boolean isShowDirection;
     int index;
     int directionChoice;
+    Direction direction;
+
+    Stage stage;
+    GrabAnimation grabAnimation;
 
     GameScreen() {
 
         camera = new OrthographicCamera();
         viewport = new StretchViewport(WORLD_WIDTH,WORLD_HEIGHT,camera);
+        stage = new Stage(viewport);
+        Gdx.input.setInputProcessor(stage);
 
         //set up the texture atlas
         textureOCo = new TextureAtlas("o_co_image.atlas");
@@ -87,8 +94,13 @@ public class GameScreen implements Screen {
         nextCell = -1;
         originCell = -1;
         index=-1;
-        isShowDirection=false;
+//        isShowDirection=false;
         directionChoice=0;
+
+        Texture grabAni = new Texture("grab_hand.png");
+        grabAnimation = new GrabAnimation(grabAni, 0.6f);
+
+        direction = new Direction(AnimationAndDirection[2], AnimationAndDirection[3], stage);
     }
 
     @Override
@@ -109,10 +121,14 @@ public class GameScreen implements Screen {
         detectInput(delta);
 
         batch.end();
+
+        stage.act();
+        stage.draw();
+
     }
 
     private void detectInput(float dTime) {
-        isShowDirection=false;
+        //isShowDirection=false;
         float xTouch, yTouch;
         if (Gdx.input.isTouched()) {
             xTouch = Gdx.input.getX();
@@ -128,34 +144,40 @@ public class GameScreen implements Screen {
             }
         }
 
-        Direction direction = null;
+        //Direction direction = null;
         if (index<=4 && index>=0) {
             if (!oCo[index].isQuan) {
 
-                Texture left = new Texture("left.png");
-                Texture right = new Texture("right.png");
-                Texture cross = new Texture("cross.png");
-
-                direction = new Direction(left, right, oCo[index]);
-                direction.draw(batch);
-                isShowDirection = true;
+                //direction = new Direction(AnimationAndDirection[2], AnimationAndDirection[3], oCo[index], viewport);
+                direction.translate(oCo[index]);
+                direction.setVisible(true, true);
+                direction.setDisable(false, false);
+                //direction.draw(batch);
+                //isShowDirection = true;
             }
         }
 
         // chon huong di
-        if (isShowDirection && Gdx.input.isTouched()) {
-            xTouch = Gdx.input.getX();
-            yTouch = Gdx.input.getY();
-            directionChoice = direction.getDirection(xTouch, yTouch, viewport);
-        }
+//        if (isShowDirection && Gdx.input.isTouched()) {
+//            xTouch = Gdx.input.getX();
+//            yTouch = Gdx.input.getY();
+//            directionChoice = direction.getDirection();
+//        }
+        //if (isShowDirection) {
+            directionChoice = direction.getDirection();
+        //}
+
         if (directionChoice != 0) {
-            Texture grabAni = new Texture("grab_hand.png");
-            GrabAnimation grabAnimation = new GrabAnimation(grabAni, 0.1f, oCo[index].boundingBox);
+
+            grabAnimation.setBoundingBox(oCo[index].boundingBox);
             grabAnimation.update(dTime);
-            grabAnimation.draw(batch);
 
             if (grabAnimation.isFinished()) {
+                //grabAnimation.resetTimer();
                 directionChoice=0;
+            }
+            else {
+                grabAnimation.draw(batch);
             }
         }
 
@@ -224,8 +246,8 @@ public class GameScreen implements Screen {
         AnimationAndDirection = new TextureRegion[4];
         AnimationAndDirection[0] = textureAniAndDirec.findRegion("cross");
         AnimationAndDirection[1] = textureAniAndDirec.findRegion("grab");
-        AnimationAndDirection[3] = textureAniAndDirec.findRegion("left");
-        AnimationAndDirection[4] = textureAniAndDirec.findRegion("right");
+        AnimationAndDirection[2] = textureAniAndDirec.findRegion("left");
+        AnimationAndDirection[3] = textureAniAndDirec.findRegion("right");
     }
 
     private void prepareHUD() {

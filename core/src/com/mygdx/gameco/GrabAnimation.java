@@ -14,25 +14,27 @@ public class GrabAnimation {
 
     Rectangle boundingBox;
 
-    public GrabAnimation(Texture texture, float totalAnimationTime, Rectangle boundingBox) {
-
-        this.boundingBox = boundingBox;
+    public GrabAnimation(Texture texture, float totalAnimationTime) {
 
         //split texture
         TextureRegion[][] textureRegion2D = TextureRegion.split(texture, 1024, 1024);
 
         //convert to 1D array
-        TextureRegion[] textureRegion1D = new TextureRegion[6];
+        TextureRegion[] textureRegion1D = new TextureRegion[2];
         int index = 0;
         for (int i = 0; i < 1; i++) {
-            for (int j = 0; j < 6; j++) {
+            for (int j = 0; j < 2; j++) {
                 textureRegion1D[index] = textureRegion2D[i][j];
                 index++;
             }
         }
 
-        grabAnimation = new Animation<TextureRegion>(totalAnimationTime/6, textureRegion1D);
+        grabAnimation = new Animation<TextureRegion>(totalAnimationTime/2, textureRegion1D);
         grabTimer = 0;
+    }
+
+    public void setBoundingBox(Rectangle boundingBox) {
+        this.boundingBox=boundingBox;
     }
 
     public void update(float dTime) {
@@ -47,7 +49,12 @@ public class GrabAnimation {
                 boundingBox.height);
     }
 
+    public void resetTimer() {
+        grabTimer=0;
+    }
+
     public boolean isFinished() {
         return grabAnimation.isAnimationFinished(grabTimer);
     }
+
 }
