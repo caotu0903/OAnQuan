@@ -5,11 +5,14 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -43,6 +46,12 @@ public class GameScreen implements Screen {
     //Head-Up Display
     BitmapFont font;
 
+    //direction
+    int nextCell;
+    int originCell;
+    boolean isShowDirection;
+    int index;
+
     GameScreen() {
 
         camera = new OrthographicCamera();
@@ -65,6 +74,11 @@ public class GameScreen implements Screen {
         initCellArray();
 
         prepareHUD();
+
+        nextCell = -1;
+        originCell = -1;
+        index=-1;
+        isShowDirection=false;
     }
 
     @Override
@@ -81,7 +95,44 @@ public class GameScreen implements Screen {
         //hud rendering
         updateAndRenderHUD();
 
+        //detect input
+        detectInput(delta);
+
         batch.end();
+    }
+
+    private void detectInput(float dTime) {
+
+        if (Gdx.input.isTouched()) {
+
+            float xTouch = Gdx.input.getX();
+            float yTouch = Gdx.input.getY();
+
+            Vector2 touch = viewport.unproject(new Vector2(xTouch, yTouch));
+
+            for (int i=0; i<oCo.length;i++) {
+                if (oCo[i].boundingBox.contains(touch)) {
+                    index = i;
+                    break;
+                }
+            }
+        }
+
+        if (index<=11 && index>=0) {
+            Rectangle cell = oCo[index].boundingBox;
+            if (!oCo[index].isQuan) {
+                float dimen = cell.height / 3;
+                Texture left = new Texture("left.png");
+                Texture right = new Texture("right.png");
+                Texture cross = new Texture("cross.png");
+                batch.draw(left, cell.x, cell.y + cell.width / 2 - dimen / 2,
+                        dimen, dimen);
+                batch.draw(right, cell.x + cell.width - dimen, cell.y + cell.width / 2 - dimen / 2,
+                        dimen, dimen);
+                batch.draw(cross, cell.x + cell.width/2 - dimen/2, cell.y,
+                        dimen, dimen);
+            }
+        }
     }
 
     @Override

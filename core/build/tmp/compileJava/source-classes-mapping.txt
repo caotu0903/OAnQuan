@@ -4,7 +4,7 @@ com/mygdx/gameco/GrabAnimation.java
  com.mygdx.gameco.GrabAnimation
 com/mygdx/gameco/Hand.java
  com.mygdx.gameco.Hand
-com/mygdx/gameco/OAnQuanGame.java
- com.mygdx.gameco.OAnQuanGame
 com/mygdx/gameco/GameScreen.java
  com.mygdx.gameco.GameScreen
+com/mygdx/gameco/OAnQuanGame.java
+ com.mygdx.gameco.OAnQuanGame
