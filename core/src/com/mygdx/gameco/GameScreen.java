@@ -13,11 +13,15 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.util.Locale;
+
+import jdk.internal.org.jline.utils.Log;
 
 public class GameScreen implements Screen {
 
@@ -51,6 +55,7 @@ public class GameScreen implements Screen {
     int originCell;
     boolean isShowDirection;
     int index;
+    int directionChoice;
 
     GameScreen() {
 
@@ -79,6 +84,7 @@ public class GameScreen implements Screen {
         originCell = -1;
         index=-1;
         isShowDirection=false;
+        directionChoice=0;
     }
 
     @Override
@@ -102,11 +108,11 @@ public class GameScreen implements Screen {
     }
 
     private void detectInput(float dTime) {
-
+        isShowDirection=false;
+        float xTouch, yTouch;
         if (Gdx.input.isTouched()) {
-
-            float xTouch = Gdx.input.getX();
-            float yTouch = Gdx.input.getY();
+            xTouch = Gdx.input.getX();
+            yTouch = Gdx.input.getY();
 
             Vector2 touch = viewport.unproject(new Vector2(xTouch, yTouch));
 
@@ -118,21 +124,37 @@ public class GameScreen implements Screen {
             }
         }
 
-        if (index<=11 && index>=0) {
-            Rectangle cell = oCo[index].boundingBox;
+        Direction direction = null;
+        if (index<=4 && index>=0) {
             if (!oCo[index].isQuan) {
-                float dimen = cell.height / 3;
+
                 Texture left = new Texture("left.png");
                 Texture right = new Texture("right.png");
                 Texture cross = new Texture("cross.png");
-                batch.draw(left, cell.x, cell.y + cell.width / 2 - dimen / 2,
-                        dimen, dimen);
-                batch.draw(right, cell.x + cell.width - dimen, cell.y + cell.width / 2 - dimen / 2,
-                        dimen, dimen);
-                batch.draw(cross, cell.x + cell.width/2 - dimen/2, cell.y,
-                        dimen, dimen);
+
+                direction = new Direction(left, right, oCo[index]);
+                direction.draw(batch);
+                isShowDirection = true;
             }
         }
+
+        // chon huong di
+        if (isShowDirection && Gdx.input.isTouched()) {
+            xTouch = Gdx.input.getX();
+            yTouch = Gdx.input.getY();
+            directionChoice = direction.getDirection(xTouch, yTouch, viewport);
+        }
+        if (directionChoice != 0) {
+            Texture grabAni = new Texture("grab_hand.png");
+            GrabAnimation grabAnimation = new GrabAnimation(grabAni, 0.1f, oCo[index].boundingBox);
+            grabAnimation.update(dTime);
+            grabAnimation.draw(batch);
+
+            if (grabAnimation.isFinished()) {
+                directionChoice=0;
+            }
+        }
+
     }
 
     @Override
