@@ -28,9 +28,9 @@ public class GameScreen implements Screen {
     //graphics
     private SpriteBatch batch;
 
-    private TextureAtlas textureOCo, textureBackground;
+    private TextureAtlas textureOCo, textureBackground, textureAniAndDirec;
 
-    private TextureRegion[] oCoThuongRegions, oCoYellow, oCoBlue;
+    private TextureRegion[] oCoThuongRegions, oCoYellow, oCoBlue, AnimationAndDirection;
     private TextureRegion backGroundRegion;
 
     //timing
@@ -60,6 +60,7 @@ public class GameScreen implements Screen {
         //set up the texture atlas
         textureOCo = new TextureAtlas("o_co_image.atlas");
         textureBackground = new TextureAtlas("background_image.atlas");
+        textureAniAndDirec = new TextureAtlas("animation_image.atlas");
 
 
         //initialize texture regions
@@ -72,6 +73,9 @@ public class GameScreen implements Screen {
 
         //set up game object
         initCellArray();
+
+        //set up direction and animation
+        initAnimationAndDirec();
 
         prepareHUD();
 
@@ -192,6 +196,15 @@ public class GameScreen implements Screen {
         oCoBlue[7] = textureOCo.findRegion("blue-7");
         oCoBlue[8] = textureOCo.findRegion("blue-many");
         oCoBlue[9] = textureOCo.findRegion("quan-null");
+    }
+
+    private void initAnimationAndDirec() {
+        AnimationAndDirection = new TextureRegion[5];
+        AnimationAndDirection[0] = textureAniAndDirec.findRegion("cross");
+        AnimationAndDirection[1] = textureAniAndDirec.findRegion("grab");
+        AnimationAndDirection[2] = textureAniAndDirec.findRegion("grab_hand");
+        AnimationAndDirection[3] = textureAniAndDirec.findRegion("left");
+        AnimationAndDirection[4] = textureAniAndDirec.findRegion("right");
     }
 
     private void prepareHUD() {
