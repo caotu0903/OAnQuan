@@ -1,33 +1,40 @@
 
 animation_image.png
-size: 2048, 1024
+size: 8192, 1024
 format: RGBA8888
 filter: Nearest, Nearest
 repeat: none
 cross
   rotate: false
-  xy: 1124, 924
+  xy: 7268, 924
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 grab
   rotate: false
-  xy: 0, 0
+  xy: 6144, 0
   size: 1024, 1024
   orig: 1024, 1024
   offset: 0, 0
   index: -1
+grab_hand
+  rotate: false
+  xy: 0, 0
+  size: 6144, 1024
+  orig: 6144, 1024
+  offset: 0, 0
+  index: -1
 left
   rotate: false
-  xy: 1024, 824
+  xy: 7168, 824
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 right
   rotate: false
-  xy: 1024, 924
+  xy: 7168, 924
   size: 100, 100
   orig: 100, 100
   offset: 0, 0

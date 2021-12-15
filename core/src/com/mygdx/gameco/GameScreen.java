@@ -199,10 +199,9 @@ public class GameScreen implements Screen {
     }
 
     private void initAnimationAndDirec() {
-        AnimationAndDirection = new TextureRegion[5];
+        AnimationAndDirection = new TextureRegion[4];
         AnimationAndDirection[0] = textureAniAndDirec.findRegion("cross");
         AnimationAndDirection[1] = textureAniAndDirec.findRegion("grab");
-        AnimationAndDirection[2] = textureAniAndDirec.findRegion("grab_hand");
         AnimationAndDirection[3] = textureAniAndDirec.findRegion("left");
         AnimationAndDirection[4] = textureAniAndDirec.findRegion("right");
     }
