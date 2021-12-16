@@ -56,4 +56,8 @@ public class OCo {
     void setOcoTexture (TextureRegion texture) {
         this.ocoTexture = texture;
     }
+
+    public void setNumberCo(int numberCo) {
+        this.numberCo = numberCo;
+    }
 }

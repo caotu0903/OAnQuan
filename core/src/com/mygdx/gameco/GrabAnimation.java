@@ -11,25 +11,29 @@ public class GrabAnimation {
 
     Animation<TextureRegion> grabAnimation;
     float grabTimer;
+    OCo oCo;
 
     Rectangle boundingBox;
 
-    public GrabAnimation(Texture texture, float totalAnimationTime) {
+    public GrabAnimation(Texture texture, float totalAnimationTime, OCo oCO) {
+
+        this.oCo = oCO;
+        this.boundingBox = oCo.boundingBox;
 
         //split texture
         TextureRegion[][] textureRegion2D = TextureRegion.split(texture, 1024, 1024);
 
         //convert to 1D array
-        TextureRegion[] textureRegion1D = new TextureRegion[2];
+        TextureRegion[] textureRegion1D = new TextureRegion[3];
         int index = 0;
         for (int i = 0; i < 1; i++) {
-            for (int j = 0; j < 2; j++) {
+            for (int j = 0; j < 3; j++) {
                 textureRegion1D[index] = textureRegion2D[i][j];
                 index++;
             }
         }
 
-        grabAnimation = new Animation<TextureRegion>(totalAnimationTime/2, textureRegion1D);
+        grabAnimation = new Animation<>(totalAnimationTime/2, textureRegion1D);
         grabTimer = 0;
     }
 
@@ -57,4 +61,7 @@ public class GrabAnimation {
         return grabAnimation.isAnimationFinished(grabTimer);
     }
 
+    public void setBoundingBox(OCo oco) {
+        this.boundingBox = oco.boundingBox;
+    }
 }

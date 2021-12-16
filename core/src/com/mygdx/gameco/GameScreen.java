@@ -20,6 +20,8 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import java.util.LinkedList;
+import java.util.ListIterator;
 import java.util.Locale;
 
 import jdk.internal.org.jline.utils.Log;
@@ -54,13 +56,14 @@ public class GameScreen implements Screen {
     //direction
     int nextCell;
     int originCell;
-//    boolean isShowDirection;
     int index;
     int directionChoice;
+    int ODuocChon;
     Direction direction;
+    boolean setVisibleDirection;
+    LinkedList<GrabAnimation> ListGrabAnimation;
 
     Stage stage;
-    GrabAnimation grabAnimation;
 
     GameScreen() {
 
@@ -94,13 +97,14 @@ public class GameScreen implements Screen {
         nextCell = -1;
         originCell = -1;
         index=-1;
-//        isShowDirection=false;
+        ODuocChon=-1;
         directionChoice=0;
 
-        Texture grabAni = new Texture("grab_hand.png");
-        grabAnimation = new GrabAnimation(grabAni, 0.6f);
+        direction = new Direction(AnimationAndDirection[2], AnimationAndDirection[3], stage, oCo, this);
 
-        direction = new Direction(AnimationAndDirection[2], AnimationAndDirection[3], stage);
+        setVisibleDirection = false;
+
+        ListGrabAnimation = new LinkedList<>();
     }
 
     @Override
@@ -108,11 +112,10 @@ public class GameScreen implements Screen {
         batch.begin();
 
         //Background
-        batch.draw(backGroundRegion, 0,0,WORLD_WIDTH,WORLD_HEIGHT);
+        batch.draw(backGroundRegion,0,0,WORLD_WIDTH,WORLD_HEIGHT);
 
         //O Co
-        for (int i=0; i<12; i++)
-            oCo[i].draw(batch);
+        updateOCo();
 
         //hud rendering
         updateAndRenderHUD();
@@ -120,67 +123,59 @@ public class GameScreen implements Screen {
         //detect input
         detectInput(delta);
 
+        updateAndRenderGA(delta);
+
         batch.end();
 
         stage.act();
         stage.draw();
-
     }
 
     private void detectInput(float dTime) {
         //isShowDirection=false;
-        float xTouch, yTouch;
+        int xTouch, yTouch;
         if (Gdx.input.isTouched()) {
             xTouch = Gdx.input.getX();
             yTouch = Gdx.input.getY();
 
             Vector2 touch = viewport.unproject(new Vector2(xTouch, yTouch));
 
+            oCo[5].setNumberCo(xTouch);
+            oCo[11].setNumberCo(yTouch);
+
             for (int i=0; i<oCo.length;i++) {
                 if (oCo[i].boundingBox.contains(touch)) {
                     index = i;
+                    ODuocChon = i;
                     break;
                 }
             }
         }
 
         //Direction direction = null;
-        if (index<=4 && index>=0) {
+        if (index>=0 && index<=4) {
             if (!oCo[index].isQuan) {
 
-                //direction = new Direction(AnimationAndDirection[2], AnimationAndDirection[3], oCo[index], viewport);
                 direction.translate(oCo[index]);
                 direction.setVisible(true, true);
                 direction.setDisable(false, false);
-                //direction.draw(batch);
-                //isShowDirection = true;
             }
         }
 
-        // chon huong di
-//        if (isShowDirection && Gdx.input.isTouched()) {
-//            xTouch = Gdx.input.getX();
-//            yTouch = Gdx.input.getY();
-//            directionChoice = direction.getDirection();
-//        }
-        //if (isShowDirection) {
-            directionChoice = direction.getDirection();
-        //}
-
-        if (directionChoice != 0) {
-
-            grabAnimation.setBoundingBox(oCo[index].boundingBox);
-            grabAnimation.update(dTime);
-
-            if (grabAnimation.isFinished()) {
-                //grabAnimation.resetTimer();
-                directionChoice=0;
-            }
-            else {
-                grabAnimation.draw(batch);
-            }
+        if (setVisibleDirection) {
+            direction.setVisible(false, false);
+            direction.setDisable(false, false);
+            setVisibleDirection = false;
         }
 
+    }
+
+    public void setIndex(int id) {
+        index = id;
+    }
+
+    public void AnDirection() {
+        setVisibleDirection = true;
     }
 
     @Override
@@ -278,6 +273,59 @@ public class GameScreen implements Screen {
         font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[9].getNumberCo()), WORLD_WIDTH*0.580f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
         font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[10].getNumberCo()), WORLD_WIDTH*0.6993f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
         font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[11].getNumberCo()), WORLD_WIDTH*0.820f, WORLD_HEIGHT*0.344f, 0, Align.left, false);
+    }
+
+    private void updateAndRenderGA(float deltaTime) {
+        ListIterator<GrabAnimation> GAListIterator = ListGrabAnimation.listIterator();
+        while (GAListIterator.hasNext()) {
+            GrabAnimation ga = GAListIterator.next();
+            ga.update(deltaTime);
+            if (ga.isFinished()) {
+                ga.resetTimer();
+                GAListIterator.remove();
+                directionChoice=0;
+            } else {
+                ga.draw(batch);
+            }
+        }
+    }
+
+    public void updateOCo() {
+        for (int i=0; i<12; i++) {
+            if (!oCo[i].isQuan()) {
+                ChooseTextureOThuong(i, oCo[i].getNumberCo());
+            }
+            else {
+                ChooseTextureOQuan(i, oCo[i].getNumberCo());
+            }
+            oCo[i].draw(batch);
+        }
+    }
+
+    public void ChooseTextureOThuong(int i, int number) {
+        if (number <= 7)
+            oCo[i].setOcoTexture(oCoThuongRegions[number]);
+        else if (number > 7)
+            oCo[i].setOcoTexture(oCoThuongRegions[8]);
+    }
+
+    public void ChooseTextureOQuan(int i, int number) {
+        if (oCo[i].isAliveQuan && number >= 10) {
+            if (i == 11 && number <= 17)
+                oCo[i].setOcoTexture(oCoBlue[number - 10]);
+            else if (i == 11 && number > 17)
+                oCo[i].setOcoTexture(oCoBlue[8]);
+            else if (i == 5 && number <= 17)
+                oCo[i].setOcoTexture(oCoYellow[number - 10]);
+            else if (i == 5 && number > 17)
+                oCo[i].setOcoTexture(oCoYellow[8]);
+        }
+        else {
+            if (number <= 7)
+                oCo[i].setOcoTexture(oCoThuongRegions[number]);
+            else if (number > 7)
+                oCo[i].setOcoTexture(oCoThuongRegions[8]);
+        }
     }
 
     @Override
