@@ -26,7 +26,7 @@ public class Direction {
 
     private Stage stage;
 
-    int direction;
+    //int direction;
     GameScreen gs;
 
     Texture grabAni;
@@ -38,7 +38,7 @@ public class Direction {
         this.rightTexture = rightTexture;
         this.oCO = oCo;
         this.gs = gss;
-        direction=0;
+        //direction=0;
 
         grabAni = new Texture("grab_hand.png");
         grabAnimation = new GrabAnimation(grabAni, 0.6f, oCO[0]);
@@ -56,25 +56,31 @@ public class Direction {
 
         leftImgButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y){
-                direction = -1;
+                //direction = -1;
 
                 gs.AnDirection();
                 gs.setIndex(-1);
 
                 grabAnimation.setBoundingBox(oCO[gs.ODuocChon]);
                 gs.ListGrabAnimation.add(grabAnimation);
+
+                // set direction for hand
+                gs.hand.setDirection(1);
             }
         });
 
         rightImgButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y){
-                direction = 1;
+                //direction = 1;
 
                 gs.AnDirection();
                 gs.setIndex(-1);
 
                 grabAnimation.setBoundingBox(oCO[gs.ODuocChon]);
                 gs.ListGrabAnimation.add(grabAnimation);
+
+                // set direction for hand
+                gs.hand.setDirection(-1);
             }
         });
 
@@ -82,10 +88,10 @@ public class Direction {
         stage.addActor(rightImgButton);
     }
 
-    public int getDirection() {
-
-        return direction;
-    }
+//    public int getDirection() {
+//
+//        return direction;
+//    }
 
     public void setVisible(boolean left, boolean right) {
         leftImgButton.setVisible(left);

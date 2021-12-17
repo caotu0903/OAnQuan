@@ -49,15 +49,13 @@ public class GameScreen implements Screen {
 
     //game objects
     private OCo[] oCo;
+    Hand hand;
 
     //Head-Up Display
     BitmapFont font;
 
     //direction
-    int nextCell;
-    int originCell;
     int index;
-    int directionChoice;
     int ODuocChon;
     Direction direction;
     boolean setVisibleDirection;
@@ -88,17 +86,15 @@ public class GameScreen implements Screen {
 
         //set up game object
         initCellArray();
+        hand = new Hand(3, 1f, textureAniAndDirec.findRegion("grab"), 2, oCo, this);
 
         //set up direction and animation
         initAnimationAndDirec();
 
         prepareHUD();
 
-        nextCell = -1;
-        originCell = -1;
         index=-1;
         ODuocChon=-1;
-        directionChoice=0;
 
         direction = new Direction(AnimationAndDirection[2], AnimationAndDirection[3], stage, oCo, this);
 
@@ -125,10 +121,18 @@ public class GameScreen implements Screen {
 
         updateAndRenderGA(delta);
 
+        // Hand moving
+        updateHandMoving(delta);
+
         batch.end();
 
         stage.act();
         stage.draw();
+    }
+
+    private void updateHandMoving(float dTime) {
+            hand.translate(dTime);
+            hand.draw(batch);
     }
 
     private void detectInput(float dTime) {
@@ -283,7 +287,6 @@ public class GameScreen implements Screen {
             if (ga.isFinished()) {
                 ga.resetTimer();
                 GAListIterator.remove();
-                directionChoice=0;
             } else {
                 ga.draw(batch);
             }
