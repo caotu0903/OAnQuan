@@ -29,7 +29,6 @@ import jdk.internal.org.jline.utils.Log;
 public class GameScreen implements Screen {
 
     //screen
-    //test git
     private Camera camera;
     private Viewport viewport;
 
