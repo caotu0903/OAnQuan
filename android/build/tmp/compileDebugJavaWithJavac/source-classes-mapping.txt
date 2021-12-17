@@ -1,10 +1,10 @@
-com/mygdx/gameco/AndroidLauncher.java
- com.mygdx.gameco.AndroidLauncher
+com/mygdx/gameco/BuildConfig.java
+ com.mygdx.gameco.BuildConfig
 com/mygdx/gameco/R.java
  com.mygdx.gameco.R
  com.mygdx.gameco.R$color
  com.mygdx.gameco.R$drawable
  com.mygdx.gameco.R$string
  com.mygdx.gameco.R$style
-com/mygdx/gameco/BuildConfig.java
- com.mygdx.gameco.BuildConfig
+com/mygdx/gameco/AndroidLauncher.java
+ com.mygdx.gameco.AndroidLauncher
