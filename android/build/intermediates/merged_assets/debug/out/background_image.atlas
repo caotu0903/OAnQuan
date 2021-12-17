@@ -1,16 +1,9 @@
 
 background_image.png
-size: 2048, 2048
+size: 2048, 1024
 format: RGBA8888
 filter: Nearest, Nearest
 repeat: none
-bien_background
-  rotate: false
-  xy: 0, 720
-  size: 1920, 1080
-  orig: 1920, 1080
-  offset: 0, 0
-  index: -1
 o-an-quan
   rotate: false
   xy: 0, 0

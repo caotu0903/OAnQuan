@@ -81,7 +81,7 @@ public class GameScreen implements Screen {
         //initialize texture regions
         initTextureRegion();
 
-        backGroundRegion = textureBackground.findRegion("o-an-quan");
+        backGroundRegion = textureBackground.findRegion("bien_background");
         backgroundOffset = 0;
 
         batch = new SpriteBatch();
@@ -105,6 +105,7 @@ public class GameScreen implements Screen {
         setVisibleDirection = false;
 
         ListGrabAnimation = new LinkedList<>();
+
     }
 
     @Override
@@ -186,11 +187,11 @@ public class GameScreen implements Screen {
 
     private void initCellArray() {
         oCo = new OCo[12];
-        oCo[0] = new OCo(5, false, false, WORLD_WIDTH*0.751f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
-        oCo[1] = new OCo(5, false, false, WORLD_WIDTH*0.631f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
-        oCo[2] = new OCo(5, false, false, WORLD_WIDTH*0.504f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
-        oCo[3] = new OCo(5, false, false, WORLD_WIDTH*0.386f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
-        oCo[4] = new OCo(5, false, false, WORLD_WIDTH*0.259f, WORLD_HEIGHT*0.4f, 15, 15, oCoThuongRegions[5]);
+        oCo[0] = new OCo(5, false, false, WORLD_WIDTH*0.715f, WORLD_HEIGHT*0.44f, 13, 13, oCoThuongRegions[5]);
+        oCo[1] = new OCo(5, false, false, WORLD_WIDTH*0.631f, WORLD_HEIGHT*0.44f, 15, 15, oCoThuongRegions[5]);
+        oCo[2] = new OCo(5, false, false, WORLD_WIDTH*0.504f, WORLD_HEIGHT*0.44f, 15, 15, oCoThuongRegions[5]);
+        oCo[3] = new OCo(5, false, false, WORLD_WIDTH*0.386f, WORLD_HEIGHT*0.44f, 15, 15, oCoThuongRegions[5]);
+        oCo[4] = new OCo(5, false, false, WORLD_WIDTH*0.259f, WORLD_HEIGHT*0.44f, 15, 15, oCoThuongRegions[5]);
         oCo[5] = new OCo(10, true, true, WORLD_WIDTH*0.143f, WORLD_HEIGHT*0.501f, 10, 20, oCoYellow[0]);
         oCo[6] = new OCo(5, false, false, WORLD_WIDTH*0.259f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
         oCo[7] = new OCo(5, false, false, WORLD_WIDTH*0.386f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
