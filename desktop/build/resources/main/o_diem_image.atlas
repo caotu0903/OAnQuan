@@ -1,0 +1,55 @@
+
+o_diem_image.png
+size: 8192, 1024
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+blue
+  rotate: false
+  xy: 3000, 0
+  size: 1500, 500
+  orig: 1500, 500
+  offset: 0, 0
+  index: -1
+blue-n
+  rotate: false
+  xy: 3000, 500
+  size: 1500, 500
+  orig: 1500, 500
+  offset: 0, 0
+  index: -1
+n
+  rotate: false
+  xy: 4500, 500
+  size: 1500, 500
+  orig: 1500, 500
+  offset: 0, 0
+  index: -1
+yellow
+  rotate: false
+  xy: 0, 500
+  size: 1500, 500
+  orig: 1500, 500
+  offset: 0, 0
+  index: -1
+yellow-blue
+  rotate: false
+  xy: 1500, 0
+  size: 1500, 500
+  orig: 1500, 500
+  offset: 0, 0
+  index: -1
+yellow-blue-n
+  rotate: false
+  xy: 1500, 500
+  size: 1500, 500
+  orig: 1500, 500
+  offset: 0, 0
+  index: -1
+yellow-n
+  rotate: false
+  xy: 0, 0
+  size: 1500, 500
+  orig: 1500, 500
+  offset: 0, 0
+  index: -1

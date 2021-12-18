@@ -140,9 +140,6 @@ public class Hand {
                 }
             }
         }
-        else {
-
-        }
 
     }
 

@@ -1,5 +1,7 @@
 com/mygdx/gameco/OCo.java
  com.mygdx.gameco.OCo
+com/mygdx/gameco/CuaQuay.java
+ com.mygdx.gameco.CuaQuay
 com/mygdx/gameco/GrabAnimation.java
  com.mygdx.gameco.GrabAnimation
 com/mygdx/gameco/GameScreen.java
