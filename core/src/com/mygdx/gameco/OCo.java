@@ -8,7 +8,7 @@ public class OCo {
 
     //OCo characteristics
     int numberCo;
-    boolean isQuan, isAliveQuan;
+    boolean isQuanVang, isQuanXanh, isAliveQuan, isQuan;
 
     //position & dimension
     Rectangle boundingBox;
@@ -16,8 +16,10 @@ public class OCo {
     //graphics
     TextureRegion ocoTexture;
 
-    public OCo(int numberCo, boolean isQuan, boolean isAliveQuan, float xCenter, float yCenter, float width, float height, TextureRegion ocoTexture) {
+    public OCo(int numberCo,boolean isQuanVang, boolean isQuanXanh, boolean isQuan, boolean isAliveQuan, float xCenter, float yCenter, float width, float height, TextureRegion ocoTexture) {
         this.numberCo = numberCo;
+        this.isQuanVang = isQuanVang;
+        this.isQuanXanh = isQuanXanh;
         this.isQuan = isQuan;
         this.isAliveQuan = isAliveQuan;
 
@@ -47,6 +49,14 @@ public class OCo {
 
     public boolean isQuan() {
         return isQuan;
+    }
+
+    public boolean isQuanVang() {
+        return isQuanVang;
+    }
+
+    public boolean isQuanXanh() {
+        return isQuanXanh;
     }
 
     public boolean isAliveQuan() {

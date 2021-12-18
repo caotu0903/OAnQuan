@@ -35,9 +35,9 @@ public class GameScreen implements Screen {
     //graphics
     private SpriteBatch batch;
 
-    private TextureAtlas textureOCo, textureBackground, textureAniAndDirec;
+    private TextureAtlas textureOCo, textureBackground, textureAniAndDirec, textureODiem;
 
-    private TextureRegion[] oCoThuongRegions, oCoYellow, oCoBlue, AnimationAndDirection;
+    private TextureRegion[] oCoThuongRegions, oCoYellow, oCoBlue, oCoDiem, AnimationAndDirection;
     private TextureRegion backGroundRegion;
 
     //timing
@@ -65,6 +65,10 @@ public class GameScreen implements Screen {
 
     Stage stage;
 
+    //test ne
+    Texture textureCuaQuay;
+    CuaQuay cuaQuay1, cuaQuay2;
+
     GameScreen() {
 
         camera = new OrthographicCamera();
@@ -76,7 +80,7 @@ public class GameScreen implements Screen {
         textureOCo = new TextureAtlas("o_co_image.atlas");
         textureBackground = new TextureAtlas("background_image.atlas");
         textureAniAndDirec = new TextureAtlas("animation_image.atlas");
-
+        textureODiem = new TextureAtlas("o_diem_image.atlas");
 
         //initialize texture regions
         initTextureRegion();
@@ -106,6 +110,10 @@ public class GameScreen implements Screen {
 
         ListGrabAnimation = new LinkedList<>();
 
+        // test ne
+        textureCuaQuay = new Texture("cua_quay.png");
+        cuaQuay1 = new CuaQuay(textureCuaQuay, 0.05f, WORLD_WIDTH*0.332f, WORLD_HEIGHT*0.230f, 15, 15);
+        cuaQuay2 = new CuaQuay(textureCuaQuay, 0.05f, WORLD_WIDTH*0.693f, WORLD_HEIGHT*0.800f, 15, 15);
     }
 
     @Override
@@ -126,6 +134,20 @@ public class GameScreen implements Screen {
 
         updateAndRenderGA(delta);
 
+        cuaQuay1.update(delta);
+        if (cuaQuay1.isFinished()) {
+            cuaQuay1.resetTimer();
+        } else {
+            cuaQuay1.draw(batch);
+        }
+
+        cuaQuay2.update(delta);
+        if (cuaQuay2.isFinished()) {
+            cuaQuay2.resetTimer();
+        } else {
+            cuaQuay2.draw(batch);
+        }
+
         batch.end();
 
         stage.act();
@@ -143,6 +165,8 @@ public class GameScreen implements Screen {
 
             oCo[5].setNumberCo(xTouch);
             oCo[11].setNumberCo(yTouch);
+            oCo[12].setNumberCo(xTouch);
+            oCo[13].setNumberCo(yTouch);
 
             for (int i=0; i<oCo.length;i++) {
                 if (oCo[i].boundingBox.contains(touch)) {
@@ -186,19 +210,21 @@ public class GameScreen implements Screen {
     }
 
     private void initCellArray() {
-        oCo = new OCo[12];
-        oCo[0] = new OCo(5, false, false, WORLD_WIDTH*0.715f, WORLD_HEIGHT*0.44f, 13, 13, oCoThuongRegions[5]);
-        oCo[1] = new OCo(5, false, false, WORLD_WIDTH*0.631f, WORLD_HEIGHT*0.44f, 15, 15, oCoThuongRegions[5]);
-        oCo[2] = new OCo(5, false, false, WORLD_WIDTH*0.504f, WORLD_HEIGHT*0.44f, 15, 15, oCoThuongRegions[5]);
-        oCo[3] = new OCo(5, false, false, WORLD_WIDTH*0.386f, WORLD_HEIGHT*0.44f, 15, 15, oCoThuongRegions[5]);
-        oCo[4] = new OCo(5, false, false, WORLD_WIDTH*0.259f, WORLD_HEIGHT*0.44f, 15, 15, oCoThuongRegions[5]);
-        oCo[5] = new OCo(10, true, true, WORLD_WIDTH*0.143f, WORLD_HEIGHT*0.501f, 10, 20, oCoYellow[0]);
-        oCo[6] = new OCo(5, false, false, WORLD_WIDTH*0.259f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
-        oCo[7] = new OCo(5, false, false, WORLD_WIDTH*0.386f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
-        oCo[8] = new OCo(5, false, false, WORLD_WIDTH*0.504f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
-        oCo[9] = new OCo(5, false, false, WORLD_WIDTH*0.631f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
-        oCo[10] = new OCo(5, false, false, WORLD_WIDTH*0.751f, WORLD_HEIGHT*0.605f, 15, 15, oCoThuongRegions[5]);
-        oCo[11] = new OCo(10, true, true, WORLD_WIDTH*0.860f, WORLD_HEIGHT*0.501f, 10, 20, oCoBlue[0]);
+        oCo = new OCo[14];
+        oCo[0] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.700f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
+        oCo[1] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.600f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
+        oCo[2] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
+        oCo[3] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
+        oCo[4] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.300f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
+        oCo[5] = new OCo(10, true, false, true, true, WORLD_WIDTH*0.200f, WORLD_HEIGHT*0.502f, 10, 20, oCoYellow[0]);
+        oCo[6] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.300f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
+        oCo[7] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
+        oCo[8] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
+        oCo[9] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.600f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
+        oCo[10] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.700f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
+        oCo[11] = new OCo(10, false, true, true, true, WORLD_WIDTH*0.800f, WORLD_HEIGHT*0.502f, 10, 20, oCoBlue[0]);
+        oCo[12] = new OCo(10, true, true, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.180f, 30, 10, oCoThuongRegions[5]);
+        oCo[13] = new OCo(10, true, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.850f, 30, 10, oCoThuongRegions[5]);
     }
 
     private void initTextureRegion() {
@@ -236,6 +262,16 @@ public class GameScreen implements Screen {
         oCoBlue[7] = textureOCo.findRegion("blue-7");
         oCoBlue[8] = textureOCo.findRegion("blue-many");
         oCoBlue[9] = textureOCo.findRegion("quan-null");
+
+        oCoDiem = new TextureRegion[7];
+        oCoDiem[0] = textureODiem.findRegion("n");
+        oCoDiem[1] = textureODiem.findRegion("yellow");
+        oCoDiem[2] = textureODiem.findRegion("yellow-n");
+        oCoDiem[3] = textureODiem.findRegion("blue");
+        oCoDiem[4] = textureODiem.findRegion("blue-n");
+        oCoDiem[5] = textureODiem.findRegion("yellow-blue");
+        oCoDiem[6] = textureODiem.findRegion("yellow-blue-n");
+
     }
 
     private void initAnimationAndDirec() {
@@ -262,18 +298,20 @@ public class GameScreen implements Screen {
 
     private void updateAndRenderHUD() {
         //render
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[0].getNumberCo()), WORLD_WIDTH*0.6993f, WORLD_HEIGHT*0.330f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[1].getNumberCo()), WORLD_WIDTH*0.580f, WORLD_HEIGHT*0.330f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[2].getNumberCo()), WORLD_WIDTH*0.455f, WORLD_HEIGHT*0.330f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[3].getNumberCo()), WORLD_WIDTH*0.335f, WORLD_HEIGHT*0.330f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[4].getNumberCo()), WORLD_WIDTH*0.2073f, WORLD_HEIGHT*0.330f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[5].getNumberCo()), WORLD_WIDTH*0.174f, WORLD_HEIGHT*0.340f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[6].getNumberCo()), WORLD_WIDTH*0.2073f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[7].getNumberCo()), WORLD_WIDTH*0.335f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[8].getNumberCo()), WORLD_WIDTH*0.455f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[9].getNumberCo()), WORLD_WIDTH*0.580f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[10].getNumberCo()), WORLD_WIDTH*0.6993f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[11].getNumberCo()), WORLD_WIDTH*0.820f, WORLD_HEIGHT*0.344f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[0].getNumberCo()), WORLD_WIDTH*0.661f, WORLD_HEIGHT*0.353f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[1].getNumberCo()), WORLD_WIDTH*0.559f, WORLD_HEIGHT*0.353f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[2].getNumberCo()), WORLD_WIDTH*0.458f, WORLD_HEIGHT*0.353f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[3].getNumberCo()), WORLD_WIDTH*0.358f, WORLD_HEIGHT*0.353f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[4].getNumberCo()), WORLD_WIDTH*0.258f, WORLD_HEIGHT*0.353f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[5].getNumberCo()), WORLD_WIDTH*0.225f, WORLD_HEIGHT*0.353f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[6].getNumberCo()), WORLD_WIDTH*0.258f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[7].getNumberCo()), WORLD_WIDTH*0.358f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[8].getNumberCo()), WORLD_WIDTH*0.458f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[9].getNumberCo()), WORLD_WIDTH*0.559f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[10].getNumberCo()), WORLD_WIDTH*0.661f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[11].getNumberCo()), WORLD_WIDTH*0.755f, WORLD_HEIGHT*0.353f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[12].getNumberCo()), WORLD_WIDTH*0.485f, WORLD_HEIGHT*0.100f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[13].getNumberCo()), WORLD_WIDTH*0.485f, WORLD_HEIGHT*0.756f, 0, Align.left, false);
     }
 
     private void updateAndRenderGA(float deltaTime) {
@@ -292,12 +330,16 @@ public class GameScreen implements Screen {
     }
 
     public void updateOCo() {
-        for (int i=0; i<12; i++) {
-            if (!oCo[i].isQuan()) {
-                ChooseTextureOThuong(i, oCo[i].getNumberCo());
+        for (int i=0; i<14; i++) {
+            if (i < 12) {
+                if (!oCo[i].isQuan()) {
+                    ChooseTextureOThuong(i, oCo[i].getNumberCo());
+                } else {
+                    ChooseTextureOQuan(i, oCo[i].getNumberCo());
+                }
             }
             else {
-                ChooseTextureOQuan(i, oCo[i].getNumberCo());
+                ChooseTextureODiem(i, oCo[i].getNumberCo());
             }
             oCo[i].draw(batch);
         }
@@ -326,6 +368,31 @@ public class GameScreen implements Screen {
                 oCo[i].setOcoTexture(oCoThuongRegions[number]);
             else if (number > 7)
                 oCo[i].setOcoTexture(oCoThuongRegions[8]);
+        }
+    }
+
+    public void ChooseTextureODiem(int i, int number) {
+        if (number == 0) {
+            oCo[i].setOcoTexture(oCoThuongRegions[0]);
+        }
+        else if (oCo[i].isQuanXanh() && oCo[i].isQuanVang()) {
+            if (number > 20) {
+                oCo[i].setOcoTexture(oCoDiem[6]);
+            }
+            else {
+                oCo[i].setOcoTexture(oCoDiem[5]);
+            }
+        }
+        else if (number > 10) {
+            if (oCo[i].isQuanXanh()) {
+                oCo[i].setOcoTexture(oCoDiem[4]);
+            }
+            else if (oCo[i].isQuanVang()) {
+                oCo[i].setOcoTexture(oCoDiem[2]);
+            }
+        }
+        else {
+            oCo[i].setOcoTexture(oCoDiem[0]);
         }
     }
 
