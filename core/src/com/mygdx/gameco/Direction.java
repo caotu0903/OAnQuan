@@ -26,19 +26,19 @@ public class Direction {
 
     private Stage stage;
 
-    int direction;
+    //int direction;
     GameScreen gs;
 
     Texture grabAni;
     GrabAnimation grabAnimation;
 
-    public Direction(TextureRegion leftTexture, TextureRegion rightTexture, Stage stage, OCo[] oCo, GameScreen gss) {
+    public Direction(TextureRegion leftTexture, TextureRegion rightTexture, Stage stage, final OCo[] oCo, GameScreen gss) {
         this.stage = stage;
         this.leftTexture = leftTexture;
         this.rightTexture = rightTexture;
         this.oCO = oCo;
         this.gs = gss;
-        direction=0;
+        //direction=0;
 
         grabAni = new Texture("grab_hand.png");
         grabAnimation = new GrabAnimation(grabAni, 0.6f, oCO[0]);
@@ -56,25 +56,41 @@ public class Direction {
 
         leftImgButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y){
-                direction = -1;
+                //direction = -1;
 
                 gs.AnDirection();
                 gs.setIndex(-1);
 
-                grabAnimation.setBoundingBox(oCO[gs.ODuocChon]);
+                grabAnimation.setPosition(oCO[gs.ODuocChon].boundingBox);
                 gs.ListGrabAnimation.add(grabAnimation);
+
+                // set direction for hand
+                gs.hand.setDirection(1);
+                gs.hand.setPoint(oCO[gs.ODuocChon].numberCo);
+                gs.hand.setCurCell(gs.ODuocChon);
+
+                // cap nhat diem cho oCo
+                oCO[gs.ODuocChon].setNumberCo(0);
             }
         });
 
         rightImgButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y){
-                direction = 1;
+                //direction = 1;
 
                 gs.AnDirection();
                 gs.setIndex(-1);
 
-                grabAnimation.setBoundingBox(oCO[gs.ODuocChon]);
+                grabAnimation.setPosition(oCO[gs.ODuocChon].boundingBox);
                 gs.ListGrabAnimation.add(grabAnimation);
+
+                // set direction for hand
+                gs.hand.setDirection(-1);
+                gs.hand.setPoint(oCO[gs.ODuocChon].numberCo);
+                gs.hand.setCurCell(gs.ODuocChon);
+
+                // cap nhat diem cho oCo
+                oCO[gs.ODuocChon].setNumberCo(0);
             }
         });
 
@@ -82,10 +98,10 @@ public class Direction {
         stage.addActor(rightImgButton);
     }
 
-    public int getDirection() {
-
-        return direction;
-    }
+//    public int getDirection() {
+//
+//        return direction;
+//    }
 
     public void setVisible(boolean left, boolean right) {
         leftImgButton.setVisible(left);

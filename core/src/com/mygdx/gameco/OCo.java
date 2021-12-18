@@ -38,8 +38,8 @@ public class OCo {
 
     public float[] getCenterXY() {
         float[] center = new float[2];
-        center[0] = boundingBox.x;
-        center[1] = boundingBox.y;
+        center[0] = boundingBox.x + boundingBox.width/2;
+        center[1] = boundingBox.y + boundingBox.height/2;
         return center;
     }
 
@@ -70,4 +70,8 @@ public class OCo {
     public void setNumberCo(int numberCo) {
         this.numberCo = numberCo;
     }
+
+    public void increaseNumberCo() {numberCo++;}
+
+    public void decreaseNumberCo() {numberCo--;}
 }
