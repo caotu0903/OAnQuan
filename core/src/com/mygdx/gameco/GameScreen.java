@@ -59,7 +59,7 @@ public class GameScreen implements Screen {
     int ODuocChon;
     Direction direction;
     boolean setVisibleDirection;
-    LinkedList<GrabAnimation> ListGrabAnimation;
+    public LinkedList<GrabAnimation> ListGrabAnimation;
 
     Stage stage;
 
@@ -86,7 +86,7 @@ public class GameScreen implements Screen {
 
         //set up game object
         initCellArray();
-        hand = new Hand(3, 1f, textureAniAndDirec.findRegion("grab"), 2, oCo, this);
+        hand = new Hand(3, 1f, textureAniAndDirec.findRegion("grab"), oCo, this);
 
         //set up direction and animation
         initAnimationAndDirec();
@@ -131,23 +131,30 @@ public class GameScreen implements Screen {
     }
 
     private void updateHandMoving(float dTime) {
-            hand.translate(dTime);
-            hand.draw(batch);
+        if (!hand.isFinishMove()) {
+            if (hand.isMoving) {
+                hand.translate(dTime);
+                hand.draw(batch);
+            }
+        }
+        else {
+            hand.isMoving=false;
+        }
     }
 
     private void detectInput(float dTime) {
         //isShowDirection=false;
         int xTouch, yTouch;
+        int i=-1;
         if (Gdx.input.isTouched()) {
             xTouch = Gdx.input.getX();
             yTouch = Gdx.input.getY();
 
             Vector2 touch = viewport.unproject(new Vector2(xTouch, yTouch));
-
-            oCo[5].setNumberCo(xTouch);
-            oCo[11].setNumberCo(yTouch);
-
-            for (int i=0; i<oCo.length;i++) {
+//
+//            oCo[5].setNumberCo(xTouch);
+//            oCo[11].setNumberCo(yTouch);
+            for (i=0; i<5;i++) {
                 if (oCo[i].boundingBox.contains(touch)) {
                     index = i;
                     ODuocChon = i;
@@ -159,7 +166,6 @@ public class GameScreen implements Screen {
         //Direction direction = null;
         if (index>=0 && index<=4) {
             if (!oCo[index].isQuan) {
-
                 direction.translate(oCo[index]);
                 direction.setVisible(true, true);
                 direction.setDisable(false, false);
@@ -168,7 +174,7 @@ public class GameScreen implements Screen {
 
         if (setVisibleDirection) {
             direction.setVisible(false, false);
-            direction.setDisable(false, false);
+            direction.setDisable(true, true);
             setVisibleDirection = false;
         }
 
@@ -277,9 +283,10 @@ public class GameScreen implements Screen {
         font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[9].getNumberCo()), WORLD_WIDTH*0.580f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
         font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[10].getNumberCo()), WORLD_WIDTH*0.6993f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
         font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[11].getNumberCo()), WORLD_WIDTH*0.820f, WORLD_HEIGHT*0.344f, 0, Align.left, false);
+
     }
 
-    private void updateAndRenderGA(float deltaTime) {
+    public void updateAndRenderGA(float deltaTime) {
         ListIterator<GrabAnimation> GAListIterator = ListGrabAnimation.listIterator();
         while (GAListIterator.hasNext()) {
             GrabAnimation ga = GAListIterator.next();
@@ -287,6 +294,13 @@ public class GameScreen implements Screen {
             if (ga.isFinished()) {
                 ga.resetTimer();
                 GAListIterator.remove();
+
+                // hand continue moving
+                hand.isMoving = true;
+
+                if (hand.grabCell!=-1) {
+                    oCo[hand.grabCell].setNumberCo(0);
+                }
             } else {
                 ga.draw(batch);
             }

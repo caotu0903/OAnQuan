@@ -32,7 +32,7 @@ public class Direction {
     Texture grabAni;
     GrabAnimation grabAnimation;
 
-    public Direction(TextureRegion leftTexture, TextureRegion rightTexture, Stage stage, OCo[] oCo, GameScreen gss) {
+    public Direction(TextureRegion leftTexture, TextureRegion rightTexture, Stage stage, final OCo[] oCo, GameScreen gss) {
         this.stage = stage;
         this.leftTexture = leftTexture;
         this.rightTexture = rightTexture;
@@ -61,11 +61,16 @@ public class Direction {
                 gs.AnDirection();
                 gs.setIndex(-1);
 
-                grabAnimation.setBoundingBox(oCO[gs.ODuocChon]);
+                grabAnimation.setPosition(oCO[gs.ODuocChon].boundingBox);
                 gs.ListGrabAnimation.add(grabAnimation);
 
                 // set direction for hand
                 gs.hand.setDirection(1);
+                gs.hand.setPoint(oCO[gs.ODuocChon].numberCo);
+                gs.hand.setCurCell(gs.ODuocChon);
+
+                // cap nhat diem cho oCo
+                oCO[gs.ODuocChon].setNumberCo(0);
             }
         });
 
@@ -76,11 +81,16 @@ public class Direction {
                 gs.AnDirection();
                 gs.setIndex(-1);
 
-                grabAnimation.setBoundingBox(oCO[gs.ODuocChon]);
+                grabAnimation.setPosition(oCO[gs.ODuocChon].boundingBox);
                 gs.ListGrabAnimation.add(grabAnimation);
 
                 // set direction for hand
                 gs.hand.setDirection(-1);
+                gs.hand.setPoint(oCO[gs.ODuocChon].numberCo);
+                gs.hand.setCurCell(gs.ODuocChon);
+
+                // cap nhat diem cho oCo
+                oCO[gs.ODuocChon].setNumberCo(0);
             }
         });
 

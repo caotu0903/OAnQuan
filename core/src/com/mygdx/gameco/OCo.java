@@ -60,4 +60,8 @@ public class OCo {
     public void setNumberCo(int numberCo) {
         this.numberCo = numberCo;
     }
+
+    public void increaseNumberCo() {numberCo++;}
+
+    public void decreaseNumberCo() {numberCo--;}
 }
