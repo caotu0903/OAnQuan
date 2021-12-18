@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Align;
 
+import java.util.ListIterator;
 import java.util.Locale;
 
 public class Hand {
@@ -86,6 +87,13 @@ public class Hand {
         return nextCellIndex;
     }
 
+    private int calcNextIndexWithNumber(int curCell, int direction, int number) {
+        int nextCellIndexNumber = (curCell + direction * number)%12;
+        if (nextCellIndexNumber<0)
+            nextCellIndexNumber = 11;
+        return nextCellIndexNumber;
+    }
+
     public void setPosition(float x, float y) {
         boundingBox.x = x;
         boundingBox.y = y;
@@ -108,11 +116,50 @@ public class Hand {
             nextCellIndex = calcNextIndex(curCell, direction);
         }
 
-        if (board[nextCellIndex].getNumberCo()!=0) {
+        /*if (this.point != 0) {
+            if (board[nextCellIndex].getNumberCo() != 0) {
+                float[] nextXY = board[nextCellIndex].getCenterXY();
+                float[] curXY = board[curCell].getCenterXY();
+                float[] handXY = this.getCenterXY();
+
+                //Xu ly hinh anh
+                float xChange = (dTime / moveTimeBetweenCell) * (nextXY[0] - curXY[0]);
+                float yChange = (dTime / moveTimeBetweenCell) * (nextXY[1] - curXY[1]);
+                boundingBox.setPosition(boundingBox.x + xChange, boundingBox.y + yChange);
+
+                if (isReachNextCell(nextCellIndex)) {
+
+                    // cap nhat vi tri tay
+                    this.curCell = nextCellIndex;
+                    this.boundingBox.setPosition(board[nextCellIndex].getCenterXY()[0] - boundingBox.width / 2,
+                            board[nextCellIndex].getCenterXY()[1] - boundingBox.height / 2);
+
+                    //cap nhat diem
+                    this.point--;
+                    board[nextCellIndex].increaseNumberCo();
+
+                    // show grab animation
+                    this.isMoving = false;
+                    grabAnimation.setPosition(board[nextCellIndex].boundingBox);
+                    gameScreen.ListGrabAnimation.add(grabAnimation);
+
+                    // kiem tra xem co duoc lay da tiep hay k
+                    if (checkGrabContinue(curCell, direction) && isFinishMove()) {
+                        this.point = -1;
+                        this.grabCell = -1;
+                    }
+                }
+            } else {
+
+            }
+        }*/
+
+        if(this.point != 0) {
             float[] nextXY = board[nextCellIndex].getCenterXY();
             float[] curXY = board[curCell].getCenterXY();
             float[] handXY = this.getCenterXY();
 
+            //Xu ly hinh anh
             float xChange = (dTime / moveTimeBetweenCell) * (nextXY[0] - curXY[0]);
             float yChange = (dTime / moveTimeBetweenCell) * (nextXY[1] - curXY[1]);
             boundingBox.setPosition(boundingBox.x + xChange, boundingBox.y + yChange);
@@ -134,7 +181,57 @@ public class Hand {
                 gameScreen.ListGrabAnimation.add(grabAnimation);
 
                 // kiem tra xem co duoc lay da tiep hay k
-                if (checkGrabContinue(curCell, direction) && isFinishMove()) {
+                if (board[calcNextIndex(curCell, direction)].getNumberCo() == 0 && checkGrabContinueNumber(curCell, direction, 2) && isFinishMove()) {
+                    board[12].setNumberCo(board[12].getNumberCo() + board[calcNextIndexWithNumber(curCell, direction, 2)].getNumberCo());
+                    board[calcNextIndexWithNumber(curCell, direction, 2)].setNumberCo(0);
+                    if (board[calcNextIndexWithNumber(curCell, direction, 2)].isQuanVang && board[calcNextIndexWithNumber(curCell, direction, 2)].isAliveQuan()) {
+                        board[12].setQuanVang(true);
+                        board[calcNextIndexWithNumber(curCell, direction, 2)].setAliveQuan(false);
+                    }
+                    else if (board[calcNextIndexWithNumber(curCell, direction, 2)].isQuanXanh && board[calcNextIndexWithNumber(curCell, direction, 2)].isAliveQuan()) {
+                        board[12].setQuanXanh(true);
+                        board[calcNextIndexWithNumber(curCell, direction, 2)].setAliveQuan(false);
+                    }
+                    int i = 1;
+                    while (i < 6) {
+                        if (board[calcNextIndexWithNumber(curCell, direction, i*2+1)].getNumberCo() == 0 && checkGrabContinueNumber(curCell, direction, i*2+2)) {
+                            board[12].setNumberCo(board[12].getNumberCo() + board[calcNextIndexWithNumber(curCell, direction, i*2+2)].getNumberCo());
+                            board[calcNextIndexWithNumber(curCell, direction, i*2+2)].setNumberCo(0);
+
+                            /*Texture gaTexture = new Texture("grab_hand.png");
+                            GrabAnimation gAnimation = new GrabAnimation(gaTexture, 0.5f, board[0]);
+                            gAnimation.setPosition(board[calcNextIndexWithNumber(curCell, direction, i*2+2)].boundingBox);
+                            gameScreen.ListGrabAnimation.add(new GrabAnimation(new Texture("grab_hand.png"), 0.5f, board[calcNextIndexWithNumber(curCell, direction, i*2+2)]));*/
+
+                            // test ne
+                            /*nextXY = board[calcNextIndexWithNumber(curCell, direction, i*2+2)].getCenterXY();
+                            curXY = board[curCell].getCenterXY();
+                            xChange = (dTime / moveTimeBetweenCell) * (nextXY[0] - curXY[0]);
+                            yChange = (dTime / moveTimeBetweenCell) * (nextXY[1] - curXY[1]);
+                            boundingBox.setPosition(boundingBox.x + xChange, boundingBox.y + yChange);
+
+                            if (isReachNextCell(calcNextIndexWithNumber(curCell, direction, i*2+2))) {
+
+                                // cap nhat vi tri tay
+                                this.curCell = calcNextIndexWithNumber(curCell, direction, i*2+2);
+                                this.boundingBox.setPosition(board[calcNextIndexWithNumber(curCell, direction, i*2+2)].getCenterXY()[0] - boundingBox.width / 2,
+                                        board[calcNextIndexWithNumber(curCell, direction, i*2+2)].getCenterXY()[1] - boundingBox.height / 2);
+                            }
+
+                            // show grab animation
+                            this.isMoving = false;
+                            grabAnimation.setPosition(board[calcNextIndexWithNumber(curCell, direction, i*2+2)].boundingBox);
+                            gameScreen.ListGrabAnimation.add(grabAnimation);*/
+
+                            i++;
+                        }
+                        else {
+                            i = 6;
+                        }
+                    }
+
+                }
+                else if (checkGrabContinue(curCell, direction) && isFinishMove()) {
                     this.point = -1;
                     this.grabCell = -1;
                 }
@@ -151,6 +248,19 @@ public class Hand {
 
         if (board[nextCellIndex].getNumberCo()==0 &&
                 board[calcNextIndex(nextCellIndex, direction)].getNumberCo()==0) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean checkGrabContinueNumber(int curCell, int direction, int number) {
+        int nextCellIndexNumber = calcNextIndexWithNumber(curCell, direction, number);
+        if (number == 1 && (nextCellIndexNumber==5 || nextCellIndexNumber==11)) {
+            return false;
+        }
+
+        if (board[nextCellIndexNumber].getNumberCo()==0) {
             return false;
         }
 

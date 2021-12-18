@@ -59,6 +59,18 @@ public class OCo {
         return isQuanXanh;
     }
 
+    public void setQuanVang(boolean quanVang) {
+        isQuanVang = quanVang;
+    }
+
+    public void setQuanXanh(boolean quanXanh) {
+        isQuanXanh = quanXanh;
+    }
+
+    public void setAliveQuan(boolean aliveQuan) {
+        isAliveQuan = aliveQuan;
+    }
+
     public boolean isAliveQuan() {
         return isAliveQuan;
     }
