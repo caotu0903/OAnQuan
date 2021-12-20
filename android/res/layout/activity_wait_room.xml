@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <TextView
+        android:id="@+id/welcome_oanquan"
+        android:layout_width="379dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Game Ô Ăn Quan"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@id/tv_room"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_room"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="#FF0057"
+        android:backgroundTint="#FF4A87"
+        android:text="Chọn Phòng"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcome_oanquan" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stretchColumns="0,1,2"
+        app:layout_constraintTop_toBottomOf="@id/tv_room"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TableRow>
+            <ImageButton
+                android:layout_margin="30dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/room1"
+                android:background="@drawable/oanquan"/>
+
+            <ImageButton
+                android:layout_margin="30dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/room2"
+                android:background="@drawable/oanquan"/>
+
+            <ImageButton
+                android:layout_margin="30dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/room3"
+                android:background="@drawable/oanquan"/>
+        </TableRow>
+
+        <TableRow>
+            <ImageButton
+                android:layout_margin="30dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/room4"
+                android:background="@drawable/oanquan"/>
+
+            <ImageButton
+                android:layout_margin="30dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/room5"
+                android:background="@drawable/oanquan"/>
+
+            <ImageButton
+                android:layout_margin="30dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/room6"
+                android:background="@drawable/oanquan"/>
+        </TableRow>
+
+        <TableRow>
+            <ImageButton
+                android:layout_margin="30dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/room7"
+                android:background="@drawable/oanquan"/>
+
+            <ImageButton
+                android:layout_margin="30dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/room8"
+                android:background="@drawable/oanquan"/>
+
+            <ImageButton
+                android:layout_margin="30dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/room9"
+                android:background="@drawable/oanquan"/>
+        </TableRow>
+
+        <TableRow>
+            <ImageButton
+                android:layout_margin="30dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/room10"
+                android:background="@drawable/oanquan"/>
+
+            <ImageButton
+                android:layout_margin="30dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/room11"
+                android:background="@drawable/oanquan"/>
+
+            <ImageButton
+                android:layout_margin="30dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/room12"
+                android:background="@drawable/oanquan"/>
+        </TableRow>
+    </TableLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

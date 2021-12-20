@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/activity_choose_game.xml" value="0.1408514492753623" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/activity_login.xml" value="0.18" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/activity_sign_up.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/activity_tab_play.xml" value="0.1408514492753623" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/activity_tab_play_opening.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/activity_wait_room.xml" value="0.1408514492753623" />
+      </map>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />

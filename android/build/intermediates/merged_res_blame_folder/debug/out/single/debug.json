@@ -1,0 +1,58 @@
+[
+    {
+        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\layout_activity_tab_play.xml.flat",
+        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\layout\\activity_tab_play.xml"
+    },
+    {
+        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\layout_activity_login.xml.flat",
+        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\drawable-xxxhdpi_ic_launcher.png.flat",
+        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\drawable-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v26_oanquan.png.flat",
+        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\drawable-anydpi-v26\\oanquan.png"
+    },
+    {
+        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v26_ic_launcher_foreground.xml.flat",
+        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\drawable-anydpi-v26\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v26_ic_launcher.xml.flat",
+        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\drawable-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\drawable-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_ic_launcher.png.flat",
+        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\drawable-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\anim_blink.xml.flat",
+        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\anim\\blink.xml"
+    },
+    {
+        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\layout_activity_choose_game.xml.flat",
+        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\layout\\activity_choose_game.xml"
+    },
+    {
+        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\layout_activity_wait_room.xml.flat",
+        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\layout\\activity_wait_room.xml"
+    },
+    {
+        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_ic_launcher.png.flat",
+        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\drawable-hdpi_ic_launcher.png.flat",
+        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\layout_activity_sign_up.xml.flat",
+        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\layout\\activity_sign_up.xml"
+    }
+]
