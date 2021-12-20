@@ -48,95 +48,99 @@
         app:layout_constraintRight_toRightOf="parent">
 
         <TableRow>
+
             <ImageButton
-                android:layout_margin="30dp"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
                 android:id="@+id/room1"
-                android:background="@drawable/oanquan"/>
-
-            <ImageButton
-                android:layout_margin="30dp"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
+                android:layout_margin="30dp"
+                android:background="@mipmap/icon" />
+
+            <ImageButton
                 android:id="@+id/room2"
-                android:background="@drawable/oanquan"/>
-
-            <ImageButton
-                android:layout_margin="30dp"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
+                android:layout_margin="30dp"
+                android:background="@mipmap/icon" />
+
+            <ImageButton
                 android:id="@+id/room3"
-                android:background="@drawable/oanquan"/>
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="30dp"
+                android:background="@mipmap/icon" />
         </TableRow>
 
         <TableRow>
+
             <ImageButton
-                android:layout_margin="30dp"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
                 android:id="@+id/room4"
-                android:background="@drawable/oanquan"/>
-
-            <ImageButton
-                android:layout_margin="30dp"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
+                android:layout_margin="30dp"
+                android:background="@mipmap/icon" />
+
+            <ImageButton
                 android:id="@+id/room5"
-                android:background="@drawable/oanquan"/>
-
-            <ImageButton
-                android:layout_margin="30dp"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
+                android:layout_margin="30dp"
+                android:background="@mipmap/icon" />
+
+            <ImageButton
                 android:id="@+id/room6"
-                android:background="@drawable/oanquan"/>
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="30dp"
+                android:background="@mipmap/icon" />
         </TableRow>
 
         <TableRow>
+
             <ImageButton
-                android:layout_margin="30dp"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
                 android:id="@+id/room7"
-                android:background="@drawable/oanquan"/>
-
-            <ImageButton
-                android:layout_margin="30dp"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
+                android:layout_margin="30dp"
+                android:background="@mipmap/icon" />
+
+            <ImageButton
                 android:id="@+id/room8"
-                android:background="@drawable/oanquan"/>
-
-            <ImageButton
-                android:layout_margin="30dp"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
+                android:layout_margin="30dp"
+                android:background="@mipmap/icon" />
+
+            <ImageButton
                 android:id="@+id/room9"
-                android:background="@drawable/oanquan"/>
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="30dp"
+                android:background="@mipmap/icon" />
         </TableRow>
 
         <TableRow>
+
             <ImageButton
-                android:layout_margin="30dp"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
                 android:id="@+id/room10"
-                android:background="@drawable/oanquan"/>
-
-            <ImageButton
-                android:layout_margin="30dp"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
+                android:layout_margin="30dp"
+                android:background="@mipmap/icon" />
+
+            <ImageButton
                 android:id="@+id/room11"
-                android:background="@drawable/oanquan"/>
-
-            <ImageButton
-                android:layout_margin="30dp"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
+                android:layout_margin="30dp"
+                android:background="@mipmap/icon" />
+
+            <ImageButton
                 android:id="@+id/room12"
-                android:background="@drawable/oanquan"/>
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="30dp"
+                android:background="@mipmap/icon" />
         </TableRow>
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

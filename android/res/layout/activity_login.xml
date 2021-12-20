@@ -24,14 +24,12 @@
         android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginTop="60dp"
         android:layout_marginLeft="10dp"
         android:text="Username:"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-
-        app:layout_constraintBottom_toTopOf="@+id/edt_password"
+        app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/edt_username"
         app:layout_constraintTop_toBottomOf="@+id/tv_login" />
@@ -40,13 +38,17 @@
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="70dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginBottom="60dp"
         android:text="Mật khẩu:"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toBottomOf="@+id/username"
+        app:layout_constraintRight_toLeftOf="@id/edt_password"
+        app:layout_constraintBottom_toTopOf="@id/bt_login"
+        />
 
         <EditText
             android:layout_width="275dp"
@@ -63,7 +65,7 @@
             android:id="@+id/edt_password"
             android:layout_width="275dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="320dp"
+            android:layout_marginBottom="330dp"
             android:layout_marginRight="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

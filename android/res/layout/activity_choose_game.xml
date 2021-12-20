@@ -47,10 +47,10 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="50dp"
-        android:background="@drawable/oanquan"
+        android:background="@mipmap/icon"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_choose"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_choose" />
 
     <TextView
         android:id="@+id/tv_oanquan"

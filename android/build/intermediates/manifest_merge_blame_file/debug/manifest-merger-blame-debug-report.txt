@@ -6,85 +6,85 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="30"
-8-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml
+8-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml
 9        android:targetSdkVersion="31" />
-9-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml
+9-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml
 10
 11    <application
-11-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:5:5-49:19
+11-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:5:5-49:19
 12        android:allowBackup="true"
-12-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:6:9-35
+12-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:6:9-35
 13        android:appCategory="game"
-13-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:7:9-35
+13-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:7:9-35
 14        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-14-->[androidx.core:core:1.7.0] C:\Users\ASUS\.gradle\caches\transforms-3\376792b261fdcbfd86757f02ea12377d\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+14-->[androidx.core:core:1.7.0] C:\Users\19521\.gradle\caches\transforms-3\376792b261fdcbfd86757f02ea12377d\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
 15        android:debuggable="true"
 16        android:extractNativeLibs="false"
 17        android:icon="@drawable/ic_launcher"
-17-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:8:9-45
+17-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:8:9-45
 18        android:isGame="true"
-18-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:9:9-30
+18-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:9:9-30
 19        android:label="@string/app_name"
-19-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:10:9-41
+19-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:10:9-41
 20        android:testOnly="true"
 21        android:theme="@style/GdxTheme" >
-21-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:11:9-40
+21-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:11:9-40
 22        <activity
-22-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:12:9-15:20
+22-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:12:9-15:20
 23            android:name="com.mygdx.gameco.WaitRoom"
-23-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:13:13-37
+23-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:13:13-37
 24            android:exported="true" >
-24-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:14:13-36
+24-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:14:13-36
 25        </activity>
 26        <activity
-26-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:16:9-19:20
+26-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:16:9-19:20
 27            android:name="com.mygdx.gameco.ChooseGame"
-27-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:17:13-39
+27-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:17:13-39
 28            android:exported="true" >
-28-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:18:13-36
+28-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:18:13-36
 29        </activity>
 30        <activity
-30-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:20:9-22:39
+30-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:20:9-22:39
 31            android:name="com.mygdx.gameco.SignUp"
-31-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:21:13-35
+31-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:21:13-35
 32            android:exported="true" />
-32-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:22:13-36
+32-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:22:13-36
 33        <activity
-33-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:23:9-26:20
+33-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:23:9-26:20
 34            android:name="com.mygdx.gameco.Login"
-34-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:24:13-34
+34-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:24:13-34
 35            android:exported="true" >
-35-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:25:13-36
+35-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:25:13-36
 36        </activity>
 37        <activity
-37-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:27:9-35:20
+37-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:27:9-35:20
 38            android:name="com.mygdx.gameco.TabPlay"
-38-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:28:13-36
+38-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:28:13-36
 39            android:exported="true" >
-39-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:29:13-36
+39-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:29:13-36
 40            <intent-filter>
-40-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:30:13-34:29
+40-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:30:13-34:29
 41                <action android:name="android.intent.action.MAIN" />
-41-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:31:17-69
-41-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:31:25-66
+41-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:31:17-69
+41-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:31:25-66
 42
 43                <category android:name="android.intent.category.LAUNCHER" />
-43-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:33:17-77
-43-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:33:27-74
+43-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:33:17-77
+43-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:33:27-74
 44            </intent-filter>
 45        </activity>
 46        <activity
-46-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:36:9-48:20
+46-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:36:9-48:20
 47            android:name="com.mygdx.gameco.AndroidLauncher"
-47-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:37:13-44
+47-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:37:13-44
 48            android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize|screenLayout"
-48-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:38:13-107
+48-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:38:13-107
 49            android:exported="true"
-49-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:41:13-36
+49-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:41:13-36
 50            android:label="@string/app_name"
-50-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:39:13-45
+50-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:39:13-45
 51            android:screenOrientation="landscape" >
-51-->D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:40:13-50
+51-->C:\Users\19521\AndroidStudioProjects\OAnQuan-git\android\AndroidManifest.xml:40:13-50
 52
 53            <!--
 54            <intent-filter>
@@ -96,25 +96,25 @@
 60        </activity>
 61
 62        <provider
-62-->[androidx.emoji2:emoji2:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-3\8b7c53cedc320aafa8740bc99100eae7\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+62-->[androidx.emoji2:emoji2:1.0.0] C:\Users\19521\.gradle\caches\transforms-3\8b7c53cedc320aafa8740bc99100eae7\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
 63            android:name="androidx.startup.InitializationProvider"
-63-->[androidx.emoji2:emoji2:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-3\8b7c53cedc320aafa8740bc99100eae7\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
+63-->[androidx.emoji2:emoji2:1.0.0] C:\Users\19521\.gradle\caches\transforms-3\8b7c53cedc320aafa8740bc99100eae7\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
 64            android:authorities="com.mygdx.gameco.androidx-startup"
-64-->[androidx.emoji2:emoji2:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-3\8b7c53cedc320aafa8740bc99100eae7\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
+64-->[androidx.emoji2:emoji2:1.0.0] C:\Users\19521\.gradle\caches\transforms-3\8b7c53cedc320aafa8740bc99100eae7\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
 65            android:exported="false" >
-65-->[androidx.emoji2:emoji2:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-3\8b7c53cedc320aafa8740bc99100eae7\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
+65-->[androidx.emoji2:emoji2:1.0.0] C:\Users\19521\.gradle\caches\transforms-3\8b7c53cedc320aafa8740bc99100eae7\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
 66            <meta-data
-66-->[androidx.emoji2:emoji2:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-3\8b7c53cedc320aafa8740bc99100eae7\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+66-->[androidx.emoji2:emoji2:1.0.0] C:\Users\19521\.gradle\caches\transforms-3\8b7c53cedc320aafa8740bc99100eae7\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
 67                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-67-->[androidx.emoji2:emoji2:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-3\8b7c53cedc320aafa8740bc99100eae7\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
+67-->[androidx.emoji2:emoji2:1.0.0] C:\Users\19521\.gradle\caches\transforms-3\8b7c53cedc320aafa8740bc99100eae7\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
 68                android:value="androidx.startup" />
-68-->[androidx.emoji2:emoji2:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-3\8b7c53cedc320aafa8740bc99100eae7\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+68-->[androidx.emoji2:emoji2:1.0.0] C:\Users\19521\.gradle\caches\transforms-3\8b7c53cedc320aafa8740bc99100eae7\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
 69            <meta-data
-69-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\ASUS\.gradle\caches\transforms-3\e3d5f7348f31abeaadb43deed4aab633\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+69-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\19521\.gradle\caches\transforms-3\e3d5f7348f31abeaadb43deed4aab633\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
 70                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-70-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\ASUS\.gradle\caches\transforms-3\e3d5f7348f31abeaadb43deed4aab633\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+70-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\19521\.gradle\caches\transforms-3\e3d5f7348f31abeaadb43deed4aab633\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
 71                android:value="androidx.startup" />
-71-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\ASUS\.gradle\caches\transforms-3\e3d5f7348f31abeaadb43deed4aab633\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+71-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\19521\.gradle\caches\transforms-3\e3d5f7348f31abeaadb43deed4aab633\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
 72        </provider>
 73    </application>
 74
