@@ -1,3 +1,7 @@
+com/mygdx/gameco/AndroidLauncher.java
+ com.mygdx.gameco.AndroidLauncher
+com/mygdx/gameco/BuildConfig.java
+ com.mygdx.gameco.BuildConfig
 com/mygdx/gameco/ChooseGame.java
  com.mygdx.gameco.ChooseGame
  com.mygdx.gameco.ChooseGame$1
@@ -7,8 +11,6 @@ com/mygdx/gameco/SignUp.java
 com/mygdx/gameco/TabPlay.java
  com.mygdx.gameco.TabPlay
  com.mygdx.gameco.TabPlay$1
-com/mygdx/gameco/AndroidLauncher.java
- com.mygdx.gameco.AndroidLauncher
 com/mygdx/gameco/WaitRoom.java
  com.mygdx.gameco.WaitRoom
  com.mygdx.gameco.WaitRoom$1
@@ -23,8 +25,6 @@ com/mygdx/gameco/WaitRoom.java
  com.mygdx.gameco.WaitRoom$7
  com.mygdx.gameco.WaitRoom$8
  com.mygdx.gameco.WaitRoom$9
-com/mygdx/gameco/BuildConfig.java
- com.mygdx.gameco.BuildConfig
 com/mygdx/gameco/Login.java
  com.mygdx.gameco.Login
  com.mygdx.gameco.Login$1

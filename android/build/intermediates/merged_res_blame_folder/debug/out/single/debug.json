@@ -1,126 +1,126 @@
 [
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_icon_foreground.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-xhdpi\\icon_foreground.png"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_icon_foreground.png.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\mipmap-xhdpi\\icon_foreground.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_icon.xml.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-anydpi-v26\\icon.xml"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\drawable-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\drawable-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\layout_activity_tab_play.xml.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\layout\\activity_tab_play.xml"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\drawable-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\drawable-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_icon_round.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-hdpi\\icon_round.png"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_icon_round.png.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\mipmap-mdpi\\icon_round.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\drawable-xxxhdpi_ic_launcher.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\drawable-xxxhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_icon_foreground.png.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\mipmap-xxxhdpi\\icon_foreground.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v26_ic_launcher.xml.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\drawable-anydpi-v26\\ic_launcher.xml"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\layout_activity_tab_play.xml.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\layout\\activity_tab_play.xml"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_ic_launcher.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\drawable-xxhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_icon_round.png.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\mipmap-xxxhdpi\\icon_round.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_ic_launcher.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\drawable-mdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v26_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\drawable-anydpi-v26\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_icon_foreground.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-xxxhdpi\\icon_foreground.png"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_icon_round.xml.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\mipmap-anydpi-v26\\icon_round.xml"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_icon.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-xxhdpi\\icon.png"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\layout_activity_sign_up.xml.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\layout\\activity_sign_up.xml"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\layout_activity_choose_game.xml.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\layout\\activity_choose_game.xml"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_icon.xml.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\mipmap-anydpi-v26\\icon.xml"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\layout_activity_wait_room.xml.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\layout\\activity_wait_room.xml"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\layout\\activity_login.xml"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_ic_launcher.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\drawable-xhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_icon_foreground.png.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\mipmap-mdpi\\icon_foreground.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_icon.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-xxxhdpi\\icon.png"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_icon_foreground.png.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\mipmap-hdpi\\icon_foreground.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_icon.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-mdpi\\icon.png"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\drawable-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\drawable-hdpi_ic_launcher.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\drawable-hdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_icon_round.png.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\mipmap-hdpi\\icon_round.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_icon_round.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-xxhdpi\\icon_round.png"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_icon.png.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\mipmap-hdpi\\icon.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\layout_activity_login.xml.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\layout\\activity_login.xml"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\layout_activity_wait_room.xml.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\layout\\activity_wait_room.xml"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v26_oanquan.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\drawable-anydpi-v26\\oanquan.png"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_icon_round.png.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\mipmap-xhdpi\\icon_round.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_icon_foreground.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-xxhdpi\\icon_foreground.png"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\drawable-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v26_ic_launcher_foreground.xml.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\drawable-anydpi-v26\\ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\anim_blink.xml.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\anim\\blink.xml"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_icon.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-xhdpi\\icon.png"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_icon.png.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\mipmap-mdpi\\icon.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_icon_round.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-mdpi\\icon_round.png"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_icon_round.png.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\mipmap-xxhdpi\\icon_round.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_icon_round.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-xhdpi\\icon_round.png"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v26_oanquan.png.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\drawable-anydpi-v26\\oanquan.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\anim_blink.xml.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\anim\\blink.xml"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_icon.png.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\mipmap-xxhdpi\\icon.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_icon_round.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-xxxhdpi\\icon_round.png"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_icon.png.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\mipmap-xxxhdpi\\icon.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_icon_round.xml.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-anydpi-v26\\icon_round.xml"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\drawable-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_icon_foreground.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-hdpi\\icon_foreground.png"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_icon_foreground.png.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\mipmap-xxhdpi\\icon_foreground.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\layout_activity_sign_up.xml.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\layout\\activity_sign_up.xml"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_icon.png.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\mipmap-xhdpi\\icon.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_icon_foreground.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-mdpi\\icon_foreground.png"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\drawable-xxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_icon.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-hdpi\\icon.png"
+        "merged": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\merged_res\\debug\\layout_activity_choose_game.xml.flat",
+        "source": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\res\\layout\\activity_choose_game.xml"
     }
 ]
