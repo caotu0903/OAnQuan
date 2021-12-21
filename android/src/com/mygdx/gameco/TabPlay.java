@@ -8,7 +8,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class TabPlay extends Activity {
+
+    Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,12 +25,14 @@ public class TabPlay extends Activity {
         Animation blink = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
         textView.startAnimation(blink);
 
-        textView.setOnClickListener(new View.OnClickListener() {
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
             @Override
-            public void onClick(View v) {
+            public void run() {
                 Intent intent = new Intent(TabPlay.this, Login.class);
                 startActivity(intent);
+                finish();
             }
-        });
+        }, 4000);
     }
 }

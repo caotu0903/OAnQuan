@@ -1,12 +1,12 @@
-#Tue Dec 21 00:26:13 ICT 2021
+#Tue Dec 21 10:14:22 ICT 2021
 path.3=1/classes.dex
 path.2=0/classes.dex
 path.1=1/classes.dex
 path.0=classes.dex
-base.3=C\:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
-base.2=C\:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.1=C\:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\1\\classes.dex
-base.0=C\:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.3=D\:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
+base.2=D\:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.1=D\:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\1\\classes.dex
+base.0=D\:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
