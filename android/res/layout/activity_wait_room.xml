@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000">
+    android:background="#FAE5A8">
 
     <TextView
         android:id="@+id/welcome_oanquan"
-        android:layout_width="379dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:text="Game Ô Ăn Quan"
+        android:textAlignment="center"
+        android:background="@color/black"
         android:gravity="center"
         android:textColor="#FFFFFF"
         android:textSize="28sp"
@@ -25,10 +25,9 @@
         android:id="@+id/tv_room"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:background="#FF0057"
-        android:backgroundTint="#FF4A87"
+        android:background="#FF1100"
+        android:backgroundTint="#F3501C"
         android:text="Chọn Phòng"
         android:gravity="center"
         android:textColor="#FFFFFF"

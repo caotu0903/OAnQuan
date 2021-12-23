@@ -33,6 +33,8 @@ public class Hand {
     boolean isMoving;
     GrabAnimation grabAnimation;
 
+    boolean isShowAnLinh;
+
     // destination
 
     public Hand(int point, float moveTimeBetweenCell,
@@ -52,6 +54,8 @@ public class Hand {
 
         Texture grabAni = new Texture("grab_hand.png");
         grabAnimation = new GrabAnimation(grabAni, 0.6f, board[3]);
+
+        isShowAnLinh = false;
     }
 
     public boolean isMoving() {
@@ -80,14 +84,14 @@ public class Hand {
         this.direction = direction;
     }
 
-    private int calcNextIndex(int curCell, int direction) {
+    public int calcNextIndex(int curCell, int direction) {
         int nextCellIndex = (curCell + direction)%12;
         if (nextCellIndex<0)
             nextCellIndex = 11;
         return nextCellIndex;
     }
 
-    private int calcNextIndexWithNumber(int curCell, int direction, int number) {
+    public int calcNextIndexWithNumber(int curCell, int direction, int number) {
         int nextCellIndexNumber = (curCell + direction * number)%12;
         if (nextCellIndexNumber<0)
             nextCellIndexNumber = 11;
@@ -99,7 +103,43 @@ public class Hand {
         boundingBox.y = y;
     }
 
+    public void translate(float dTime, int curCell, int nextCell) {
+        float[] nextXY = board[nextCell].getCenterXY();
+        float[] curXY = board[curCell].getCenterXY();
+
+        //Xu ly hinh anh
+        float xChange = (dTime / moveTimeBetweenCell) * (nextXY[0] - curXY[0]);
+        float yChange = (dTime / moveTimeBetweenCell) * (nextXY[1] - curXY[1]);
+        boundingBox.setPosition(boundingBox.x + xChange, boundingBox.y + yChange);
+    }
+
     public void translate(float dTime) {
+        if (isShowAnLinh) {
+            int next1 = calcNextIndexWithNumber(curCell,direction,1);
+            int next2 = calcNextIndexWithNumber(curCell, direction, 2);
+            if (board[next1].getNumberCo() == 0 && checkGrabContinueNumber(curCell, direction, 2) && isFinishMove()) {
+                if (gameScreen.ListGrabAnimation.size()==0) {
+                    this.curCell=next2;
+                    grabAnimation.setPosition(board[next2].boundingBox);
+                    gameScreen.ListGrabAnimation.add(grabAnimation);
+
+                    board[12].setNumberCo(board[12].getNumberCo() + board[next2].getNumberCo());
+                    board[next2].setNumberCo(0);
+
+                    if (board[next2].isQuanVang && board[next2].isAliveQuan()) {
+                        board[12].setQuanVang(true);
+                        board[next2].setAliveQuan(false);
+                    } else if (board[next2].isQuanXanh && board[next2].isAliveQuan()) {
+                        board[12].setQuanXanh(true);
+                        board[next2].setAliveQuan(false);
+                    }
+                }
+            }
+            else{
+                isShowAnLinh=false;
+            }
+        }
+
         int nextCellIndex = calcNextIndex(curCell, direction);
         if (this.point==-1) {
             grabCell = nextCellIndex;
@@ -154,15 +194,9 @@ public class Hand {
             }
         }*/
 
-        if(this.point != 0) {
-            float[] nextXY = board[nextCellIndex].getCenterXY();
-            float[] curXY = board[curCell].getCenterXY();
-            float[] handXY = this.getCenterXY();
+        if(this.point >= 0) {
 
-            //Xu ly hinh anh
-            float xChange = (dTime / moveTimeBetweenCell) * (nextXY[0] - curXY[0]);
-            float yChange = (dTime / moveTimeBetweenCell) * (nextXY[1] - curXY[1]);
-            boundingBox.setPosition(boundingBox.x + xChange, boundingBox.y + yChange);
+            translate(dTime, curCell, nextCellIndex);
 
             if (isReachNextCell(nextCellIndex)) {
 
@@ -181,54 +215,62 @@ public class Hand {
                 gameScreen.ListGrabAnimation.add(grabAnimation);
 
                 // kiem tra xem co duoc lay da tiep hay k
-                if (board[calcNextIndex(curCell, direction)].getNumberCo() == 0 && checkGrabContinueNumber(curCell, direction, 2) && isFinishMove()) {
-                    board[12].setNumberCo(board[12].getNumberCo() + board[calcNextIndexWithNumber(curCell, direction, 2)].getNumberCo());
-                    board[calcNextIndexWithNumber(curCell, direction, 2)].setNumberCo(0);
-                    if (board[calcNextIndexWithNumber(curCell, direction, 2)].isQuanVang && board[calcNextIndexWithNumber(curCell, direction, 2)].isAliveQuan()) {
-                        board[12].setQuanVang(true);
-                        board[calcNextIndexWithNumber(curCell, direction, 2)].setAliveQuan(false);
-                    }
-                    else if (board[calcNextIndexWithNumber(curCell, direction, 2)].isQuanXanh && board[calcNextIndexWithNumber(curCell, direction, 2)].isAliveQuan()) {
-                        board[12].setQuanXanh(true);
-                        board[calcNextIndexWithNumber(curCell, direction, 2)].setAliveQuan(false);
-                    }
-                    int i = 1;
-                    while (i < 6) {
-                        if (board[calcNextIndexWithNumber(curCell, direction, i*2+1)].getNumberCo() == 0 && checkGrabContinueNumber(curCell, direction, i*2+2)) {
-                            board[12].setNumberCo(board[12].getNumberCo() + board[calcNextIndexWithNumber(curCell, direction, i*2+2)].getNumberCo());
-                            board[calcNextIndexWithNumber(curCell, direction, i*2+2)].setNumberCo(0);
+                int next1 = calcNextIndexWithNumber(curCell,direction,1);
+                int next2 = calcNextIndexWithNumber(curCell, direction, 2);
+                if (board[next1].getNumberCo() == 0 && checkGrabContinueNumber(curCell, direction, 2) && isFinishMove()) {
+                    isShowAnLinh = true;
+//                    grabAnimation.setPosition(board[next2].boundingBox);
+//                    gameScreen.ListGrabAnimation.add(grabAnimation);
+//
+//                    board[12].setNumberCo(board[12].getNumberCo() + board[next2].getNumberCo());
+//                    board[next2].setNumberCo(0);
+//
+//                    if (board[next2].isQuanVang && board[next2].isAliveQuan()) {
+//                        board[12].setQuanVang(true);
+//                        board[next2].setAliveQuan(false);
+//                    }
+//                    else if (board[next2].isQuanXanh && board[next2].isAliveQuan()) {
+//                        board[12].setQuanXanh(true);
+//                        board[next2].setAliveQuan(false);
+//                    }
 
-                            /*Texture gaTexture = new Texture("grab_hand.png");
-                            GrabAnimation gAnimation = new GrabAnimation(gaTexture, 0.5f, board[0]);
-                            gAnimation.setPosition(board[calcNextIndexWithNumber(curCell, direction, i*2+2)].boundingBox);
-                            gameScreen.ListGrabAnimation.add(new GrabAnimation(new Texture("grab_hand.png"), 0.5f, board[calcNextIndexWithNumber(curCell, direction, i*2+2)]));*/
-
-                            // test ne
-                            /*nextXY = board[calcNextIndexWithNumber(curCell, direction, i*2+2)].getCenterXY();
-                            curXY = board[curCell].getCenterXY();
-                            xChange = (dTime / moveTimeBetweenCell) * (nextXY[0] - curXY[0]);
-                            yChange = (dTime / moveTimeBetweenCell) * (nextXY[1] - curXY[1]);
-                            boundingBox.setPosition(boundingBox.x + xChange, boundingBox.y + yChange);
-
-                            if (isReachNextCell(calcNextIndexWithNumber(curCell, direction, i*2+2))) {
-
-                                // cap nhat vi tri tay
-                                this.curCell = calcNextIndexWithNumber(curCell, direction, i*2+2);
-                                this.boundingBox.setPosition(board[calcNextIndexWithNumber(curCell, direction, i*2+2)].getCenterXY()[0] - boundingBox.width / 2,
-                                        board[calcNextIndexWithNumber(curCell, direction, i*2+2)].getCenterXY()[1] - boundingBox.height / 2);
-                            }
-
-                            // show grab animation
-                            this.isMoving = false;
-                            grabAnimation.setPosition(board[calcNextIndexWithNumber(curCell, direction, i*2+2)].boundingBox);
-                            gameScreen.ListGrabAnimation.add(grabAnimation);*/
-
-                            i++;
-                        }
-                        else {
-                            i = 6;
-                        }
-                    }
+//                    int i = 1;
+//                    while (i < 6) {
+//                        if (board[calcNextIndexWithNumber(curCell, direction, i*2+1)].getNumberCo() == 0 && checkGrabContinueNumber(curCell, direction, i*2+2)) {
+//                            board[12].setNumberCo(board[12].getNumberCo() + board[calcNextIndexWithNumber(curCell, direction, i*2+2)].getNumberCo());
+//                            board[calcNextIndexWithNumber(curCell, direction, i*2+2)].setNumberCo(0);
+//
+//                            /*Texture gaTexture = new Texture("grab_hand.png");
+//                            GrabAnimation gAnimation = new GrabAnimation(gaTexture, 0.5f, board[0]);
+//                            gAnimation.setPosition(board[calcNextIndexWithNumber(curCell, direction, i*2+2)].boundingBox);
+//                            gameScreen.ListGrabAnimation.add(new GrabAnimation(new Texture("grab_hand.png"), 0.5f, board[calcNextIndexWithNumber(curCell, direction, i*2+2)]));*/
+//
+//                            // test ne
+//                            /*nextXY = board[calcNextIndexWithNumber(curCell, direction, i*2+2)].getCenterXY();
+//                            curXY = board[curCell].getCenterXY();
+//                            xChange = (dTime / moveTimeBetweenCell) * (nextXY[0] - curXY[0]);
+//                            yChange = (dTime / moveTimeBetweenCell) * (nextXY[1] - curXY[1]);
+//                            boundingBox.setPosition(boundingBox.x + xChange, boundingBox.y + yChange);
+//
+//                            if (isReachNextCell(calcNextIndexWithNumber(curCell, direction, i*2+2))) {
+//
+//                                // cap nhat vi tri tay
+//                                this.curCell = calcNextIndexWithNumber(curCell, direction, i*2+2);
+//                                this.boundingBox.setPosition(board[calcNextIndexWithNumber(curCell, direction, i*2+2)].getCenterXY()[0] - boundingBox.width / 2,
+//                                        board[calcNextIndexWithNumber(curCell, direction, i*2+2)].getCenterXY()[1] - boundingBox.height / 2);
+//                            }
+//
+//                            // show grab animation
+//                            this.isMoving = false;
+//                            grabAnimation.setPosition(board[calcNextIndexWithNumber(curCell, direction, i*2+2)].boundingBox);
+//                            gameScreen.ListGrabAnimation.add(grabAnimation);*/
+//
+//                            i++;
+//                        }
+//                        else {
+//                            i = 6;
+//                        }
+//                    }
 
                 }
                 else if (checkGrabContinue(curCell, direction) && isFinishMove()) {
@@ -240,7 +282,7 @@ public class Hand {
 
     }
 
-    private boolean checkGrabContinue(int curCell, int direction) {
+    public boolean checkGrabContinue(int curCell, int direction) {
         int nextCellIndex = calcNextIndex(curCell, direction);
         if (nextCellIndex==5 || nextCellIndex==11) {
             return false;
@@ -254,7 +296,7 @@ public class Hand {
         return true;
     }
 
-    private boolean checkGrabContinueNumber(int curCell, int direction, int number) {
+    public boolean checkGrabContinueNumber(int curCell, int direction, int number) {
         int nextCellIndexNumber = calcNextIndexWithNumber(curCell, direction, number);
         if (number == 1 && (nextCellIndexNumber==5 || nextCellIndexNumber==11)) {
             return false;
@@ -275,19 +317,19 @@ public class Hand {
         if (direction==1) {
             switch (nextIndex) {
                 case 5:
-                    if (handXY[0]<nextXY[0] && handXY[1]>nextXY[1])
+                    if (handXY[0]<=nextXY[0] && handXY[1]>=nextXY[1])
                         return true;
                     break;
                 case 11:
-                    if (handXY[0]>nextXY[0] && handXY[1]<nextXY[1])
+                    if (handXY[0]>=nextXY[0] && handXY[1]<=nextXY[1])
                         return true;
                     break;
                 case 6: case 7: case 8: case 9: case 10:
-                    if (handXY[0]>nextXY[0])
+                    if (handXY[0]>=nextXY[0])
                         return true;
                     break;
                 case 4: case 3: case 2: case 1: case 0:
-                    if (handXY[0]<nextXY[0])
+                    if (handXY[0]<=nextXY[0])
                         return true;
                     break;
                 default:
@@ -298,19 +340,19 @@ public class Hand {
         if (direction==-1) {
             switch (nextIndex) {
                 case 5:
-                    if (handXY[0]<nextXY[0] && handXY[1]<nextXY[1])
+                    if (handXY[0]<=nextXY[0] && handXY[1]<=nextXY[1])
                         return true;
                     break;
                 case 11:
-                    if (handXY[0]>nextXY[0] && handXY[1]>nextXY[1])
+                    if (handXY[0]>=nextXY[0] && handXY[1]>=nextXY[1])
                         return true;
                     break;
                 case 6: case 7: case 8: case 9: case 10:
-                    if (handXY[0]<nextXY[0])
+                    if (handXY[0]<=nextXY[0])
                         return true;
                     break;
                 case 4: case 3: case 2: case 1: case 0:
-                    if (handXY[0]>nextXY[0])
+                    if (handXY[0]>=nextXY[0])
                         return true;
                     break;
                 default:

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-port\\values-port.xml",
+            "outputFile": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-port\\values-port.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ASUS\\.gradle\\caches\\transforms-3\\b6875e6c8278ccf12a9733441eb70c4c\\transformed\\appcompat-1.4.0\\res\\values-port\\values-port.xml",
+                    "source": "C:\\Users\\19521\\.gradle\\caches\\transforms-3\\9079c9694b4d4270d7cd62242948af25\\transformed\\appcompat-1.4.0\\res\\values-port\\values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="#FAE5A8"
     android:textAlignment="center">
 
     <Button
-        android:id="@+id/bt_signup_A_Signup"
+        android:id="@+id/bt_signup1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/black"
@@ -15,157 +16,185 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
+        android:layout_marginBottom="50dp"
+        app:circularflow_radiusInDP="50"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_repassword_A_Signup"
+        app:layout_constraintTop_toBottomOf="@id/edl_repassword"
         app:strokeColor="#FFFFFF"
         app:strokeWidth="2dp" />
 
     <TextView
-        android:id="@+id/tv_accountname_A_Signup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="Account \nname :"
-        android:layout_marginTop="20dp"
-        android:paddingBottom="20dp"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@id/tv_username_A_Signup"
-        app:layout_constraintRight_toLeftOf="@id/et_accountname_A_Signup"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_signup_A_Signup" />
-
-    <TextView
-        android:id="@+id/tv_username_A_Signup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:text="Username :"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@id/tv_email_A_Signup"
-        app:layout_constraintRight_toLeftOf="@id/et_username_A_Signup"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_accountname_A_Signup" />
-
-    <TextView
-        android:id="@+id/tv_email_A_Signup"
+        android:id="@+id/hoten"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="40dp"
-        android:text="Email :"
-        android:textColor="#FFFFFF"
+        android:text="Họ tên:"
+        android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@id/tv_password_A_Signup"
-        app:layout_constraintRight_toLeftOf="@id/et_email_A_Signup"
+        app:layout_constraintBottom_toTopOf="@id/username"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_username_A_Signup" />
+        app:layout_constraintTop_toBottomOf="@id/tv_signup" />
 
     <TextView
-        android:id="@+id/tv_password_A_Signup"
+        android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="40dp"
-        android:text="Mật khẩu :"
-        android:textColor="#FFFFFF"
+        android:text="Username:"
+        android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@id/tv_re_password_A_Signup"
-        app:layout_constraintRight_toLeftOf="@id/et_password_A_Signup"
+        app:layout_constraintBottom_toTopOf="@id/email"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_email_A_Signup" />
+        app:layout_constraintTop_toBottomOf="@id/hoten" />
 
     <TextView
-        android:id="@+id/tv_re_password_A_Signup"
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="40dp"
+        android:text="Email:"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@id/password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/username" />
+
+    <TextView
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="40dp"
+        android:text="Mật khẩu:"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@id/re_password"
+        app:layout_constraintRight_toLeftOf="@id/edl_password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email" />
+
+    <TextView
+        android:id="@+id/re_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
         android:paddingBottom="20dp"
-        android:text="Nhập lại \nmật khẩu :"
-        android:textColor="#FFFFFF"
+        android:text="Nhập lại \nmật khẩu:"
+        android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@id/bt_signup_A_Signup"
-        app:layout_constraintRight_toLeftOf="@id/et_repassword_A_Signup"
+        app:layout_constraintBottom_toTopOf="@id/bt_signup1"
+        app:layout_constraintRight_toLeftOf="@id/edl_repassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_password_A_Signup" />
+        app:layout_constraintTop_toBottomOf="@id/password" />
 
     <TextView
-        android:id="@+id/tv_signup_A_Signup"
+        android:id="@+id/tv_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:text="SIGNUP"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="60sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/et_accountname_A_Signup"
-        android:layout_width="271dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edl_hoten"
+        android:layout_width="275dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginRight="10dp"
-        android:layout_weight="1"
-        android:hint="Nhập tên người dùng của bạn"
-        app:layout_constraintBottom_toTopOf="@id/et_username_A_Signup"
-        app:layout_constraintLeft_toRightOf="@id/tv_accountname_A_Signup"
+        app:layout_constraintLeft_toRightOf="@id/hoten"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_signup_A_Signup" />
+        app:layout_constraintBottom_toTopOf="@id/edl_username"
+        app:layout_constraintTop_toBottomOf="@id/tv_signup">
 
-    <EditText
-        android:id="@+id/et_username_A_Signup"
-        android:layout_width="271dp"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_hoten"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập họ tên của bạn" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edl_username"
+        android:layout_width="275dp"
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
-        android:hint="Nhập tên đăng nhập bạn chọn"
-        app:layout_constraintBottom_toTopOf="@id/et_email_A_Signup"
-        app:layout_constraintLeft_toRightOf="@id/tv_username_A_Signup"
+        app:layout_constraintLeft_toRightOf="@id/username"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_accountname_A_Signup" />
+        app:layout_constraintTop_toBottomOf="@id/edl_hoten"
+        app:layout_constraintBottom_toTopOf="@id/edl_email"
+        >
 
-    <EditText
-        android:id="@+id/et_email_A_Signup"
-        android:layout_width="271dp"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập tên đăng nhập bạn muốn" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edl_email"
+        android:layout_width="275dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="10dp"
-        android:hint="Nhập email của bạn"
-        app:layout_constraintBottom_toTopOf="@id/et_password_A_Signup"
-        app:layout_constraintLeft_toRightOf="@id/tv_email_A_Signup"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_username_A_Signup" />
+        app:layout_constraintTop_toBottomOf="@id/edl_username"
+        app:layout_constraintBottom_toTopOf="@id/edl_password"
+        app:layout_constraintLeft_toRightOf="@id/email"
+        app:layout_constraintRight_toRightOf="parent">
 
-    <EditText
-        android:id="@+id/et_password_A_Signup"
-        android:layout_width="271dp"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập email của bạn" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edl_password"
+        android:layout_width="275dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:hint="Nhập mật khẩu bạn chọn"
-        app:layout_constraintBottom_toTopOf="@id/et_repassword_A_Signup"
-        app:layout_constraintLeft_toRightOf="@id/tv_password_A_Signup"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_email_A_Signup" />
+        app:layout_constraintTop_toBottomOf="@id/edl_email"
+        app:layout_constraintBottom_toTopOf="@id/edl_repassword"
+        app:layout_constraintLeft_toRightOf="@id/password"
+        app:layout_constraintRight_toRightOf="parent">
 
-    <EditText
-        android:id="@+id/et_repassword_A_Signup"
-        android:layout_width="271dp"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập mật khẩu bạn muốn" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edl_repassword"
+        android:layout_width="275dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:hint="Nhập lại mật khẩu đã chọn"
-        app:layout_constraintBottom_toTopOf="@id/bt_signup_A_Signup"
-        app:layout_constraintLeft_toRightOf="@id/tv_re_password_A_Signup"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_password_A_Signup" />
+        app:layout_constraintTop_toBottomOf="@id/edl_password"
+        app:layout_constraintBottom_toTopOf="@id/bt_signup1"
+        app:layout_constraintLeft_toRightOf="@id/re_password"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_repassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập lại mật khẩu" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

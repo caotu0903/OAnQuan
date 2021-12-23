@@ -111,6 +111,7 @@ public class GameScreen implements Screen {
         textureCuaQuay = new Texture("cua_quay.png");
         cuaQuay1 = new CuaQuay(textureCuaQuay, 0.05f, WORLD_WIDTH*0.332f, WORLD_HEIGHT*0.230f, 15, 15);
         cuaQuay2 = new CuaQuay(textureCuaQuay, 0.05f, WORLD_WIDTH*0.693f, WORLD_HEIGHT*0.800f, 15, 15);
+
     }
 
     @Override
@@ -149,10 +150,42 @@ public class GameScreen implements Screen {
         // Hand moving
         updateHandMoving(delta);
 
+        //
+        updateAnLinhAnimation();
+
         batch.end();
 
         stage.act();
         stage.draw();
+    }
+
+    private void updateAnLinhAnimation() {
+        //
+        if (hand.isShowAnLinh) {
+            int next1 = hand.calcNextIndexWithNumber(hand.curCell, hand.direction,1);
+            int next2 = hand.calcNextIndexWithNumber(hand.curCell, hand.direction, 2);
+            if (hand.board[next1].getNumberCo() == 0 && hand.checkGrabContinueNumber(hand.curCell, hand.direction, 2) && hand.isFinishMove()) {
+                if (hand.gameScreen.ListGrabAnimation.size()==0) {
+                    hand.curCell=next2;
+                    hand.grabAnimation.setPosition(hand.board[next2].boundingBox);
+                    hand.gameScreen.ListGrabAnimation.add(hand.grabAnimation);
+
+                    hand.board[12].setNumberCo(hand.board[12].getNumberCo() + hand.board[next2].getNumberCo());
+                    hand.board[next2].setNumberCo(0);
+
+                    if (hand.board[next2].isQuanVang && hand.board[next2].isAliveQuan()) {
+                        hand.board[12].setQuanVang(true);
+                        hand.board[next2].setAliveQuan(false);
+                    } else if (hand.board[next2].isQuanXanh && hand.board[next2].isAliveQuan()) {
+                        hand.board[12].setQuanXanh(true);
+                        hand.board[next2].setAliveQuan(false);
+                    }
+                }
+            }
+            else{
+                hand.isShowAnLinh=false;
+            }
+        }
     }
 
     private void updateHandMoving(float dTime) {
@@ -179,7 +212,7 @@ public class GameScreen implements Screen {
 //
 //            oCo[5].setNumberCo(xTouch);
 //            oCo[11].setNumberCo(yTouch);
-            for (i=0; i<5;i++) {
+            for (i=0; i<12;i++) {
                 if (oCo[i].boundingBox.contains(touch)) {
                     index = i;
                     ODuocChon = i;
@@ -189,7 +222,7 @@ public class GameScreen implements Screen {
         }
 
         //Direction direction = null;
-        if (index>=0 && index<=4) {
+        if (index>=0 && index<=11) {
             if (!oCo[index].isQuan) {
                 direction.translate(oCo[index]);
                 direction.setVisible(true, true);
@@ -226,13 +259,13 @@ public class GameScreen implements Screen {
         oCo[2] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
         oCo[3] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
         oCo[4] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.300f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
-        oCo[5] = new OCo(1, true, false, true, true, WORLD_WIDTH*0.200f, WORLD_HEIGHT*0.502f, 10, 20, oCoYellow[0]);
+        oCo[5] = new OCo(10, true, false, true, true, WORLD_WIDTH*0.200f, WORLD_HEIGHT*0.502f, 10, 20, oCoYellow[0]);
         oCo[6] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.300f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
         oCo[7] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
         oCo[8] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
         oCo[9] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.600f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
         oCo[10] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.700f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
-        oCo[11] = new OCo(1, false, true, true, true, WORLD_WIDTH*0.800f, WORLD_HEIGHT*0.502f, 10, 20, oCoBlue[0]);
+        oCo[11] = new OCo(10, false, true, true, true, WORLD_WIDTH*0.800f, WORLD_HEIGHT*0.502f, 10, 20, oCoBlue[0]);
         oCo[12] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.180f, 30, 10, oCoThuongRegions[0]);
         oCo[13] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.850f, 30, 10, oCoThuongRegions[0]);
     }

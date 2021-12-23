@@ -119,8 +119,15 @@ public class Direction {
 
         leftImgButton.setSize(dimen, dimen);
         rightImgButton.setSize(dimen, dimen);
-        leftImgButton.setPosition(boundingBox.x, boundingBox.y-dimen);
-        rightImgButton.setPosition(boundingBox.x + boundingBox.width-dimen, boundingBox.y-dimen);
+
+        if (gs.ODuocChon>=0 && gs.ODuocChon<=4) {
+            leftImgButton.setPosition(boundingBox.x, boundingBox.y - dimen);
+            rightImgButton.setPosition(boundingBox.x + boundingBox.width - dimen, boundingBox.y - dimen);
+        }
+        else if (gs.ODuocChon>=6 && gs.ODuocChon<=10) {
+            leftImgButton.setPosition(boundingBox.x, boundingBox.y + boundingBox.height);
+            rightImgButton.setPosition(boundingBox.x + boundingBox.width - dimen, boundingBox.y +boundingBox.height);
+        }
     }
 
     public void draw(Batch batch) {
