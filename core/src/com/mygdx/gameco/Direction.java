@@ -68,9 +68,11 @@ public class Direction {
                 gs.hand.setDirection(1);
                 gs.hand.setPoint(oCO[gs.ODuocChon].numberCo);
                 gs.hand.setCurCell(gs.ODuocChon);
+                gs.hand.isEndTurn=false;
 
                 // cap nhat diem cho oCo
-                oCO[gs.ODuocChon].setNumberCo(0);
+                gs.hand.grabCell=gs.ODuocChon;
+                //oCO[gs.ODuocChon].setNumberCo(0);
             }
         });
 
@@ -88,9 +90,11 @@ public class Direction {
                 gs.hand.setDirection(-1);
                 gs.hand.setPoint(oCO[gs.ODuocChon].numberCo);
                 gs.hand.setCurCell(gs.ODuocChon);
+                gs.hand.isEndTurn=false;
 
                 // cap nhat diem cho oCo
-                oCO[gs.ODuocChon].setNumberCo(0);
+                gs.hand.grabCell=gs.ODuocChon;
+                //oCO[gs.ODuocChon].setNumberCo(0);
             }
         });
 
@@ -120,11 +124,11 @@ public class Direction {
         leftImgButton.setSize(dimen, dimen);
         rightImgButton.setSize(dimen, dimen);
 
-        if (gs.ODuocChon>=0 && gs.ODuocChon<=4) {
+        if (gs.ODuocChon>=0 && gs.ODuocChon<=4 && gs.playerTurn==false) {
             leftImgButton.setPosition(boundingBox.x, boundingBox.y - dimen);
             rightImgButton.setPosition(boundingBox.x + boundingBox.width - dimen, boundingBox.y - dimen);
         }
-        else if (gs.ODuocChon>=6 && gs.ODuocChon<=10) {
+        else if (gs.ODuocChon>=6 && gs.ODuocChon<=10 && gs.playerTurn==true) {
             leftImgButton.setPosition(boundingBox.x, boundingBox.y + boundingBox.height);
             rightImgButton.setPosition(boundingBox.x + boundingBox.width - dimen, boundingBox.y +boundingBox.height);
         }
