@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\19521\\AndroidStudioProjects\\OAnQuan-git\\android\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h320dp-port-v13\\values-h320dp-port-v13.xml",
+            "outputFile": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h320dp-port-v13\\values-h320dp-port-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\19521\\.gradle\\caches\\transforms-3\\27e978d968aa817d3406d9fb9e07df4b\\transformed\\material-1.6.0-alpha01\\res\\values-h320dp-port-v13\\values-h320dp-port-v13.xml",
+                    "source": "C:\\Users\\ASUS\\.gradle\\caches\\transforms-3\\27e978d968aa817d3406d9fb9e07df4b\\transformed\\material-1.6.0-alpha01\\res\\values-h320dp-port-v13\\values-h320dp-port-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

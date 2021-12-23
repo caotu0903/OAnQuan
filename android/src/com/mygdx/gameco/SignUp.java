@@ -16,12 +16,12 @@ public class SignUp extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        Button btSignUp = (Button) findViewById(R.id.bt_signup_A_Signup);
-        EditText edHoten = (EditText) findViewById(R.id.et_accountname_A_Signup);
-        EditText edUname = (EditText) findViewById(R.id.et_username_A_Signup);
-        EditText edEmail = (EditText) findViewById(R.id.et_email_A_Signup);
-        EditText edPass = (EditText) findViewById(R.id.et_password_A_Signup);
-        EditText edRepass = (EditText) findViewById(R.id.et_repassword_A_Signup);
+        Button btSignUp = (Button) findViewById(R.id.bt_signup_A_signup);
+        EditText edHoten = (EditText) findViewById(R.id.et_accountname_A_signup);
+        EditText edUname = (EditText) findViewById(R.id.et_username_A_signup);
+        EditText edEmail = (EditText) findViewById(R.id.et_email_A_signup);
+        EditText edPass = (EditText) findViewById(R.id.et_password_A_signup);
+        EditText edRepass = (EditText) findViewById(R.id.et_repassword_A_signup);
 
         btSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
