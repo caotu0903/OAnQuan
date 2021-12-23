@@ -107,12 +107,6 @@ public class Login extends Activity {
                 try {
                     String listenMessage = input.readLine();
                     if (!listenMessage.isEmpty()) {
-                        /*runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                listenArrayMessage.add(listenMessage);
-                            }
-                        });*/
                         listenArrayMessage.add(listenMessage);
                     }
                 } catch (IOException e) {
