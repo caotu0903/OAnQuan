@@ -34,6 +34,7 @@ public class Hand {
     GrabAnimation grabAnimation;
 
     boolean isShowAnLinh;
+    boolean isEndTurn;
 
     // destination
 
@@ -56,6 +57,7 @@ public class Hand {
         grabAnimation = new GrabAnimation(grabAni, 0.6f, board[3]);
 
         isShowAnLinh = false;
+        isEndTurn = true;
     }
 
     public boolean isMoving() {
@@ -114,31 +116,6 @@ public class Hand {
     }
 
     public void translate(float dTime) {
-        if (isShowAnLinh) {
-            int next1 = calcNextIndexWithNumber(curCell,direction,1);
-            int next2 = calcNextIndexWithNumber(curCell, direction, 2);
-            if (board[next1].getNumberCo() == 0 && checkGrabContinueNumber(curCell, direction, 2) && isFinishMove()) {
-                if (gameScreen.ListGrabAnimation.size()==0) {
-                    this.curCell=next2;
-                    grabAnimation.setPosition(board[next2].boundingBox);
-                    gameScreen.ListGrabAnimation.add(grabAnimation);
-
-                    board[12].setNumberCo(board[12].getNumberCo() + board[next2].getNumberCo());
-                    board[next2].setNumberCo(0);
-
-                    if (board[next2].isQuanVang && board[next2].isAliveQuan()) {
-                        board[12].setQuanVang(true);
-                        board[next2].setAliveQuan(false);
-                    } else if (board[next2].isQuanXanh && board[next2].isAliveQuan()) {
-                        board[12].setQuanXanh(true);
-                        board[next2].setAliveQuan(false);
-                    }
-                }
-            }
-            else{
-                isShowAnLinh=false;
-            }
-        }
 
         int nextCellIndex = calcNextIndex(curCell, direction);
         if (this.point==-1) {
@@ -155,44 +132,6 @@ public class Hand {
 
             nextCellIndex = calcNextIndex(curCell, direction);
         }
-
-        /*if (this.point != 0) {
-            if (board[nextCellIndex].getNumberCo() != 0) {
-                float[] nextXY = board[nextCellIndex].getCenterXY();
-                float[] curXY = board[curCell].getCenterXY();
-                float[] handXY = this.getCenterXY();
-
-                //Xu ly hinh anh
-                float xChange = (dTime / moveTimeBetweenCell) * (nextXY[0] - curXY[0]);
-                float yChange = (dTime / moveTimeBetweenCell) * (nextXY[1] - curXY[1]);
-                boundingBox.setPosition(boundingBox.x + xChange, boundingBox.y + yChange);
-
-                if (isReachNextCell(nextCellIndex)) {
-
-                    // cap nhat vi tri tay
-                    this.curCell = nextCellIndex;
-                    this.boundingBox.setPosition(board[nextCellIndex].getCenterXY()[0] - boundingBox.width / 2,
-                            board[nextCellIndex].getCenterXY()[1] - boundingBox.height / 2);
-
-                    //cap nhat diem
-                    this.point--;
-                    board[nextCellIndex].increaseNumberCo();
-
-                    // show grab animation
-                    this.isMoving = false;
-                    grabAnimation.setPosition(board[nextCellIndex].boundingBox);
-                    gameScreen.ListGrabAnimation.add(grabAnimation);
-
-                    // kiem tra xem co duoc lay da tiep hay k
-                    if (checkGrabContinue(curCell, direction) && isFinishMove()) {
-                        this.point = -1;
-                        this.grabCell = -1;
-                    }
-                }
-            } else {
-
-            }
-        }*/
 
         if(this.point >= 0) {
 
@@ -218,64 +157,21 @@ public class Hand {
                 int next1 = calcNextIndexWithNumber(curCell,direction,1);
                 int next2 = calcNextIndexWithNumber(curCell, direction, 2);
                 if (board[next1].getNumberCo() == 0 && checkGrabContinueNumber(curCell, direction, 2) && isFinishMove()) {
-                    isShowAnLinh = true;
-//                    grabAnimation.setPosition(board[next2].boundingBox);
-//                    gameScreen.ListGrabAnimation.add(grabAnimation);
-//
-//                    board[12].setNumberCo(board[12].getNumberCo() + board[next2].getNumberCo());
-//                    board[next2].setNumberCo(0);
-//
-//                    if (board[next2].isQuanVang && board[next2].isAliveQuan()) {
-//                        board[12].setQuanVang(true);
-//                        board[next2].setAliveQuan(false);
-//                    }
-//                    else if (board[next2].isQuanXanh && board[next2].isAliveQuan()) {
-//                        board[12].setQuanXanh(true);
-//                        board[next2].setAliveQuan(false);
-//                    }
-
-//                    int i = 1;
-//                    while (i < 6) {
-//                        if (board[calcNextIndexWithNumber(curCell, direction, i*2+1)].getNumberCo() == 0 && checkGrabContinueNumber(curCell, direction, i*2+2)) {
-//                            board[12].setNumberCo(board[12].getNumberCo() + board[calcNextIndexWithNumber(curCell, direction, i*2+2)].getNumberCo());
-//                            board[calcNextIndexWithNumber(curCell, direction, i*2+2)].setNumberCo(0);
-//
-//                            /*Texture gaTexture = new Texture("grab_hand.png");
-//                            GrabAnimation gAnimation = new GrabAnimation(gaTexture, 0.5f, board[0]);
-//                            gAnimation.setPosition(board[calcNextIndexWithNumber(curCell, direction, i*2+2)].boundingBox);
-//                            gameScreen.ListGrabAnimation.add(new GrabAnimation(new Texture("grab_hand.png"), 0.5f, board[calcNextIndexWithNumber(curCell, direction, i*2+2)]));*/
-//
-//                            // test ne
-//                            /*nextXY = board[calcNextIndexWithNumber(curCell, direction, i*2+2)].getCenterXY();
-//                            curXY = board[curCell].getCenterXY();
-//                            xChange = (dTime / moveTimeBetweenCell) * (nextXY[0] - curXY[0]);
-//                            yChange = (dTime / moveTimeBetweenCell) * (nextXY[1] - curXY[1]);
-//                            boundingBox.setPosition(boundingBox.x + xChange, boundingBox.y + yChange);
-//
-//                            if (isReachNextCell(calcNextIndexWithNumber(curCell, direction, i*2+2))) {
-//
-//                                // cap nhat vi tri tay
-//                                this.curCell = calcNextIndexWithNumber(curCell, direction, i*2+2);
-//                                this.boundingBox.setPosition(board[calcNextIndexWithNumber(curCell, direction, i*2+2)].getCenterXY()[0] - boundingBox.width / 2,
-//                                        board[calcNextIndexWithNumber(curCell, direction, i*2+2)].getCenterXY()[1] - boundingBox.height / 2);
-//                            }
-//
-//                            // show grab animation
-//                            this.isMoving = false;
-//                            grabAnimation.setPosition(board[calcNextIndexWithNumber(curCell, direction, i*2+2)].boundingBox);
-//                            gameScreen.ListGrabAnimation.add(grabAnimation);*/
-//
-//                            i++;
-//                        }
-//                        else {
-//                            i = 6;
-//                        }
-//                    }
-
+                    if (!(gameScreen.turnNumber==0 && (next2==11 || next2==5))) {
+                        isShowAnLinh = true;
+                        this.grabCell = -1;
+                    }
+                    else {
+                        isEndTurn=true;
+                    }
                 }
                 else if (checkGrabContinue(curCell, direction) && isFinishMove()) {
                     this.point = -1;
                     this.grabCell = -1;
+                }
+
+                if (!checkGrabContinue(curCell, direction) && this.point==0){ // ket thuc luot di
+                    isEndTurn = true;
                 }
             }
         }
