@@ -124,11 +124,11 @@ public class Direction {
         leftImgButton.setSize(dimen, dimen);
         rightImgButton.setSize(dimen, dimen);
 
-        if (gs.ODuocChon>=0 && gs.ODuocChon<=4 && gs.playerTurn==false) {
+        if (gs.ODuocChon>=0 && gs.ODuocChon<=4 && gs.turnNumber%2==0) {
             leftImgButton.setPosition(boundingBox.x, boundingBox.y - dimen);
             rightImgButton.setPosition(boundingBox.x + boundingBox.width - dimen, boundingBox.y - dimen);
         }
-        else if (gs.ODuocChon>=6 && gs.ODuocChon<=10 && gs.playerTurn==true) {
+        else if (gs.ODuocChon>=6 && gs.ODuocChon<=10 && gs.turnNumber%2!=0) {
             leftImgButton.setPosition(boundingBox.x, boundingBox.y + boundingBox.height);
             rightImgButton.setPosition(boundingBox.x + boundingBox.width - dimen, boundingBox.y +boundingBox.height);
         }

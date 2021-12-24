@@ -68,7 +68,7 @@ public class GameScreen implements Screen {
     CuaQuay cuaQuay1, cuaQuay2;
 
     //lượt chơi
-    boolean playerTurn;
+    int turnNumber;
 
     //
     int spreadingLinhCount;
@@ -119,7 +119,7 @@ public class GameScreen implements Screen {
         cuaQuay2 = new CuaQuay(textureCuaQuay, 0.05f, WORLD_WIDTH*0.693f, WORLD_HEIGHT*0.800f, 15, 15);
 
         // lượt chơi (false - player, true - opponent)
-        playerTurn = false;
+        turnNumber = 0;
         spreadingLinhCount = 0;
     }
 
@@ -160,28 +160,34 @@ public class GameScreen implements Screen {
         stage.draw();
     }
 
-    public void updateSpreadLinh(float dTime){
-        int[] startEnd = getCellIndexOfCurrentTurn();
+    // kiểm tra 5 ô trống
+    private boolean is5EmptyCell() {
 
-        if (spreadingLinhCount==0) {
-            int dem = 0;
-            for (int i = startEnd[0]; i <= startEnd[1]; i++) {
-                if (oCo[i].getNumberCo()==0) {
-                    dem++;
-                }
-            }
-            if (dem==5) {
-                spreadingLinhCount=6;
+        int[] startEnd = getCellIndexOfCurrentTurn();
+        int dem = 0;
+        for (int i = startEnd[0]; i <= startEnd[1]; i++) {
+            if (oCo[i].getNumberCo()==0) {
+                dem++;
             }
         }
+        return dem==5;
+    }
+
+    public void updateSpreadLinh(float dTime){
+
+//        if (spreadingLinhCount==0 && hand.isEndTurn==true) {
+//            if (is5EmptyCell()) {
+//                spreadingLinhCount=6;
+//            }
+//        }
 
         int index=0;
         if (spreadingLinhCount>0) {
             if (spreadingLinhCount==6) {
-                index = playerTurn?13:12;
+                index = (turnNumber%2!=0)?13:12;
             }
             else {
-                index = (5-spreadingLinhCount) + (playerTurn?6:0);
+                index = (5-spreadingLinhCount) + ((turnNumber%2!=0)?6:0);
             }
 
             if (this.ListGrabAnimation.isEmpty()) {
@@ -192,7 +198,7 @@ public class GameScreen implements Screen {
     }
 
     public void updatePlayerTurnSign(float delta) {
-        if (playerTurn==false) {
+        if (turnNumber%2==0) {
             cuaQuay1.update(delta);
             if (cuaQuay1.isFinished()) {
                 cuaQuay1.resetTimer();
@@ -211,7 +217,7 @@ public class GameScreen implements Screen {
     }
 
     public void switchPlayerTurn() {
-        playerTurn=!playerTurn;
+        turnNumber++;
     }
 
     private void updateAnLinhAnimation() {
@@ -225,7 +231,7 @@ public class GameScreen implements Screen {
                     hand.grabAnimation.setPosition(hand.board[next2].boundingBox);
                     hand.gameScreen.ListGrabAnimation.add(hand.grabAnimation);
 
-                    int dst = playerTurn==false?12:13;
+                    int dst = (turnNumber%2==0)?12:13;
                     hand.board[dst].setNumberCo(hand.board[dst].getNumberCo() + hand.board[next2].getNumberCo());
                     hand.board[next2].setNumberCo(0);
 
@@ -300,7 +306,7 @@ public class GameScreen implements Screen {
 
     public int[] getCellIndexOfCurrentTurn() {
         int start=0, end=0;
-        if (playerTurn==false) {
+        if (turnNumber%2==0) {
             start = 0; end=4;
         }
         else {
@@ -326,17 +332,17 @@ public class GameScreen implements Screen {
 
     private void initCellArray() {
         oCo = new OCo[14];
-        oCo[0] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.700f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
-        oCo[1] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.600f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
-        oCo[2] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
-        oCo[3] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
-        oCo[4] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.300f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
+        oCo[0] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.700f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
+        oCo[1] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.600f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
+        oCo[2] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
+        oCo[3] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
+        oCo[4] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.300f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
         oCo[5] = new OCo(10, true, false, true, true, WORLD_WIDTH*0.200f, WORLD_HEIGHT*0.502f, 10, 20, oCoYellow[0]);
-        oCo[6] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.300f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
-        oCo[7] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
-        oCo[8] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
-        oCo[9] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.600f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
-        oCo[10] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.700f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
+        oCo[6] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.300f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
+        oCo[7] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
+        oCo[8] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
+        oCo[9] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.600f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
+        oCo[10] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.700f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
         oCo[11] = new OCo(10, false, true, true, true, WORLD_WIDTH*0.800f, WORLD_HEIGHT*0.502f, 10, 20, oCoBlue[0]);
         oCo[12] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.180f, 30, 10, oCoThuongRegions[0]);
         oCo[13] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.850f, 30, 10, oCoThuongRegions[0]);
@@ -450,27 +456,21 @@ public class GameScreen implements Screen {
 
                 if (spreadingLinhCount > 0) {
                     if (spreadingLinhCount != 6) {
-                        oCo[5 - spreadingLinhCount + (playerTurn ? 6 : 0)].setNumberCo(1);
-                        oCo[(playerTurn ? 13 : 12)].setNumberCo(oCo[(playerTurn ? 13 : 12)].getNumberCo() - 1);
+                        oCo[5 - spreadingLinhCount + ((turnNumber%2!=0) ? 6 : 0)].setNumberCo(1);
+                        oCo[((turnNumber%2!=0) ? 13 : 12)].setNumberCo(oCo[((turnNumber%2!=0) ? 13 : 12)].getNumberCo() - 1);
                     }
                     spreadingLinhCount--;
                 }
 
-                if (hand.isEndTurn == true) {
-//                    int[] startEnd = getCellIndexOfCurrentTurn();
-//                    if (spreadingLinhCount==0) {
-//                        int dem = 0;
-//                        for (int i = startEnd[0]; i <= startEnd[1]; i++) {
-//                            if (oCo[i].getNumberCo()==0) {
-//                                dem++;
-//                            }
-//                        }
-//                        if (dem==5) {
-//                            spreadingLinhCount=6;
-//                        }
-//                    }
+                if (hand.isEndTurn == true && spreadingLinhCount==0) {
+
                     switchPlayerTurn();
                     hand.isEndTurn = false;
+
+                    // kiểm tra 5 ô trống để rải thêm quân
+                    if (is5EmptyCell()) {
+                        spreadingLinhCount=6;
+                    }
                 }
             } else {
                 ga.draw(batch);

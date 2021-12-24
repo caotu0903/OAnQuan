@@ -157,7 +157,13 @@ public class Hand {
                 int next1 = calcNextIndexWithNumber(curCell,direction,1);
                 int next2 = calcNextIndexWithNumber(curCell, direction, 2);
                 if (board[next1].getNumberCo() == 0 && checkGrabContinueNumber(curCell, direction, 2) && isFinishMove()) {
-                    isShowAnLinh = true;
+                    if (!(gameScreen.turnNumber==0 && (next2==11 || next2==5))) {
+                        isShowAnLinh = true;
+                        this.grabCell = -1;
+                    }
+                    else {
+                        isEndTurn=true;
+                    }
                 }
                 else if (checkGrabContinue(curCell, direction) && isFinishMove()) {
                     this.point = -1;
