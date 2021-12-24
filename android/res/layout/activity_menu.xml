@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAE5A8">
+
+    <TextView
+        android:id="@+id/tv_tabplay_A_menu"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="TAB PLAY"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/black"
+        android:background="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <Button
+        android:id="@+id/bt_bxh_A_menu"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="Xem Bảng Xếp Hạng"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_tabplay_A_menu"
+        android:layout_marginTop="100dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/orange" />
+
+    <Button
+        android:id="@+id/bt_edit_info_A_menu"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="Chỉnh Sửa Thông Tin"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_bxh_A_menu"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/orange" />
+
+    <Button
+        android:id="@+id/bt_logout_A_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:text="Đăng Xuất"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/orange"/>
+
+    <ImageButton
+        android:id="@+id/bt_back_A_menu"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:scaleType="fitCenter"
+        android:background="@mipmap/back_button"
+        app:srcCompat="@mipmap/back_button_foreground"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_tabplay_A_menu"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FAE5A8">
+
 
     <TextView
         android:id="@+id/welcome_oanquan"
@@ -31,7 +33,7 @@
         android:text="Chọn Phòng"
         android:gravity="center"
         android:textColor="#FFFFFF"
-        android:textSize="40sp"
+        android:textSize="38sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -47,13 +49,12 @@
         app:layout_constraintRight_toRightOf="parent">
 
         <TableRow>
-
             <ImageButton
                 android:id="@+id/room1"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_margin="30dp"
-                android:background="@mipmap/icon" />
+                android:background="@mipmap/icon"/>
 
             <ImageButton
                 android:id="@+id/room2"
@@ -142,4 +143,15 @@
                 android:background="@mipmap/icon" />
         </TableRow>
     </TableLayout>
+
+    <ImageButton
+        android:id="@+id/bt_back_A_waitroom"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="fitCenter"
+        android:layout_marginEnd="10dp"
+        android:background="@mipmap/back_button_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcome_oanquan"
+        app:srcCompat="@mipmap/back_button_foreground" />
 </androidx.constraintlayout.widget.ConstraintLayout>

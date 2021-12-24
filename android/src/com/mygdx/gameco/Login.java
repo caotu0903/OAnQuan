@@ -37,6 +37,7 @@ public class Login extends Activity {
     EditText et_Pass;
     Button bt_Signup;
     Button bt_Login;
+    Button bt_Test;
 
     public static WeakReference<Login> loginActivity;
 
@@ -51,6 +52,7 @@ public class Login extends Activity {
 
         bt_Signup = (Button)findViewById(R.id.bt_signup);
         bt_Login = (Button)findViewById(R.id.bt_login);
+        bt_Test = (Button)findViewById(R.id.bt_test);
 
         et_Username = (EditText)findViewById(R.id.edt_username);
         et_Pass = (EditText)findViewById(R.id.edt_password);
@@ -100,6 +102,14 @@ public class Login extends Activity {
                 Intent intent = new Intent(Login.this, SignUp.class);
 
                 startActivity(intent);
+            }
+        });
+
+        bt_Test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent test = new Intent(Login.this, ChooseGame.class);
+                startActivity(test);
             }
         });
     }

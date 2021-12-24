@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.util.regex.Matcher;
@@ -21,6 +22,7 @@ public class SignUp extends Activity {
     EditText et_Email;
     EditText et_Password;
     EditText et_Repassword;
+    ImageButton bt_Back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +73,14 @@ public class SignUp extends Activity {
                 }
             }
         });
+
+        bt_Back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent back_to_login = new Intent(SignUp.this, Login.class);
+                startActivity(back_to_login);
+            }
+        });
     }
 
     void Init() {
@@ -80,6 +90,7 @@ public class SignUp extends Activity {
         et_Email = (EditText) findViewById(R.id.et_email_A_signup);
         et_Password = (EditText) findViewById(R.id.et_password_A_signup);
         et_Repassword = (EditText) findViewById(R.id.et_repassword_A_signup);
+        bt_Back = (ImageButton)  findViewById(R.id.bt_back_A_singup);
     }
 
     public static boolean Password_Validation(String password)

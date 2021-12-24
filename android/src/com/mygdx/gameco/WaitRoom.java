@@ -15,6 +15,7 @@ public class WaitRoom extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wait_room);
 
+        ImageButton bt_back = (ImageButton) findViewById(R.id.bt_back_A_waitroom);
         ImageButton bt_r1 = (ImageButton) findViewById(R.id.room1);
         ImageButton bt_r2 = (ImageButton) findViewById(R.id.room2);
         ImageButton bt_r3 = (ImageButton) findViewById(R.id.room3);
@@ -28,17 +29,24 @@ public class WaitRoom extends Activity {
         ImageButton bt_r11 = (ImageButton) findViewById(R.id.room11);
         ImageButton bt_r12 = (ImageButton) findViewById(R.id.room12);
         Intent intent_gameplay = new Intent(WaitRoom.this, AndroidLauncher.class);
+        Intent intent_waiting_player = new Intent(WaitRoom.this, Waiting_Player.class);
+        Intent intent_waiting_host = new Intent(WaitRoom.this, Waiting_Host.class);
+        Intent intent_choose_game = new Intent(WaitRoom.this, ChooseGame.class);
 
+        bt_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { startActivity(intent_choose_game); }
+        });
         bt_r1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(intent_gameplay);
+                startActivity(intent_waiting_player);
             }
         });
         bt_r2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(intent_gameplay);
+                startActivity(intent_waiting_host);
             }
         });
         bt_r3.setOnClickListener(new View.OnClickListener() {
