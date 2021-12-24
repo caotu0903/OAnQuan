@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.lang.ref.WeakReference;
 import java.net.Socket;
 import java.util.ArrayList;
 
@@ -31,16 +35,22 @@ public class Login extends Activity {
 
     EditText et_Username;
     EditText et_Pass;
-    Button btSignup;
-    Button btLogin;
+    Button bt_Signup;
+    Button bt_Login;
+
+    public static WeakReference<Login> loginActivity;
+
+    public static Login getLoginActivity() {
+        return loginActivity.get();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btSignup = (Button)findViewById(R.id.bt_signup);
-        btLogin = (Button)findViewById(R.id.bt_login);
+        bt_Signup = (Button)findViewById(R.id.bt_signup);
+        bt_Login = (Button)findViewById(R.id.bt_login);
 
         et_Username = (EditText)findViewById(R.id.edt_username);
         et_Pass = (EditText)findViewById(R.id.edt_password);
@@ -49,36 +59,46 @@ public class Login extends Activity {
         networkThread = new Thread(new NetworkThread());
         networkThread.start();
 
-        btLogin.setOnClickListener(new View.OnClickListener() {
+        loginActivity = new WeakReference<>(Login.this);
+
+        bt_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String LoginMess = "11" + et_Username.getText().toString() + "/**/" + et_Pass.getText().toString();
-                SendMessage(LoginMess);
-                String ReceiveData = "";
-                while (ReceiveData.isEmpty()) {
-                    ReceiveData = GetMessage();
-                }
+                if (!et_Username.getText().toString().isEmpty()) {
+                    if (!et_Pass.getText().toString().isEmpty()) {
+                        String encryptPass = EncryptBase64(et_Pass.getText().toString().trim());
+                        String LoginMess = "101" + et_Username.getText().toString().trim() + "/**/" + encryptPass;
+                        SendMessage(LoginMess);
+                        String ReceiveData = "";
+                        while (ReceiveData.isEmpty()) {
+                            ReceiveData = GetMessage();
+                        }
 
-                if (ReceiveData.startsWith("01")) {
-                    Intent intent = new Intent(Login.this, ChooseGame.class);
-                    startActivity(intent);
-                }
-                else if (ReceiveData.startsWith("00")) {
-                    Toast.makeText(getApplicationContext(), "Đăng nhập thất bại", Toast.LENGTH_LONG).show();
-                }
-                else if (ReceiveData.startsWith("02")) {
-                    Toast.makeText(getApplicationContext(), "Tài khoản đang online", Toast.LENGTH_LONG).show();
+                        if (ReceiveData.startsWith("001")) {
+                            Intent intent = new Intent(Login.this, ChooseGame.class);
+                            startActivity(intent);
+                            Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                        } else if (ReceiveData.startsWith("000")) {
+                            Toast.makeText(getApplicationContext(), "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
+                        } else if (ReceiveData.startsWith("002")) {
+                            Toast.makeText(getApplicationContext(), "Tài khoản đang online", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), "Vui lòng nhập mật khẩu", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
-                    Toast.makeText(getApplicationContext(), "333333333333333333", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Vui lòng nhập tên tài khoản", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        btSignup.setOnClickListener(new View.OnClickListener() {
+        bt_Signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login.this, SignUp.class );
+                Intent intent = new Intent(Login.this, SignUp.class);
+
                 startActivity(intent);
             }
         });
@@ -107,6 +127,7 @@ public class Login extends Activity {
                 try {
                     String listenMessage = input.readLine();
                     if (!listenMessage.isEmpty()) {
+                        listenMessage = DecryptBase64(listenMessage);
                         listenArrayMessage.add(listenMessage);
                     }
                 } catch (IOException e) {
@@ -132,16 +153,43 @@ public class Login extends Activity {
 
     public void SendMessage (String message) {
         if (!message.isEmpty()) {
+            message = EncryptBase64(message);
             new Thread(new SendThread(message)).start();
         }
     }
 
     public String GetMessage () {
         if (!listenArrayMessage.isEmpty()) {
-            return listenArrayMessage.get(0);
+            String getMessage = listenArrayMessage.get(0);
+            listenArrayMessage.remove(0);
+            return getMessage;
         }
         else {
             return "";
         }
+    }
+
+    public String EncryptBase64 (String input) {
+        byte[] data = new byte[0];
+        try {
+            data = input.getBytes("UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        String base64 = Base64.encodeToString(data, Base64.DEFAULT);
+        base64 = base64.replace("\n", "");
+        return base64;
+    }
+
+    public String DecryptBase64 (String input) {
+        byte[] data = Base64.decode(input, Base64.DEFAULT);
+        String text = null;
+        try {
+            text = new String(data, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        text = text.replace("\n", "");
+        return text;
     }
 }
