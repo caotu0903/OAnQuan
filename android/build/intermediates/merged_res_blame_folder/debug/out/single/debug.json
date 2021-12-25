@@ -44,12 +44,12 @@
         "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\layout\\activity_choose_game.xml"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_player2.xml.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-anydpi-v26\\player2.xml"
-    },
-    {
         "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_ic_launcher.png.flat",
         "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_player2.xml.flat",
+        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-anydpi-v26\\player2.xml"
     },
     {
         "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_icon_plus_foreground.png.flat",
@@ -96,20 +96,20 @@
         "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-xhdpi\\icon_refresh.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_icon_round.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-xxxhdpi\\icon_round.png"
-    },
-    {
         "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_icon_trophy_round.png.flat",
         "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-hdpi\\icon_trophy_round.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_player1_round.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-xhdpi\\player1_round.png"
+        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_icon_round.png.flat",
+        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-xxxhdpi\\icon_round.png"
     },
     {
         "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_icon_refresh_foreground.png.flat",
         "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-xxhdpi\\icon_refresh_foreground.png"
+    },
+    {
+        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_player1_round.png.flat",
+        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-xhdpi\\player1_round.png"
     },
     {
         "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_icon_plus_round.png.flat",
@@ -300,16 +300,16 @@
         "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-hdpi\\icon_round.png"
     },
     {
+        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_icon_refresh_foreground.png.flat",
+        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-mdpi\\icon_refresh_foreground.png"
+    },
+    {
         "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\anim_anim_in_right.xml.flat",
         "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\anim\\anim_in_right.xml"
     },
     {
         "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_menu_foreground.png.flat",
         "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-xxhdpi\\menu_foreground.png"
-    },
-    {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_icon_refresh_foreground.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-mdpi\\icon_refresh_foreground.png"
     },
     {
         "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_vs_round.png.flat",
@@ -608,12 +608,12 @@
         "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-xhdpi\\back_button_round.png"
     },
     {
-        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_icon_round.png.flat",
-        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-mdpi\\icon_round.png"
-    },
-    {
         "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_icon_trophy_round.png.flat",
         "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-xxxhdpi\\icon_trophy_round.png"
+    },
+    {
+        "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_icon_round.png.flat",
+        "source": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\res\\mipmap-mdpi\\icon_round.png"
     },
     {
         "merged": "D:\\Users\\ASUS\\AndroidStudioProjects\\OAnQuan\\android\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_player2_foreground.png.flat",
