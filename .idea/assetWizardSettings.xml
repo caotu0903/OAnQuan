@@ -24,7 +24,8 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\19521\AppData\Local\Temp\ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="C:\Users\ASUS\AppData\Local\Temp\ic_android_black_24dp.xml" />
+                                                <entry key="opacityPercent" value="60" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -67,7 +68,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="imagePath" value="E:\HK5\PTUD\DoAn\menu.png" />
+                                                <entry key="imagePath" value="E:\" />
                                                 <entry key="scalingPercent" value="50" />
                                               </map>
                                             </option>
@@ -80,7 +81,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="fae5a8" />
-                                                <entry key="imagePath" value="C:\Users\19521\AppData\Local\Temp\ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="C:\Users\ASUS\AppData\Local\Temp\ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -92,8 +93,8 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="E:\HK5\PTUD\DoAn\chibi_png.png" />
-                                                <entry key="scalingPercent" value="50" />
+                                                <entry key="imagePath" value="C:\Users\ASUS\Downloads\icon_trophy.png" />
+                                                <entry key="scalingPercent" value="85" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -126,8 +127,7 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="fae5a8" />
-                                      <entry key="outputName" value="player2" />
+                                      <entry key="outputName" value="icon_trophy" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -144,7 +144,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\19521\AppData\Local\Temp\ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="C:\Users\ASUS\AppData\Local\Temp\ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -188,7 +188,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\19521\AppData\Local\Temp\ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="C:\Users\ASUS\AppData\Local\Temp\ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -252,7 +252,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="imagePath" value="C:\Users\19521\AppData\Local\Temp\ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="C:\Users\ASUS\AppData\Local\Temp\ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>

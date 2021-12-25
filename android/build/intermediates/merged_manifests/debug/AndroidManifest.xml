@@ -23,15 +23,11 @@
         android:testOnly="true"
         android:theme="@style/GdxTheme" >
         <activity
-            android:name="com.mygdx.gameco.Waiting_Player"
+            android:name="com.mygdx.gameco.Waiting_Room"
             android:exported="true" >
         </activity>
         <activity
-            android:name="com.mygdx.gameco.Waiting_Host"
-            android:exported="true" >
-        </activity>
-        <activity
-            android:name="com.mygdx.gameco.WaitRoom"
+            android:name="com.mygdx.gameco.ChooseRoom"
             android:exported="true" >
         </activity>
         <activity

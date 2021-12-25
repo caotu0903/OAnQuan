@@ -66,10 +66,10 @@
         android:id="@+id/bt_menu_A_choosegame"
         android:layout_width="51dp"
         android:layout_height="51dp"
-        android:background="@mipmap/menu"
+        android:background="@mipmap/menu_round"
         app:layout_constraintStart_toStartOf="@id/tv_chongame"
         app:layout_constraintTop_toBottomOf="@id/welcome"
-        app:srcCompat="@mipmap/menu" />
+        app:srcCompat="@mipmap/menu_round" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -118,7 +118,7 @@ public class Login extends Activity {
         @Override
         public void run() {
             try {
-                clientSocket = new Socket("192.168.100.7", 8080);
+                clientSocket = new Socket("192.168.100.9", 8080);
                 output = new PrintWriter(clientSocket.getOutputStream());
                 input = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
@@ -165,6 +165,17 @@ public class Login extends Activity {
         if (!message.isEmpty()) {
             message = EncryptBase64(message);
             new Thread(new SendThread(message)).start();
+        }
+    }
+
+    public String GetMessage (String startCode) {
+        if (!listenArrayMessage.isEmpty() && listenArrayMessage.get(0).startsWith(startCode)) {
+            String getMessage = listenArrayMessage.get(0);
+            listenArrayMessage.remove(0);
+            return getMessage;
+        }
+        else {
+            return "";
         }
     }
 

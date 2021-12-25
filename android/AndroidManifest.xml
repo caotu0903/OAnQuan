@@ -13,15 +13,11 @@
         android:label="@string/app_name"
         android:theme="@style/GdxTheme">
         <activity
-            android:name=".Waiting_Player"
+            android:name=".Waiting_Room"
             android:exported="true">
         </activity>
         <activity
-            android:name=".Waiting_Host"
-            android:exported="true">
-        </activity>
-        <activity
-            android:name=".WaitRoom"
+            android:name=".ChooseRoom"
             android:exported="true">
         </activity>
         <activity

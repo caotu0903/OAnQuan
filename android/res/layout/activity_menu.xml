@@ -67,7 +67,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:scaleType="fitCenter"
-        android:background="@mipmap/back_button"
+        android:background="@mipmap/back_button_foreground"
         app:srcCompat="@mipmap/back_button_foreground"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"

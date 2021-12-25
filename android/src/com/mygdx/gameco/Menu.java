@@ -21,30 +21,41 @@ public class Menu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        getSupportActionBar().hide();
 
         bt_Back = (ImageButton) findViewById(R.id.bt_back_A_menu);
         bt_Logout = (Button) findViewById(R.id.bt_logout_A_menu);
         bt_BXH = (Button) findViewById(R.id.bt_bxh_A_menu);
         bt_Edit = (Button) findViewById(R.id.bt_edit_info_A_menu);
 
-        Intent intent_back = new Intent(Menu.this, ChooseGame.class);
-        Intent intent_logout = new Intent(Menu.this, Login.class);
-        Intent intent_edit = new Intent(Menu.this, EditInfo.class);
-
         bt_Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent_back = new Intent(Menu.this, ChooseGame.class);
                 startActivity(intent_back);
                 overridePendingTransition(R.anim.anim_in_right, R.anim.anim_out_left);
             }
         });
         bt_Logout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { startActivity(intent_logout); }
+            public void onClick(View v) {
+                Login.getLoginActivity().SendMessage("102");
+                String logoutMessage = "";
+                while (logoutMessage == "") {
+                    logoutMessage = Login.getLoginActivity().GetMessage();
+                }
+                if (logoutMessage.contains("102")) {
+                    Intent intent_logout = new Intent(Menu.this, Login.class);
+                    startActivity(intent_logout);
+                }
+            }
         });
         bt_Edit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { startActivity(intent_edit); }
+            public void onClick(View v) {
+                Intent intent_edit = new Intent(Menu.this, EditInfo.class);
+                startActivity(intent_edit);
+            }
         });
     }
 }
