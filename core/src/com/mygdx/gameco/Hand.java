@@ -54,7 +54,7 @@ public class Hand {
         this.grabCell = -1;
 
         Texture grabAni = new Texture("grab_hand.png");
-        grabAnimation = new GrabAnimation(grabAni, 0.6f, board[3]);
+        grabAnimation = new GrabAnimation(grabAni, 0.15f, board[3]);
 
         isShowAnLinh = false;
         isEndTurn = true;

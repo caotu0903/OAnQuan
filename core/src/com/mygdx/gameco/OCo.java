@@ -85,5 +85,15 @@ public class OCo {
 
     public void increaseNumberCo() {numberCo++;}
 
+    public void setAttribute(int numberCo,boolean isQuanVang, boolean isQuanXanh,
+                             boolean isQuan, boolean isAliveQuan, TextureRegion ocoTexture) {
+        this.numberCo = numberCo;
+        this.isQuanVang = isQuanVang;
+        this.isQuanXanh = isQuanXanh;
+        this.isQuan = isQuan;
+        this.isAliveQuan = isAliveQuan;
+        this.ocoTexture = ocoTexture;
+    }
+
     public void decreaseNumberCo() {numberCo--;}
 }
