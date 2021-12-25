@@ -73,6 +73,8 @@ public class Direction {
                 // cap nhat diem cho oCo
                 gs.hand.grabCell=gs.ODuocChon;
                 //oCO[gs.ODuocChon].setNumberCo(0);
+
+                gs.isDetectInput=false;
             }
         });
 
@@ -95,6 +97,8 @@ public class Direction {
                 // cap nhat diem cho oCo
                 gs.hand.grabCell=gs.ODuocChon;
                 //oCO[gs.ODuocChon].setNumberCo(0);
+
+                gs.isDetectInput=false;
             }
         });
 

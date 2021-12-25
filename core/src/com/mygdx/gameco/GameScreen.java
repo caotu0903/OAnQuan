@@ -13,7 +13,9 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Align;
@@ -53,6 +55,7 @@ public class GameScreen implements Screen {
 
     //Head-Up Display
     BitmapFont font;
+    BitmapFont fontBorrow;
 
     //direction
     int index;
@@ -69,9 +72,15 @@ public class GameScreen implements Screen {
 
     //lượt chơi
     int turnNumber;
+    boolean isGameOver;
 
     //
     int spreadingLinhCount;
+
+    boolean isDetectInput;
+
+    // nguoi choi
+    Player[] players;
 
     GameScreen() {
 
@@ -97,7 +106,7 @@ public class GameScreen implements Screen {
 
         //set up game object
         initCellArray();
-        hand = new Hand(3, 0.5f, textureAniAndDirec.findRegion("grab"), oCo, this);
+        hand = new Hand(3, 0.1f, textureAniAndDirec.findRegion("grab"), oCo, this);
 
         //set up direction and animation
         initAnimationAndDirec();
@@ -121,6 +130,15 @@ public class GameScreen implements Screen {
         // lượt chơi (false - player, true - opponent)
         turnNumber = 0;
         spreadingLinhCount = 0;
+        isDetectInput = true;
+
+        // nguoi choi
+        players = new Player[2];
+        players[0] = new Player(0,0);
+        players[1] = new Player(0,0);
+
+        //
+        isGameOver = false;
     }
 
     @Override
@@ -185,6 +203,7 @@ public class GameScreen implements Screen {
         if (spreadingLinhCount>0) {
             if (spreadingLinhCount==6) {
                 index = (turnNumber%2!=0)?13:12;
+
             }
             else {
                 index = (5-spreadingLinhCount) + ((turnNumber%2!=0)?6:0);
@@ -225,22 +244,22 @@ public class GameScreen implements Screen {
         if (hand.isShowAnLinh) {
             int next1 = hand.calcNextIndexWithNumber(hand.curCell, hand.direction,1);
             int next2 = hand.calcNextIndexWithNumber(hand.curCell, hand.direction, 2);
-            if (hand.board[next1].getNumberCo() == 0 && hand.checkGrabContinueNumber(hand.curCell, hand.direction, 2) && hand.isFinishMove()) {
-                if (hand.gameScreen.ListGrabAnimation.size()==0) {
+            if (oCo[next1].getNumberCo() == 0 && hand.checkGrabContinueNumber(hand.curCell, hand.direction, 2) && hand.isFinishMove()) {
+                if (this.ListGrabAnimation.size()==0) {
                     hand.curCell=next2;
-                    hand.grabAnimation.setPosition(hand.board[next2].boundingBox);
-                    hand.gameScreen.ListGrabAnimation.add(hand.grabAnimation);
+                    hand.grabAnimation.setPosition(oCo[next2].boundingBox);
+                    this.ListGrabAnimation.add(hand.grabAnimation);
 
                     int dst = (turnNumber%2==0)?12:13;
-                    hand.board[dst].setNumberCo(hand.board[dst].getNumberCo() + hand.board[next2].getNumberCo());
-                    hand.board[next2].setNumberCo(0);
+                    oCo[dst].setNumberCo(oCo[dst].getNumberCo() + oCo[next2].getNumberCo());
+                    oCo[next2].setNumberCo(0);
 
-                    if (hand.board[next2].isQuanVang && hand.board[next2].isAliveQuan()) {
-                        hand.board[dst].setQuanVang(true);
-                        hand.board[next2].setAliveQuan(false);
-                    } else if (hand.board[next2].isQuanXanh && hand.board[next2].isAliveQuan()) {
-                        hand.board[dst].setQuanXanh(true);
-                        hand.board[next2].setAliveQuan(false);
+                    if (oCo[next2].isQuanVang && oCo[next2].isAliveQuan()) {
+                        oCo[dst].setQuanVang(true);
+                        oCo[next2].setAliveQuan(false);
+                    } else if (oCo[next2].isQuanXanh && oCo[next2].isAliveQuan()) {
+                        oCo[dst].setQuanXanh(true);
+                        oCo[next2].setAliveQuan(false);
                     }
                 }
             }
@@ -268,21 +287,23 @@ public class GameScreen implements Screen {
         //isShowDirection=false;
         int xTouch, yTouch;
         int i=-1;
-        if (Gdx.input.isTouched()) {
-            xTouch = Gdx.input.getX();
-            yTouch = Gdx.input.getY();
+        if (isDetectInput==true) {
+            if (Gdx.input.isTouched()) {
+                xTouch = Gdx.input.getX();
+                yTouch = Gdx.input.getY();
 
-            Vector2 touch = viewport.unproject(new Vector2(xTouch, yTouch));
+                Vector2 touch = viewport.unproject(new Vector2(xTouch, yTouch));
 //
 //            oCo[5].setNumberCo(xTouch);
 //            oCo[11].setNumberCo(yTouch);
-            int[] startEnd;
-            startEnd = getCellIndexOfCurrentTurn();
-            for (i=startEnd[0]; i<=startEnd[1];i++) {
-                if (oCo[i].boundingBox.contains(touch)) {
-                    index = i;
-                    ODuocChon = i;
-                    break;
+                int[] startEnd;
+                startEnd = getCellIndexOfCurrentTurn();
+                for (i = startEnd[0]; i <= startEnd[1]; i++) {
+                    if (oCo[i].boundingBox.contains(touch)) {
+                        index = i;
+                        ODuocChon = i;
+                        break;
+                    }
                 }
             }
         }
@@ -332,12 +353,12 @@ public class GameScreen implements Screen {
 
     private void initCellArray() {
         oCo = new OCo[14];
-        oCo[0] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.700f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
-        oCo[1] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.600f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
-        oCo[2] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
-        oCo[3] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
+        oCo[0] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.700f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
+        oCo[1] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.600f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
+        oCo[2] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
+        oCo[3] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
         oCo[4] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.300f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
-        oCo[5] = new OCo(10, true, false, true, true, WORLD_WIDTH*0.200f, WORLD_HEIGHT*0.502f, 10, 20, oCoYellow[0]);
+        oCo[5] = new OCo(0, true, false, true, true, WORLD_WIDTH*0.200f, WORLD_HEIGHT*0.502f, 10, 20, oCoYellow[0]);
         oCo[6] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.300f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
         oCo[7] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
         oCo[8] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
@@ -346,6 +367,23 @@ public class GameScreen implements Screen {
         oCo[11] = new OCo(10, false, true, true, true, WORLD_WIDTH*0.800f, WORLD_HEIGHT*0.502f, 10, 20, oCoBlue[0]);
         oCo[12] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.180f, 30, 10, oCoThuongRegions[0]);
         oCo[13] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.850f, 30, 10, oCoThuongRegions[0]);
+    }
+
+    private void resetOCo() {
+        oCo[0].setAttribute(5, false, false, false, false, oCoThuongRegions[5]);
+        oCo[1].setAttribute(5, false, false, false, false, oCoThuongRegions[5]);
+        oCo[2].setAttribute(5, false, false, false, false, oCoThuongRegions[5]);
+        oCo[3].setAttribute(5, false, false, false, false, oCoThuongRegions[5]);
+        oCo[4].setAttribute(5, false, false, false, false, oCoThuongRegions[5]);
+        oCo[5].setAttribute(10, true, false, true, true, oCoYellow[0]);
+        oCo[6].setAttribute(5, false, false, false, false, oCoThuongRegions[5]);
+        oCo[7].setAttribute(5, false, false, false, false, oCoThuongRegions[5]);
+        oCo[8].setAttribute(5, false, false, false, false, oCoThuongRegions[5]);
+        oCo[9].setAttribute(5, false, false, false, false, oCoThuongRegions[5]);
+        oCo[10].setAttribute(5, false, false, false, false, oCoThuongRegions[5]);
+        oCo[11].setAttribute(10, false, true, true, true, oCoBlue[0]);
+        oCo[12].setAttribute(0, false, false, false, false, oCoThuongRegions[0]);
+        oCo[13].setAttribute(0, false, false, false, false, oCoThuongRegions[0]);
     }
 
     private void initTextureRegion() {
@@ -409,11 +447,15 @@ public class GameScreen implements Screen {
 
         fontParameter.size = 30;
         fontParameter.color = new Color(Color.BLACK);
-
         font = fontGenerator.generateFont(fontParameter);
+
+        fontParameter.size = 30;
+        fontParameter.color = new Color(Color.RED);
+        fontBorrow = fontGenerator.generateFont(fontParameter);
 
         //scale the font to fit world
         font.getData().setScale(0.085f);
+        fontBorrow.getData().setScale(0.085f);
     }
 
     private void updateAndRenderHUD() {
@@ -432,6 +474,12 @@ public class GameScreen implements Screen {
         font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[11].getNumberCo()), WORLD_WIDTH*0.755f, WORLD_HEIGHT*0.353f, 0, Align.left, false);
         font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[12].getNumberCo()), WORLD_WIDTH*0.485f, WORLD_HEIGHT*0.100f, 0, Align.left, false);
         font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[13].getNumberCo()), WORLD_WIDTH*0.485f, WORLD_HEIGHT*0.756f, 0, Align.left, false);
+
+        fontBorrow.draw(batch, String.format(Locale.getDefault(), "%d", players[0].borrow), WORLD_WIDTH*0.535f, WORLD_HEIGHT*0.100f, 0, Align.left, false);
+        fontBorrow.draw(batch, String.format(Locale.getDefault(), "%d", players[1].borrow), WORLD_WIDTH*0.535f, WORLD_HEIGHT*0.756f, 0, Align.left, false);
+
+        font.draw(batch, String.format(Locale.getDefault(), "Player 1: %d\nPlayer 2: %d", players[0].score, players[1].score), oCo[11].getCenterXY()[0] + oCo[11].boundingBox.width, oCo[11].getCenterXY()[1], 0, Align.left, false);
+
     }
 
     public void updateAndRenderGA(float deltaTime) {
@@ -457,14 +505,65 @@ public class GameScreen implements Screen {
                 if (spreadingLinhCount > 0) {
                     if (spreadingLinhCount != 6) {
                         oCo[5 - spreadingLinhCount + ((turnNumber%2!=0) ? 6 : 0)].setNumberCo(1);
-                        oCo[((turnNumber%2!=0) ? 13 : 12)].setNumberCo(oCo[((turnNumber%2!=0) ? 13 : 12)].getNumberCo() - 1);
+                        int player=12, opponent=13;
+                        if (turnNumber%2!=0) {
+                            player=13;
+                            opponent=12;
+                        }
+
+                        int minimum = oCo[player].isQuanVang?10:0 + (oCo[player].isQuanXanh?10:0);
+                        if (!(oCo[player].getNumberCo()-1< minimum)) {
+                            oCo[player].setNumberCo(oCo[player].getNumberCo() - 1);
+                        }
+                        else  {
+                            players[turnNumber%2].addBorrow(1);
+                            oCo[opponent].setNumberCo(oCo[opponent].getNumberCo() - 1);
+                        }
                     }
+
                     spreadingLinhCount--;
                 }
 
                 if (hand.isEndTurn == true && spreadingLinhCount==0) {
 
                     switchPlayerTurn();
+
+                    //kiem tra dieu kien thang
+                    if (oCo[5].getNumberCo()==0 && oCo[11].getNumberCo()==0) {
+                        isGameOver = true;
+                        turnNumber=0;
+
+                        players[0].score = oCo[12].getNumberCo() + players[1].borrow;
+                        players[1].score = oCo[13].getNumberCo() + players[0].borrow;
+
+                        for (int i=0; i<5; i++) {
+                            players[0].score += oCo[i].getNumberCo();
+                            players[1].score += oCo[i+6].getNumberCo();
+                        }
+
+                        //show end game dialog
+//                        Stage st;
+//                        Gdx.input.setInputProcessor(st = new Stage());
+                        //TextureAtlas uiskin = new TextureAtlas("uiskin.atlas");
+                        Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
+                        Dialog a = new Dialog("Game Result", skin) {
+
+                            {
+                                text("Winner: ");
+                                button("Play again");
+                                button("Back to room");
+                                setScale(0.3f);
+                            }
+
+                            @Override
+                            protected void result(Object object) {
+                                resetOCo();
+                            }
+                        };
+                        a.show(stage);
+                    }
+
+                    isDetectInput=true;
                     hand.isEndTurn = false;
 
                     // kiểm tra 5 ô trống để rải thêm quân
@@ -532,15 +631,31 @@ public class GameScreen implements Screen {
                 oCo[i].setOcoTexture(oCoDiem[5]);
             }
         }
-        else if (number > 10) {
-            if (oCo[i].isQuanXanh()) {
+//        else if (number > 10) {
+//            if (oCo[i].isQuanXanh()) {
+//                oCo[i].setOcoTexture(oCoDiem[4]);
+//            }
+//            else if (oCo[i].isQuanVang()) {
+//                oCo[i].setOcoTexture(oCoDiem[2]);
+//            }
+//            else {
+//                oCo[i].setOcoTexture(oCoDiem[0]);
+//            }
+//        }
+        else if (oCo[i].isQuanXanh) {
+            if (number>10) {
                 oCo[i].setOcoTexture(oCoDiem[4]);
             }
-            else if (oCo[i].isQuanVang()) {
+            else {
+                oCo[i].setOcoTexture(oCoDiem[3]);
+            }
+        }
+        else if (oCo[i].isQuanVang) {
+            if (number>10) {
                 oCo[i].setOcoTexture(oCoDiem[2]);
             }
             else {
-                oCo[i].setOcoTexture(oCoDiem[0]);
+                oCo[i].setOcoTexture(oCoDiem[1]);
             }
         }
         else {
