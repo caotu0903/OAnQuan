@@ -1,13 +1,13 @@
-com/mygdx/gameco/Player.java
- com.mygdx.gameco.Player
 com/mygdx/gameco/OCo.java
  com.mygdx.gameco.OCo
+com/mygdx/gameco/Assets.java
+ com.mygdx.gameco.Assets
 com/mygdx/gameco/GrabAnimation.java
  com.mygdx.gameco.GrabAnimation
 com/mygdx/gameco/CuaQuay.java
  com.mygdx.gameco.CuaQuay
-com/mygdx/gameco/Assets.java
- com.mygdx.gameco.Assets
+com/mygdx/gameco/Player.java
+ com.mygdx.gameco.Player
 com/mygdx/gameco/GameScreen.java
  com.mygdx.gameco.GameScreen
  com.mygdx.gameco.GameScreen$1
