@@ -11,14 +11,25 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Action;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
@@ -82,6 +93,8 @@ public class GameScreen implements Screen {
     // nguoi choi
     Player[] players;
 
+    Dialog gameOverDialog;
+
     GameScreen() {
 
         camera = new OrthographicCamera();
@@ -139,6 +152,7 @@ public class GameScreen implements Screen {
 
         //
         isGameOver = false;
+
     }
 
     @Override
@@ -176,6 +190,31 @@ public class GameScreen implements Screen {
 
         stage.act();
         stage.draw();
+    }
+
+    private void initGameOverDialog(final String winner) {
+        Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
+        gameOverDialog = new Dialog("Game Over", skin) {
+
+            {
+                text("Winner: " + winner);
+                button("OK");
+                setScale(0.3f);
+                setKeepWithinStage(false);
+                setMovable(false);
+            }
+
+            @Override
+            protected void result(Object object) {
+                //xu ly khi click button OK
+                resetOCo();
+            }
+        };
+        gameOverDialog.pack();
+        gameOverDialog.setPosition(WORLD_WIDTH/2 - gameOverDialog.getWidth()/2*0.3f,
+                WORLD_HEIGHT/2 - gameOverDialog.getHeight()/2*0.3f);
+        gameOverDialog.setVisible(false);
+        stage.addActor(gameOverDialog);
     }
 
     // kiểm tra 5 ô trống
@@ -354,17 +393,17 @@ public class GameScreen implements Screen {
     private void initCellArray() {
         oCo = new OCo[14];
         oCo[0] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.700f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
-        oCo[1] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.600f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
-        oCo[2] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
+        oCo[1] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.600f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
+        oCo[2] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
         oCo[3] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
         oCo[4] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.300f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
-        oCo[5] = new OCo(0, true, false, true, true, WORLD_WIDTH*0.200f, WORLD_HEIGHT*0.502f, 10, 20, oCoYellow[0]);
-        oCo[6] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.300f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
-        oCo[7] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
-        oCo[8] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
-        oCo[9] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.600f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
-        oCo[10] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.700f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
-        oCo[11] = new OCo(10, false, true, true, true, WORLD_WIDTH*0.800f, WORLD_HEIGHT*0.502f, 10, 20, oCoBlue[0]);
+        oCo[5] = new OCo(10, true, false, true, true, WORLD_WIDTH*0.200f, WORLD_HEIGHT*0.502f, 10, 20, oCoYellow[0]);
+        oCo[6] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.300f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
+        oCo[7] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
+        oCo[8] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
+        oCo[9] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.600f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
+        oCo[10] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.700f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
+        oCo[11] = new OCo(0, false, true, true, true, WORLD_WIDTH*0.800f, WORLD_HEIGHT*0.502f, 10, 20, oCoBlue[0]);
         oCo[12] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.180f, 30, 10, oCoThuongRegions[0]);
         oCo[13] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.850f, 30, 10, oCoThuongRegions[0]);
     }
@@ -542,25 +581,19 @@ public class GameScreen implements Screen {
                         }
 
                         //show end game dialog
-//                        Stage st;
-//                        Gdx.input.setInputProcessor(st = new Stage());
-                        //TextureAtlas uiskin = new TextureAtlas("uiskin.atlas");
-                        Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
-                        Dialog a = new Dialog("Game Result", skin) {
+                        String winner="";
+                        if (players[0].score>players[1].score) {
+                            winner = "player1";
+                        }
+                        else if (players[0].score<players[1].score) {
+                            winner = "player2";
+                        }
+                        else {
+                            winner = "Hoa";
+                        }
+                        initGameOverDialog(winner);
+                        gameOverDialog.setVisible(true);
 
-                            {
-                                text("Winner: ");
-                                button("Play again");
-                                button("Back to room");
-                                setScale(0.3f);
-                            }
-
-                            @Override
-                            protected void result(Object object) {
-                                resetOCo();
-                            }
-                        };
-                        a.show(stage);
                     }
 
                     isDetectInput=true;
