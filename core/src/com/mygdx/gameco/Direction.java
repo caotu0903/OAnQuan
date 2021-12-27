@@ -58,7 +58,7 @@ public class Direction {
             public void clicked(InputEvent event, float x, float y){
                 //direction = -1;
 
-                gs.AnDirection();
+                /*gs.AnDirection();
                 gs.setIndex(-1);
 
                 grabAnimation.setPosition(oCO[gs.ODuocChon].boundingBox);
@@ -74,6 +74,11 @@ public class Direction {
                 gs.hand.grabCell=gs.ODuocChon;
                 //oCO[gs.ODuocChon].setNumberCo(0);
 
+                gs.isDetectInput=false;*/
+                gs.AnDirection();
+                gs.setIndex(-1);
+
+                SendMove(gs.ODuocChon, 1, gs.turnNumber);
                 gs.isDetectInput=false;
             }
         });
@@ -82,7 +87,7 @@ public class Direction {
             public void clicked(InputEvent event, float x, float y){
                 //direction = 1;
 
-                gs.AnDirection();
+                /*gs.AnDirection();
                 gs.setIndex(-1);
 
                 grabAnimation.setPosition(oCO[gs.ODuocChon].boundingBox);
@@ -98,12 +103,21 @@ public class Direction {
                 gs.hand.grabCell=gs.ODuocChon;
                 //oCO[gs.ODuocChon].setNumberCo(0);
 
+                gs.isDetectInput=false;*/
+                gs.AnDirection();
+                gs.setIndex(-1);
+
+                SendMove(gs.ODuocChon, -1, gs.turnNumber);
                 gs.isDetectInput=false;
             }
         });
 
         stage.addActor(leftImgButton);
         stage.addActor(rightImgButton);
+    }
+
+    public void SendMove(int oDuocChon, int direction, int turn) {
+        gs.operationNetwork.SendMessage("400" + gs.roomID + "/**/" + oDuocChon + "/**/" + direction + "/**/" + turn + "/**/");
     }
 
 //    public int getDirection() {

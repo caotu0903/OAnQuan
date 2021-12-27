@@ -25,6 +25,8 @@ public class Waiting_Room extends AppCompatActivity {
     Room room;
     Boolean gameStart;
 
+    Intent start_game_intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,6 +85,7 @@ public class Waiting_Room extends AppCompatActivity {
         bt_Invite = (Button) findViewById(R.id.bt_invite_A_waiting_room);
         bt_Kick = (Button) findViewById(R.id.bt_kick_A_waiting_room);
         bt_Back = (ImageButton) findViewById(R.id.bt_back_A_waiting_room);
+        start_game_intent = new Intent(Waiting_Room.this, AndroidLauncher.class);
 
         Intent intent = getIntent();
         roomID = intent.getStringExtra("RoomID");
@@ -151,7 +154,18 @@ public class Waiting_Room extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Intent start_game_intent = new Intent(Waiting_Room.this, AndroidLauncher.class);
+                            start_game_intent.putExtra("RoomID", room.getRoomID());
+                            if (role.equals("host")) {
+                                start_game_intent.putExtra("Username", room.getNameHost());
+                                start_game_intent.putExtra("Opponentname", room.getRoomID());
+                                start_game_intent.putExtra("Gofirst", true);
+                            }
+                            else {
+                                start_game_intent.putExtra("Username", room.getNameHost());
+                                start_game_intent.putExtra("Opponentname", room.getRoomID());
+                                start_game_intent.putExtra("Gofirst", false);
+                            }
+
                             startActivity(start_game_intent);
                         }
                     });

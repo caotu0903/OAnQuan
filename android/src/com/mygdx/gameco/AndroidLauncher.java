@@ -1,16 +1,54 @@
 package com.mygdx.gameco;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
-import com.mygdx.gameco.OAnQuanGame;
 
 public class AndroidLauncher extends AndroidApplication {
+
+	public OAnQuanGame oAnQuanGame;
+	OperationNetwork operationNetwork;
+	String roomID, userName, opponentName;
+	boolean canGo;
+
 	@Override
 	protected void onCreate (Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
-		initialize(new OAnQuanGame(), config);
+
+		Intent intent = this.getIntent();
+		roomID = intent.getStringExtra("RoomID");
+		userName = intent.getStringExtra("Username");
+		opponentName = intent.getStringExtra("Oppenentname");
+		canGo = intent.getBooleanExtra("Gofirst", true);
+
+		operationNetwork = new OperationNetwork() {
+			@Override
+			public String GetMessage() {
+				return Login.getLoginActivity().GetMessage();
+			}
+
+			@Override
+			public void SendMessage(String message) {
+				Login.getLoginActivity().SendMessage(message);
+			}
+		};
+
+		oAnQuanGame = new OAnQuanGame(operationNetwork, roomID, userName, opponentName, canGo);
+		initialize(oAnQuanGame, config);
 	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		finish();
+	}
+
+	public void SendMessage(String message) {
+		Login.getLoginActivity().SendMessage(message);
+	}
+
+
 }

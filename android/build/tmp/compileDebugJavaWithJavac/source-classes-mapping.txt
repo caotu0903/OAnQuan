@@ -1,38 +1,15 @@
-com/mygdx/gameco/TabPlay.java
- com.mygdx.gameco.TabPlay
- com.mygdx.gameco.TabPlay$1
-com/mygdx/gameco/BuildConfig.java
- com.mygdx.gameco.BuildConfig
-com/mygdx/gameco/AndroidLauncher.java
- com.mygdx.gameco.AndroidLauncher
-com/mygdx/gameco/Login.java
- com.mygdx.gameco.Login
- com.mygdx.gameco.Login$1
- com.mygdx.gameco.Login$2
- com.mygdx.gameco.Login$3
- com.mygdx.gameco.Login$ListenThread
- com.mygdx.gameco.Login$NetworkThread
- com.mygdx.gameco.Login$SendThread
-com/mygdx/gameco/SignUp.java
- com.mygdx.gameco.SignUp
- com.mygdx.gameco.SignUp$1
- com.mygdx.gameco.SignUp$2
 com/mygdx/gameco/Room.java
  com.mygdx.gameco.Room
 com/mygdx/gameco/ChooseGame.java
  com.mygdx.gameco.ChooseGame
  com.mygdx.gameco.ChooseGame$1
  com.mygdx.gameco.ChooseGame$2
+com/mygdx/gameco/SignUp.java
+ com.mygdx.gameco.SignUp
+ com.mygdx.gameco.SignUp$1
+ com.mygdx.gameco.SignUp$2
 com/mygdx/gameco/ListRoomAdapter.java
  com.mygdx.gameco.ListRoomAdapter
-com/mygdx/gameco/Menu.java
- com.mygdx.gameco.Menu
- com.mygdx.gameco.Menu$1
- com.mygdx.gameco.Menu$2
- com.mygdx.gameco.Menu$3
-com/mygdx/gameco/EditInfo.java
- com.mygdx.gameco.EditInfo
- com.mygdx.gameco.EditInfo$1
 com/mygdx/gameco/ChooseRoom.java
  com.mygdx.gameco.ChooseRoom
  com.mygdx.gameco.ChooseRoom$1
@@ -40,6 +17,12 @@ com/mygdx/gameco/ChooseRoom.java
  com.mygdx.gameco.ChooseRoom$3
  com.mygdx.gameco.ChooseRoom$4
  com.mygdx.gameco.ChooseRoom$5
+com/mygdx/gameco/TabPlay.java
+ com.mygdx.gameco.TabPlay
+ com.mygdx.gameco.TabPlay$1
+com/mygdx/gameco/AndroidLauncher.java
+ com.mygdx.gameco.AndroidLauncher
+ com.mygdx.gameco.AndroidLauncher$1
 com/mygdx/gameco/Waiting_Room.java
  com.mygdx.gameco.Waiting_Room
  com.mygdx.gameco.Waiting_Room$1
@@ -47,3 +30,20 @@ com/mygdx/gameco/Waiting_Room.java
  com.mygdx.gameco.Waiting_Room$WaitingRoomInfo
  com.mygdx.gameco.Waiting_Room$WaitingRoomInfo$1
  com.mygdx.gameco.Waiting_Room$WaitingRoomInfo$2
+com/mygdx/gameco/EditInfo.java
+ com.mygdx.gameco.EditInfo
+ com.mygdx.gameco.EditInfo$1
+com/mygdx/gameco/BuildConfig.java
+ com.mygdx.gameco.BuildConfig
+com/mygdx/gameco/Login.java
+ com.mygdx.gameco.Login
+ com.mygdx.gameco.Login$1
+ com.mygdx.gameco.Login$2
+ com.mygdx.gameco.Login$ListenThread
+ com.mygdx.gameco.Login$NetworkThread
+ com.mygdx.gameco.Login$SendThread
+com/mygdx/gameco/Menu.java
+ com.mygdx.gameco.Menu
+ com.mygdx.gameco.Menu$1
+ com.mygdx.gameco.Menu$2
+ com.mygdx.gameco.Menu$3

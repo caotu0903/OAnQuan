@@ -33,6 +33,7 @@ import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import java.net.Socket;
 import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.Locale;
@@ -40,6 +41,10 @@ import java.util.Locale;
 import jdk.internal.org.jline.utils.Log;
 
 public class GameScreen implements Screen {
+
+    OperationNetwork operationNetwork;
+    String roomID, userName, opponentName;
+    boolean canGo;
 
     //screen
     private Camera camera;
@@ -95,7 +100,13 @@ public class GameScreen implements Screen {
 
     Dialog gameOverDialog;
 
-    GameScreen() {
+
+    GameScreen(OperationNetwork operationNetwork, String roomID, String userName, String opponentName, boolean canGo) {
+        this.operationNetwork = operationNetwork;
+        this.roomID = roomID;
+        this.userName = userName;
+        this.opponentName = opponentName;
+        this.canGo = canGo;
 
         camera = new OrthographicCamera();
         viewport = new StretchViewport(WORLD_WIDTH,WORLD_HEIGHT,camera);
@@ -141,7 +152,12 @@ public class GameScreen implements Screen {
         cuaQuay2 = new CuaQuay(textureCuaQuay, 0.05f, WORLD_WIDTH*0.693f, WORLD_HEIGHT*0.800f, 15, 15);
 
         // lượt chơi (false - player, true - opponent)
-        turnNumber = 0;
+        if (canGo) {
+            turnNumber = 0;
+        }
+        else {
+            turnNumber = 1;
+        }
         spreadingLinhCount = 0;
         isDetectInput = true;
 
@@ -153,6 +169,7 @@ public class GameScreen implements Screen {
         //
         isGameOver = false;
 
+        //new Thread(new GameDataInfo()).start();
     }
 
     @Override
@@ -161,6 +178,8 @@ public class GameScreen implements Screen {
 
         //Background
         batch.draw(backGroundRegion,0,0,WORLD_WIDTH,WORLD_HEIGHT);
+
+        receiveData();
 
         //O Co
         updateOCo();
@@ -207,7 +226,7 @@ public class GameScreen implements Screen {
             @Override
             protected void result(Object object) {
                 //xu ly khi click button OK
-                resetOCo();
+                dispose();
             }
         };
         gameOverDialog.pack();
@@ -348,7 +367,7 @@ public class GameScreen implements Screen {
         }
 
         //Direction direction = null;
-        if (index>=0 && index<=11) {
+        if (index>=0 && index<=4) {
             if (!oCo[index].isQuan) {
                 direction.translate(oCo[index]);
                 direction.setVisible(true, true);
@@ -392,18 +411,18 @@ public class GameScreen implements Screen {
 
     private void initCellArray() {
         oCo = new OCo[14];
-        oCo[0] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.700f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
-        oCo[1] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.600f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
-        oCo[2] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
-        oCo[3] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
+        oCo[0] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.700f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
+        oCo[1] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.600f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
+        oCo[2] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
+        oCo[3] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
         oCo[4] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.300f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
         oCo[5] = new OCo(10, true, false, true, true, WORLD_WIDTH*0.200f, WORLD_HEIGHT*0.502f, 10, 20, oCoYellow[0]);
-        oCo[6] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.300f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
-        oCo[7] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
-        oCo[8] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
-        oCo[9] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.600f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
-        oCo[10] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.700f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
-        oCo[11] = new OCo(0, false, true, true, true, WORLD_WIDTH*0.800f, WORLD_HEIGHT*0.502f, 10, 20, oCoBlue[0]);
+        oCo[6] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.300f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
+        oCo[7] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
+        oCo[8] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
+        oCo[9] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.600f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
+        oCo[10] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.700f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
+        oCo[11] = new OCo(10, false, true, true, true, WORLD_WIDTH*0.800f, WORLD_HEIGHT*0.502f, 10, 20, oCoBlue[0]);
         oCo[12] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.180f, 30, 10, oCoThuongRegions[0]);
         oCo[13] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.850f, 30, 10, oCoThuongRegions[0]);
     }
@@ -517,7 +536,7 @@ public class GameScreen implements Screen {
         fontBorrow.draw(batch, String.format(Locale.getDefault(), "%d", players[0].borrow), WORLD_WIDTH*0.535f, WORLD_HEIGHT*0.100f, 0, Align.left, false);
         fontBorrow.draw(batch, String.format(Locale.getDefault(), "%d", players[1].borrow), WORLD_WIDTH*0.535f, WORLD_HEIGHT*0.756f, 0, Align.left, false);
 
-        font.draw(batch, String.format(Locale.getDefault(), "Player 1: %d\nPlayer 2: %d", players[0].score, players[1].score), oCo[11].getCenterXY()[0] + oCo[11].boundingBox.width, oCo[11].getCenterXY()[1], 0, Align.left, false);
+        //font.draw(batch, String.format(Locale.getDefault(), "Player 1: %d\nPlayer 2: %d", players[0].score, players[1].score), oCo[11].getCenterXY()[0] + oCo[11].boundingBox.width, oCo[11].getCenterXY()[1], 0, Align.left, false);
 
     }
 
@@ -719,5 +738,32 @@ public class GameScreen implements Screen {
     @Override
     public void dispose() {
 
+    }
+
+    public void receiveData() {
+        String moveMessage = operationNetwork.GetMessage();
+        if (!moveMessage.isEmpty()) {
+            moveMessage = moveMessage.replaceFirst("400", "");
+            String[] listStringMove = moveMessage.split("\\/\\*\\*\\/");
+
+
+
+            ODuocChon = Integer.valueOf(listStringMove[0]);
+
+            direction.grabAnimation.setPosition(oCo[ODuocChon].boundingBox);
+            ListGrabAnimation.add(direction.grabAnimation);
+
+            // set direction for hand
+            hand.setDirection(Integer.valueOf(listStringMove[1]));
+            hand.setPoint(oCo[ODuocChon].numberCo);
+            hand.setCurCell(ODuocChon);
+            hand.isEndTurn=false;
+
+            // cap nhat diem cho oCo
+            hand.grabCell=ODuocChon;
+            //oCO[gs.ODuocChon].setNumberCo(0);
+
+
+        }
     }
 }

@@ -14,7 +14,6 @@ public class Menu extends AppCompatActivity {
 
     ImageButton bt_Back;
     Button bt_Logout;
-    Button bt_BXH;
     Button bt_Edit;
 
     @Override
@@ -25,7 +24,6 @@ public class Menu extends AppCompatActivity {
 
         bt_Back = (ImageButton) findViewById(R.id.bt_back_A_menu);
         bt_Logout = (Button) findViewById(R.id.bt_logout_A_menu);
-        bt_BXH = (Button) findViewById(R.id.bt_bxh_A_menu);
         bt_Edit = (Button) findViewById(R.id.bt_edit_info_A_menu);
 
         bt_Back.setOnClickListener(new View.OnClickListener() {
