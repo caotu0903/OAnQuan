@@ -9,10 +9,12 @@ public class Room implements Serializable {
     String roomName;
     String nameHost;
     String namePlayer;
+    Boolean playerReady;
 
     public Room(String roomID, int numberPlayer) {
         this.roomID = roomID;
         this.numberPlayer = numberPlayer;
+        this.playerReady = false;
 
         String[] splitRoomID = this.roomID.split("-");
         if (splitRoomID[0].equals("OAQ"))
@@ -75,5 +77,13 @@ public class Room implements Serializable {
 
     public void setNamePlayer(String namePlayer) {
         this.namePlayer = namePlayer;
+    }
+
+    public Boolean getPlayerReady() {
+        return playerReady;
+    }
+
+    public void setPlayerReady(Boolean playerReady) {
+        this.playerReady = playerReady;
     }
 }

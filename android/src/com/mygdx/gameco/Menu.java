@@ -31,9 +31,8 @@ public class Menu extends AppCompatActivity {
         bt_Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_back = new Intent(Menu.this, ChooseGame.class);
-                startActivity(intent_back);
                 overridePendingTransition(R.anim.anim_in_right, R.anim.anim_out_left);
+                finish();
             }
         });
         bt_Logout.setOnClickListener(new View.OnClickListener() {

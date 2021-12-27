@@ -36,8 +36,7 @@ public class ChooseRoom extends Activity {
         bt_Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_back = new Intent(ChooseRoom.this, ChooseGame.class);
-                startActivity(intent_back); }
+                finish(); }
         });
 
         bt_Create.setOnClickListener(new View.OnClickListener() {
@@ -133,6 +132,10 @@ public class ChooseRoom extends Activity {
                 listRoom.add(new Room(listStringRoom[i], Integer.parseInt(listStringRoom[i + 1]), listStringRoom[i + 2]));
             }
 
+            listRoomAdapter.notifyDataSetChanged();
+        }
+        else {
+            listRoom.clear();
             listRoomAdapter.notifyDataSetChanged();
         }
     }
