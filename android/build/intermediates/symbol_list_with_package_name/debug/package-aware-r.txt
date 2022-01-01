@@ -2632,7 +2632,6 @@ id bt_back_A_edit_info
 id bt_back_A_menu
 id bt_back_A_singup
 id bt_back_A_waiting_room
-id bt_bxh_A_menu
 id bt_create_A_choose_room
 id bt_edit_account_name_A_edit_info
 id bt_edit_info_A_menu
@@ -2647,7 +2646,6 @@ id bt_refresh_A_choose_room
 id bt_signup
 id bt_signup_A_signup
 id bt_start_A_waiting_room
-id bt_test
 id buttonPanel
 id cache_measures
 id callMeasure

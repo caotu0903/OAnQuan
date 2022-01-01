@@ -14,34 +14,42 @@
         android:theme="@style/GdxTheme">
         <activity
             android:name=".Waiting_Room"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".ChooseRoom"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".EditInfo"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".Menu"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".ChooseGame"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".SignUp"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Login"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".TabPlay"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

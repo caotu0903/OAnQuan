@@ -226,7 +226,9 @@ public class GameScreen implements Screen {
             @Override
             protected void result(Object object) {
                 //xu ly khi click button OK
-                dispose();
+                //dispose();
+                //operationNetwork.SendMessage("303" + roomID);
+                operationNetwork.CallFinish();
             }
         };
         gameOverDialog.pack();
@@ -602,10 +604,10 @@ public class GameScreen implements Screen {
                         //show end game dialog
                         String winner="";
                         if (players[0].score>players[1].score) {
-                            winner = "player1";
+                            winner = userName;
                         }
                         else if (players[0].score<players[1].score) {
-                            winner = "player2";
+                            winner = opponentName;
                         }
                         else {
                             winner = "Hoa";

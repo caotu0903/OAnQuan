@@ -109,7 +109,7 @@ public class Login extends Activity {
         @Override
         public void run() {
             try {
-                clientSocket = new Socket("192.168.100.8", 8080);
+                clientSocket = new Socket("113.162.161.122", 8080);
                 output = new PrintWriter(clientSocket.getOutputStream());
                 input = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 

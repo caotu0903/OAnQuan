@@ -21,7 +21,7 @@ public class AndroidLauncher extends AndroidApplication {
 		Intent intent = this.getIntent();
 		roomID = intent.getStringExtra("RoomID");
 		userName = intent.getStringExtra("Username");
-		opponentName = intent.getStringExtra("Oppenentname");
+		opponentName = intent.getStringExtra("Opponentname");
 		canGo = intent.getBooleanExtra("Gofirst", true);
 
 		operationNetwork = new OperationNetwork() {
@@ -33,6 +33,11 @@ public class AndroidLauncher extends AndroidApplication {
 			@Override
 			public void SendMessage(String message) {
 				Login.getLoginActivity().SendMessage(message);
+			}
+
+			@Override
+			public void CallFinish() {
+				finish();
 			}
 		};
 

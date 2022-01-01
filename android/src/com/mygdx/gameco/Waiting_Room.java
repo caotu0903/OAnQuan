@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Waiting_Room extends AppCompatActivity {
@@ -106,6 +107,7 @@ public class Waiting_Room extends AppCompatActivity {
         }
         else {
             room = new Room(roomID, 2);
+            bt_Start.setActivated(false);
         }
     }
 
@@ -157,12 +159,12 @@ public class Waiting_Room extends AppCompatActivity {
                             start_game_intent.putExtra("RoomID", room.getRoomID());
                             if (role.equals("host")) {
                                 start_game_intent.putExtra("Username", room.getNameHost());
-                                start_game_intent.putExtra("Opponentname", room.getRoomID());
+                                start_game_intent.putExtra("Opponentname", room.getNamePlayer());
                                 start_game_intent.putExtra("Gofirst", true);
                             }
                             else {
                                 start_game_intent.putExtra("Username", room.getNameHost());
-                                start_game_intent.putExtra("Opponentname", room.getRoomID());
+                                start_game_intent.putExtra("Opponentname", room.getNamePlayer());
                                 start_game_intent.putExtra("Gofirst", false);
                             }
 
@@ -182,9 +184,25 @@ public class Waiting_Room extends AppCompatActivity {
             bt_Invite.setActivated(true);
             bt_Invite.setVisibility(View.VISIBLE);
             bt_Start.setText("Bắt đầu");
+            if (room.getPlayerReady()) {
+                bt_Start.setActivated(true);
+            }
+            else {
+                bt_Start.setActivated(false);
+            }
         }
         tv_roomname.setText(room.getRoomName());
         tv_nameHost.setText(room.getNameHost());
         tv_namePlayer.setText(room.getNamePlayer());
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        room.setPlayerReady(false);
+        gameStart = false;
+        updateScreen();
+        GetRoomInfo();
     }
 }
