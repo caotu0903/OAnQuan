@@ -208,6 +208,7 @@ public class GameScreen implements Screen {
             protected void result(Object object) {
                 //xu ly khi click button OK
                 resetOCo();
+                isDetectInput=true;
             }
         };
         gameOverDialog.pack();
@@ -281,9 +282,9 @@ public class GameScreen implements Screen {
     private void updateAnLinhAnimation() {
         //
         if (hand.isShowAnLinh) {
-            int next1 = hand.calcNextIndexWithNumber(hand.curCell, hand.direction,1);
-            int next2 = hand.calcNextIndexWithNumber(hand.curCell, hand.direction, 2);
-            if (oCo[next1].getNumberCo() == 0 && hand.checkGrabContinueNumber(hand.curCell, hand.direction, 2) && hand.isFinishMove()) {
+            int next1 = hand.calcNextIndex(hand.curCell, hand.direction);
+            int next2 = hand.calcNextIndex(next1, hand.direction);
+            if (oCo[next1].getNumberCo() == 0 && oCo[next2].getNumberCo() != 0 && hand.isFinishMove()) {
                 if (this.ListGrabAnimation.size()==0) {
                     hand.curCell=next2;
                     hand.grabAnimation.setPosition(oCo[next2].boundingBox);
@@ -593,7 +594,8 @@ public class GameScreen implements Screen {
                         }
                         initGameOverDialog(winner);
                         gameOverDialog.setVisible(true);
-
+                        isDetectInput=false;
+                        return;
                     }
 
                     isDetectInput=true;

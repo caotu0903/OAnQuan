@@ -154,24 +154,28 @@ public class Hand {
                 gameScreen.ListGrabAnimation.add(grabAnimation);
 
                 // kiem tra xem co duoc lay da tiep hay k
-                int next1 = calcNextIndexWithNumber(curCell,direction,1);
-                int next2 = calcNextIndexWithNumber(curCell, direction, 2);
-                if (board[next1].getNumberCo() == 0 && checkGrabContinueNumber(curCell, direction, 2) && isFinishMove()) {
-                    if (!(gameScreen.turnNumber==0 && (next2==11 || next2==5))) {
-                        isShowAnLinh = true;
-                        this.grabCell = -1;
+                if (this.point==0) {
+                    int next1 = calcNextIndex(curCell,direction);
+                    int next2 = calcNextIndex(next1, direction);
+                    if (board[next1].getNumberCo()==0) {
+                        if (board[next2].getNumberCo()==0) { //stop
+                            isEndTurn=true;
+                        }
+                        else { //An linh
+                            isShowAnLinh = true;
+                            this.grabCell = -1;
+                        }
                     }
                     else {
-                        isEndTurn=true;
+                        if (next1==11 || next1==5) { //stop
+                            isEndTurn=true;
+                        }
+                        else { //continue
+                            this.point = -1;
+                            this.grabCell = -1;
+                        }
                     }
-                }
-                else if (checkGrabContinue(curCell, direction) && isFinishMove()) {
-                    this.point = -1;
-                    this.grabCell = -1;
-                }
 
-                if (!checkGrabContinue(curCell, direction) && this.point==0){ // ket thuc luot di
-                    isEndTurn = true;
                 }
             }
         }
