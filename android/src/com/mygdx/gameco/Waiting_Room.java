@@ -66,8 +66,14 @@ public class Waiting_Room extends AppCompatActivity {
                 Login.getLoginActivity().SendMessage("202" + roomID);
 
                 String ReceiveData = "";
-                while (ReceiveData.isEmpty()) {
-                    ReceiveData = Login.getLoginActivity().GetMessage("001");
+                try {
+                    Login.getLoginActivity().semaphore.acquire();
+                    while (ReceiveData.isEmpty()) {
+                        ReceiveData = Login.getLoginActivity().GetMessage("001");
+                    }
+                    Login.getLoginActivity().semaphore.release();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
 
                 if (ReceiveData.startsWith("001")) {
@@ -124,8 +130,27 @@ public class Waiting_Room extends AppCompatActivity {
         @Override
         public void run() {
             while (!gameStart) {
-                String roomInfoMessage = Login.getLoginActivity().GetMessage("310");
-                String startInfoMessage = Login.getLoginActivity().GetMessage("300");
+
+                // test
+                String roomInfoMessage = "";
+                String startInfoMessage = "";
+
+                try {
+                    Login.getLoginActivity().semaphore.acquire();
+                    roomInfoMessage = Login.getLoginActivity().GetMessage("310");
+                    Login.getLoginActivity().semaphore.release();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                try {
+                    Login.getLoginActivity().semaphore.acquire();
+                    startInfoMessage = Login.getLoginActivity().GetMessage("300");
+                    Login.getLoginActivity().semaphore.release();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
                 if (!roomInfoMessage.isEmpty()) {
                     roomInfoMessage = roomInfoMessage.replaceFirst("310", "");
                     String[] listStringRoom = roomInfoMessage.split("\\/\\*\\*\\/");
@@ -163,8 +188,8 @@ public class Waiting_Room extends AppCompatActivity {
                                 start_game_intent.putExtra("Gofirst", true);
                             }
                             else {
-                                start_game_intent.putExtra("Username", room.getNameHost());
-                                start_game_intent.putExtra("Opponentname", room.getNamePlayer());
+                                start_game_intent.putExtra("Username", room.getNamePlayer());
+                                start_game_intent.putExtra("Opponentname", room.getNameHost());
                                 start_game_intent.putExtra("Gofirst", false);
                             }
 
