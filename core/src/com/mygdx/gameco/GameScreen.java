@@ -1,6 +1,7 @@
 package com.mygdx.gameco;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
@@ -302,8 +303,8 @@ public class GameScreen implements Screen {
     private void updateAnLinhAnimation() {
         //
         if (hand.isShowAnLinh) {
-            int next1 = hand.calcNextIndexWithNumber(hand.curCell, hand.direction,1);
-            int next2 = hand.calcNextIndexWithNumber(hand.curCell, hand.direction, 2);
+            int next1 = hand.calcNextIndex(hand.curCell, hand.direction);
+            int next2 = hand.calcNextIndex(next1, hand.direction);
             if (oCo[next1].getNumberCo() == 0 && hand.checkGrabContinueNumber(hand.curCell, hand.direction, 2) && hand.isFinishMove()) {
                 if (this.ListGrabAnimation.size()==0) {
                     hand.curCell=next2;
