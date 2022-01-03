@@ -12,6 +12,7 @@ import android.widget.Toast;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Semaphore;
 
 public class ChooseRoom extends Activity {
 
@@ -23,6 +24,8 @@ public class ChooseRoom extends Activity {
 
     ListRoomAdapter listRoomAdapter;
     List<Room> listRoom;
+
+    Semaphore semaphore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,10 @@ public class ChooseRoom extends Activity {
         bt_Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish(); }
+                Intent intent_joinroom = new Intent(ChooseRoom.this, ChooseGame.class);
+                startActivity(intent_joinroom);
+                overridePendingTransition(R.anim.anim_in_left, R.anim.anim_out_right);
+            }
         });
 
         bt_Create.setOnClickListener(new View.OnClickListener() {
@@ -45,9 +51,21 @@ public class ChooseRoom extends Activity {
                 Login.getLoginActivity().SendMessage("200");
 
                 String ReceiveData = "";
-                while (ReceiveData.isEmpty()) {
-                    ReceiveData = Login.getLoginActivity().GetMessage();
+
+                try {
+                    semaphore.acquire();
+                    while (ReceiveData.isEmpty()) {
+                        ReceiveData = Login.getLoginActivity().GetMessage();
+                    }
+                    semaphore.release();
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
+
+                /*while (ReceiveData.isEmpty()) {
+                    ReceiveData = Login.getLoginActivity().GetMessage();
+                }*/
 
                 if (ReceiveData.startsWith("001")) {
                     ReceiveData = ReceiveData.replaceFirst("001", "");
@@ -56,6 +74,7 @@ public class ChooseRoom extends Activity {
                     intent_join_room.putExtra("RoomID", ReceiveData);
                     intent_join_room.putExtra("Role", "host");
                     startActivity(intent_join_room);
+                    overridePendingTransition(R.anim.anim_in_right, R.anim.anim_out_left);
                 }
 
             }
@@ -81,15 +100,28 @@ public class ChooseRoom extends Activity {
                 Login.getLoginActivity().SendMessage("201" + listRoom.get(position).roomID);
 
                 String ReceiveData = "";
-                while (ReceiveData.isEmpty()) {
-                    ReceiveData = Login.getLoginActivity().GetMessage();
+
+                try {
+                    semaphore.acquire();
+                    while (ReceiveData.isEmpty()) {
+                        ReceiveData = Login.getLoginActivity().GetMessage();
+                    }
+                    semaphore.release();
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
+
+                /*while (ReceiveData.isEmpty()) {
+                    ReceiveData = Login.getLoginActivity().GetMessage();
+                }*/
 
                 if (ReceiveData.startsWith("210")) {
                     Intent intent_join_room = new Intent(ChooseRoom.this, Waiting_Room.class);
                     intent_join_room.putExtra("RoomID", listRoom.get(position).getRoomID());
                     intent_join_room.putExtra("Role", "player");
                     startActivity(intent_join_room);
+                    overridePendingTransition(R.anim.anim_in_right, R.anim.anim_out_left);
                 }
                 else if (ReceiveData.startsWith("220")) {
                     Toast.makeText(getApplicationContext(), "Phòng không còn tồn tại", Toast.LENGTH_SHORT).show();
@@ -112,15 +144,28 @@ public class ChooseRoom extends Activity {
         listRoom = new ArrayList<>();
         listRoomAdapter = new ListRoomAdapter(this, R.layout.item_room, listRoom);
         gv_ListRoom.setAdapter(listRoomAdapter);
+        semaphore = new Semaphore(1);
     }
 
     public void GetRoomInfo() {
         Login.getLoginActivity().SendMessage("222");
 
         String ReceiveData = "";
-        while (ReceiveData.isEmpty()) {
-            ReceiveData = Login.getLoginActivity().GetMessage();
+
+        try {
+            semaphore.acquire();
+            while (ReceiveData.isEmpty()) {
+                ReceiveData = Login.getLoginActivity().GetMessage();
+            }
+            semaphore.release();
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+
+        /*while (ReceiveData.isEmpty()) {
+            ReceiveData = Login.getLoginActivity().GetMessage();
+        }*/
 
         ReceiveData = ReceiveData.replaceFirst("222", "");
 
@@ -131,12 +176,19 @@ public class ChooseRoom extends Activity {
             for (int i = 0; i < listStringRoom.length; i += 3) {
                 listRoom.add(new Room(listStringRoom[i], Integer.parseInt(listStringRoom[i + 1]), listStringRoom[i + 2]));
             }
-
-            listRoomAdapter.notifyDataSetChanged();
         }
         else {
             listRoom.clear();
-            listRoomAdapter.notifyDataSetChanged();
         }
+        listRoomAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent intent_joinroom = new Intent(ChooseRoom.this, ChooseGame.class);
+        startActivity(intent_joinroom);
+        overridePendingTransition(R.anim.anim_in_left, R.anim.anim_out_right);
     }
 }

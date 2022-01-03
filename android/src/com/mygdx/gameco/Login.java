@@ -82,6 +82,7 @@ public class Login extends Activity {
                         if (ReceiveData.startsWith("001")) {
                             Intent intent = new Intent(Login.this, ChooseGame.class);
                             startActivity(intent);
+                            overridePendingTransition(R.anim.anim_in_right, R.anim.anim_out_left);
                             Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                         } else if (ReceiveData.startsWith("000")) {
                             Toast.makeText(getApplicationContext(), "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
@@ -128,7 +129,7 @@ public class Login extends Activity {
 
         @Override
         public void run() {
-            while (true) {
+            while (!clientSocket.isClosed()) {
                 try {
                     String listenMessage = input.readLine();
                     if (!listenMessage.isEmpty()) {

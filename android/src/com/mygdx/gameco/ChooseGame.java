@@ -26,6 +26,7 @@ public class ChooseGame extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent_waitroom = new Intent(ChooseGame.this, ChooseRoom.class);
                 startActivity(intent_waitroom);
+                overridePendingTransition(R.anim.anim_in_right, R.anim.anim_out_left);
             }
         });
 

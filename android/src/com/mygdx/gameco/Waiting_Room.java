@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.concurrent.Semaphore;
+
 public class Waiting_Room extends AppCompatActivity {
 
     TextView tv_roomname;
@@ -25,6 +27,8 @@ public class Waiting_Room extends AppCompatActivity {
     String roomID;
     Room room;
     Boolean gameStart;
+
+    Semaphore semaphore;
 
     Intent start_game_intent;
 
@@ -67,17 +71,19 @@ public class Waiting_Room extends AppCompatActivity {
 
                 String ReceiveData = "";
                 try {
-                    Login.getLoginActivity().semaphore.acquire();
+                    semaphore.acquire();
                     while (ReceiveData.isEmpty()) {
                         ReceiveData = Login.getLoginActivity().GetMessage("001");
                     }
-                    Login.getLoginActivity().semaphore.release();
+                    semaphore.release();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
 
                 if (ReceiveData.startsWith("001")) {
-                    finish();
+                    Intent intent_outroom = new Intent(Waiting_Room.this, ChooseRoom.class);
+                    startActivity(intent_outroom);
+                    overridePendingTransition(R.anim.anim_in_left, R.anim.anim_out_right);
                 }
             }
         });
@@ -93,6 +99,8 @@ public class Waiting_Room extends AppCompatActivity {
         bt_Kick = (Button) findViewById(R.id.bt_kick_A_waiting_room);
         bt_Back = (ImageButton) findViewById(R.id.bt_back_A_waiting_room);
         start_game_intent = new Intent(Waiting_Room.this, AndroidLauncher.class);
+
+        semaphore = new Semaphore(1);
 
         Intent intent = getIntent();
         roomID = intent.getStringExtra("RoomID");
@@ -136,17 +144,17 @@ public class Waiting_Room extends AppCompatActivity {
                 String startInfoMessage = "";
 
                 try {
-                    Login.getLoginActivity().semaphore.acquire();
+                    semaphore.acquire();
                     roomInfoMessage = Login.getLoginActivity().GetMessage("310");
-                    Login.getLoginActivity().semaphore.release();
+                    semaphore.release();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
 
                 try {
-                    Login.getLoginActivity().semaphore.acquire();
+                    semaphore.acquire();
                     startInfoMessage = Login.getLoginActivity().GetMessage("300");
-                    Login.getLoginActivity().semaphore.release();
+                    semaphore.release();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -193,7 +201,7 @@ public class Waiting_Room extends AppCompatActivity {
                                 start_game_intent.putExtra("Gofirst", false);
                             }
 
-                            startActivity(start_game_intent);
+                            startActivityForResult(start_game_intent, 1111);
                         }
                     });
                 }
@@ -221,13 +229,43 @@ public class Waiting_Room extends AppCompatActivity {
         tv_namePlayer.setText(room.getNamePlayer());
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        if (role.equals("player")) {
+            bt_Start.setText("Sẵn sàng");
+        }
 
         room.setPlayerReady(false);
         gameStart = false;
         updateScreen();
         GetRoomInfo();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        gameStart = true;
+        Login.getLoginActivity().SendMessage("202" + roomID);
+
+        String ReceiveData = "";
+        try {
+            semaphore.acquire();
+            while (ReceiveData.isEmpty()) {
+                ReceiveData = Login.getLoginActivity().GetMessage("001");
+            }
+            semaphore.release();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        if (ReceiveData.startsWith("001")) {
+            Intent intent_outroom = new Intent(Waiting_Room.this, ChooseRoom.class);
+            startActivity(intent_outroom);
+            overridePendingTransition(R.anim.anim_in_left, R.anim.anim_out_right);
+        }
     }
 }
