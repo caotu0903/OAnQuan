@@ -24,6 +24,7 @@ import java.io.UnsupportedEncodingException;
 import java.lang.ref.WeakReference;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.concurrent.Semaphore;
 
 public class Login extends Activity {
 
@@ -33,11 +34,12 @@ public class Login extends Activity {
     public Thread networkThread;
     public ArrayList<String> listenArrayMessage;
 
+    public Semaphore semaphore;
+
     EditText et_Username;
     EditText et_Pass;
     Button bt_Signup;
     Button bt_Login;
-    Button bt_Test;
 
     public static WeakReference<Login> loginActivity;
 
@@ -55,6 +57,8 @@ public class Login extends Activity {
 
         et_Username = (EditText)findViewById(R.id.edt_username);
         et_Pass = (EditText)findViewById(R.id.edt_password);
+
+        semaphore = new Semaphore(1);
 
         listenArrayMessage = new ArrayList<>();
         networkThread = new Thread(new NetworkThread());
@@ -160,10 +164,15 @@ public class Login extends Activity {
     }
 
     public String GetMessage (String startCode) {
-        if (!listenArrayMessage.isEmpty() && listenArrayMessage.get(0).startsWith(startCode)) {
-            String getMessage = listenArrayMessage.get(0);
-            listenArrayMessage.remove(0);
-            return getMessage;
+        if (!listenArrayMessage.isEmpty()) {
+            if (listenArrayMessage.get(0).startsWith(startCode)) {
+                String getMessage = listenArrayMessage.get(0);
+                listenArrayMessage.remove(0);
+                return getMessage;
+            }
+            else {
+                return "";
+            }
         }
         else {
             return "";
