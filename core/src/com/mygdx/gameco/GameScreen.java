@@ -1,6 +1,7 @@
 package com.mygdx.gameco;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
@@ -39,7 +40,7 @@ import java.util.Locale;
 
 import jdk.internal.org.jline.utils.Log;
 
-public class GameScreen implements Screen {
+public class GameScreen implements Screen{
 
     //screen
     private Camera camera;
@@ -94,6 +95,7 @@ public class GameScreen implements Screen {
     Player[] players;
 
     Dialog gameOverDialog;
+    Dialog quitGameDialog;
 
     GameScreen() {
 
@@ -101,6 +103,7 @@ public class GameScreen implements Screen {
         viewport = new StretchViewport(WORLD_WIDTH,WORLD_HEIGHT,camera);
         stage = new Stage(viewport);
         Gdx.input.setInputProcessor(stage);
+        Gdx.input.setCatchKey(Input.Keys.BACK, true);
 
         //set up the texture atlas
         textureOCo = new TextureAtlas("o_co_image.atlas");
@@ -152,7 +155,7 @@ public class GameScreen implements Screen {
 
         //
         isGameOver = false;
-
+        //initQuitGameDialog();
     }
 
     @Override
@@ -187,14 +190,51 @@ public class GameScreen implements Screen {
         updateSpreadLinh(delta);
 
         batch.end();
-
+        if (Gdx.input.isKeyJustPressed(Input.Keys.BACK)) {
+            initQuitGameDialog();
+        }
         stage.act();
         stage.draw();
     }
 
+    boolean isSwipeBack = false;
+
+    private void initQuitGameDialog() {
+        Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
+        Dialog quitGameDialog = new Dialog("Quit Game", skin) {
+
+            {
+                text("Are you sure you want to quit?");
+                button("Sure", "1");
+                button("Cancel", "0");
+                setScale(0.3f);
+                setKeepWithinStage(false);
+                setMovable(false);
+            }
+
+            @Override
+            protected void result(Object object) {
+                //xu ly khi click button OK
+                String res = (String) object;
+                if (res == "1") {
+                    resetOCo();
+                } else if (res == "0") {
+                    setVisible(false);
+                    isSwipeBack=false;
+                }
+            }
+        };
+        quitGameDialog.pack();
+        quitGameDialog.setPosition(WORLD_WIDTH / 2 - quitGameDialog.getWidth() / 2 * 0.3f,
+                WORLD_HEIGHT / 2 - quitGameDialog.getHeight() / 2 * 0.3f);
+        //quitGameDialog.setVisible(false);
+        stage.addActor(quitGameDialog);
+
+    }
+
     private void initGameOverDialog(final String winner) {
         Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
-        gameOverDialog = new Dialog("Game Over", skin) {
+        Dialog gameOverDialog = new Dialog("Game Over", skin) {
 
             {
                 text("Winner: " + winner);
@@ -409,7 +449,7 @@ public class GameScreen implements Screen {
         oCo[13] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.850f, 30, 10, oCoThuongRegions[0]);
     }
 
-    private void resetOCo() {
+    public void resetOCo() {
         oCo[0].setAttribute(5, false, false, false, false, oCoThuongRegions[5]);
         oCo[1].setAttribute(5, false, false, false, false, oCoThuongRegions[5]);
         oCo[2].setAttribute(5, false, false, false, false, oCoThuongRegions[5]);
