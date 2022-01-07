@@ -113,6 +113,7 @@ public class GameScreen implements Screen {
         viewport = new StretchViewport(WORLD_WIDTH,WORLD_HEIGHT,camera);
         stage = new Stage(viewport);
         Gdx.input.setInputProcessor(stage);
+        Gdx.input.setCatchKey(Input.Keys.BACK, true);
 
         //set up the texture atlas
         textureOCo = new TextureAtlas("o_co_image.atlas");
@@ -207,9 +208,44 @@ public class GameScreen implements Screen {
         updateSpreadLinh(delta);
 
         batch.end();
-
+        if (Gdx.input.isKeyJustPressed(Input.Keys.BACK)) {
+            initQuitGameDialog();
+        }
         stage.act();
         stage.draw();
+    }
+
+    private void initQuitGameDialog() {
+        Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
+        Dialog quitGameDialog = new Dialog("Quit Game", skin) {
+
+            {
+                text("Are you sure you want to quit?");
+                button("Sure", "1");
+                button("Cancel", "0");
+                setScale(0.3f);
+                setKeepWithinStage(false);
+                setMovable(false);
+            }
+
+            @Override
+            protected void result(Object object) {
+                //xu ly khi click button OK
+                String res = (String) object;
+                if (res == "1") {
+                    //xu ly quit game - ve lai phong cho
+                    operationNetwork.CallFinish();
+                } else if (res == "0") {
+                    setVisible(false);
+                }
+            }
+        };
+        quitGameDialog.pack();
+        quitGameDialog.setPosition(WORLD_WIDTH / 2 - quitGameDialog.getWidth() / 2 * 0.3f,
+                WORLD_HEIGHT / 2 - quitGameDialog.getHeight() / 2 * 0.3f);
+        //quitGameDialog.setVisible(false);
+        stage.addActor(quitGameDialog);
+
     }
 
     private void initGameOverDialog(final String winner) {
