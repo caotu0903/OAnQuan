@@ -64,6 +64,10 @@ public class Direction {
                 grabAnimation.setPosition(oCO[gs.ODuocChon].boundingBox);
                 gs.ListGrabAnimation.add(grabAnimation);
 
+                //sound
+                long id = gs.grabSound.play(0.2f);
+                gs.grabSound.setPitch(id, 2f);
+
                 // set direction for hand
                 gs.hand.setDirection(1);
                 gs.hand.setPoint(oCO[gs.ODuocChon].numberCo);
@@ -87,6 +91,10 @@ public class Direction {
 
                 grabAnimation.setPosition(oCO[gs.ODuocChon].boundingBox);
                 gs.ListGrabAnimation.add(grabAnimation);
+
+                //sound
+                long id = gs.grabSound.play(0.2f);
+                gs.grabSound.setPitch(id, 2f);
 
                 // set direction for hand
                 gs.hand.setDirection(-1);

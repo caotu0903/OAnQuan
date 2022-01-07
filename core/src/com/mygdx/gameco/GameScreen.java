@@ -3,6 +3,8 @@ package com.mygdx.gameco;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -97,6 +99,11 @@ public class GameScreen implements Screen{
     Dialog gameOverDialog;
     Dialog quitGameDialog;
 
+    //Sound/Music
+    Sound dropSound;
+    Sound grabSound;
+    Music[] backgroundMusic;
+
     GameScreen() {
 
         camera = new OrthographicCamera();
@@ -122,7 +129,7 @@ public class GameScreen implements Screen{
 
         //set up game object
         initCellArray();
-        hand = new Hand(3, 0.1f, textureAniAndDirec.findRegion("grab"), oCo, this);
+        hand = new Hand(3, 0.6f, textureAniAndDirec.findRegion("grab"), oCo, this);
 
         //set up direction and animation
         initAnimationAndDirec();
@@ -156,10 +163,37 @@ public class GameScreen implements Screen{
         //
         isGameOver = false;
         //initQuitGameDialog();
+
+//        //sound
+//        long idBackgroundMusic = backgroundMusic.play(0.1f);
+//        backgroundMusic.setLooping(idBackgroundMusic, true);
+//        backgroundMusic.
+        initSoundAndMusic();
+    }
+
+    private void initSoundAndMusic() {
+        dropSound = Gdx.audio.newSound(Gdx.files.internal("audio/drop_rock.mp3"));
+        grabSound = Gdx.audio.newSound(Gdx.files.internal("audio/grab_rock.mp3"));
+        backgroundMusic = new Music[3];
+        backgroundMusic[0] = Gdx.audio.newMusic(Gdx.files.internal("audio/bensound-ukulele.mp3"));
+        backgroundMusic[1] = Gdx.audio.newMusic(Gdx.files.internal("audio/bensound-sunny.mp3"));
+        backgroundMusic[2] = Gdx.audio.newMusic(Gdx.files.internal("audio/bensound-buddy.mp3"));
+        backgroundMusic[0].play();
+        for (int i=0;i<3;i++) {
+            final int finalI = i;
+            backgroundMusic[i].setVolume(0.1f);
+            backgroundMusic[i].setOnCompletionListener(new Music.OnCompletionListener() {
+                @Override
+                public void onCompletion(Music music) {
+                    backgroundMusic[(finalI +1)%3].play();
+                }
+            });
+        }
     }
 
     @Override
     public void render(float delta) {
+
         batch.begin();
 
         //Background
@@ -179,7 +213,6 @@ public class GameScreen implements Screen{
         //update player turn sign
         updatePlayerTurnSign(delta);
 
-
         // Hand moving
         updateHandMoving(delta);
 
@@ -193,6 +226,9 @@ public class GameScreen implements Screen{
         if (Gdx.input.isKeyJustPressed(Input.Keys.BACK)) {
             initQuitGameDialog();
         }
+//        if (!this.ListGrabAnimation.isEmpty()) {
+//            oggSound.play(0.5f);
+//        }
         stage.act();
         stage.draw();
     }
@@ -292,6 +328,16 @@ public class GameScreen implements Screen{
             if (this.ListGrabAnimation.isEmpty()) {
                 hand.grabAnimation.setPosition(oCo[index].boundingBox);
                 this.ListGrabAnimation.add(hand.grabAnimation);
+
+                if (index==13||index==12) {
+                    long id = grabSound.play(0.1f);
+                    grabSound.setPitch(id, 2f);
+                }
+                else {
+                    //sound
+                    long id = dropSound.play(0.2f);
+                    dropSound.setPitch(id, 2f);
+                }
             }
         }
     }
@@ -329,6 +375,10 @@ public class GameScreen implements Screen{
                     hand.curCell=next2;
                     hand.grabAnimation.setPosition(oCo[next2].boundingBox);
                     this.ListGrabAnimation.add(hand.grabAnimation);
+
+                    //sound
+                    long id = grabSound.play(0.1f);
+                    grabSound.setPitch(id, 2f);
 
                     int dst = (turnNumber%2==0)?12:13;
                     oCo[dst].setNumberCo(oCo[dst].getNumberCo() + oCo[next2].getNumberCo());
@@ -533,6 +583,11 @@ public class GameScreen implements Screen{
         fontParameter.color = new Color(Color.RED);
         fontBorrow = fontGenerator.generateFont(fontParameter);
 
+//        font = new BitmapFont(Gdx.files.internal("font/Arial.fnt"));
+//        fontBorrow = new BitmapFont(Gdx.files.internal("font/Arial.fnt"));
+//        font.setColor(Color.BLACK);
+//        fontBorrow.setColor(Color.RED);
+
         //scale the font to fit world
         font.getData().setScale(0.085f);
         fontBorrow.getData().setScale(0.085f);
@@ -558,13 +613,16 @@ public class GameScreen implements Screen{
         fontBorrow.draw(batch, String.format(Locale.getDefault(), "%d", players[0].borrow), WORLD_WIDTH*0.535f, WORLD_HEIGHT*0.100f, 0, Align.left, false);
         fontBorrow.draw(batch, String.format(Locale.getDefault(), "%d", players[1].borrow), WORLD_WIDTH*0.535f, WORLD_HEIGHT*0.756f, 0, Align.left, false);
 
-        font.draw(batch, String.format(Locale.getDefault(), "Player 1: %d\nPlayer 2: %d", players[0].score, players[1].score), oCo[11].getCenterXY()[0] + oCo[11].boundingBox.width, oCo[11].getCenterXY()[1], 0, Align.left, false);
-
+//        font.draw(batch, String.format(Locale.getDefault(), "Player 1: %d\nPlayer 2: %d", players[0].score, players[1].score),
+//                oCo[11].getCenterXY()[0] + oCo[11].boundingBox.width, oCo[11].getCenterXY()[1], 0, Align.left, false);
+//        font.draw(batch, "Gia Bảo",
+//                0, oCo[13].getCenterXY()[1], 0, Align.left, false);
     }
 
     public void updateAndRenderGA(float deltaTime) {
         ListIterator<GrabAnimation> GAListIterator = ListGrabAnimation.listIterator();
         while (GAListIterator.hasNext()) {
+
             GrabAnimation ga = GAListIterator.next();
             ga.update(deltaTime);
             if (ga.isFinished()) {
@@ -760,6 +818,10 @@ public class GameScreen implements Screen{
 
     @Override
     public void dispose() {
-
+        dropSound.dispose();
+        grabSound.dispose();
+        for(int i=0;i<3;i++) {
+            backgroundMusic[i].dispose();
+        }
     }
 }
