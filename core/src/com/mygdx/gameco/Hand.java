@@ -133,6 +133,10 @@ public class Hand {
             grabAnimation.setPosition(board[curCell].boundingBox);
             gameScreen.ListGrabAnimation.add(grabAnimation);
 
+            //sound
+            long id = gameScreen.grabSound.play(0.1f);
+            gameScreen.grabSound.setPitch(id, 2f);
+
             this.isMoving = false;
 
             nextCellIndex = calcNextIndex(curCell, direction);
@@ -157,6 +161,10 @@ public class Hand {
                 this.isMoving = false;
                 grabAnimation.setPosition(board[nextCellIndex].boundingBox);
                 gameScreen.ListGrabAnimation.add(grabAnimation);
+
+                //sound
+                long id = gameScreen.dropSound.play(0.2f);
+                gameScreen.dropSound.setPitch(id, 2f);
 
                 // kiem tra xem co duoc lay da tiep hay k
                 if (this.point==0) {

@@ -3,6 +3,8 @@ package com.mygdx.gameco;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -83,7 +85,7 @@ public class GameScreen implements Screen {
 
     Stage stage;
 
-    //test ne
+    //Cua animation
     Texture textureCuaQuay;
     CuaQuay cuaQuay1, cuaQuay2;
 
@@ -91,16 +93,20 @@ public class GameScreen implements Screen {
     int turnNumber;
     boolean isGameOver;
 
-    //
+    // kiểm tra rải lính
     int spreadingLinhCount;
 
     boolean isDetectInput;
 
-    // nguoi choi
+    // người chơi
     Player[] players;
 
     Dialog gameOverDialog;
 
+    //Sound/Music
+    Sound dropSound;
+    Sound grabSound;
+    Music[] backgroundMusic;
 
     GameScreen(OperationNetwork operationNetwork, String roomID, String userName, String opponentName, boolean canGo) {
         this.operationNetwork = operationNetwork;
@@ -120,7 +126,6 @@ public class GameScreen implements Screen {
         textureBackground = new TextureAtlas("background_image.atlas");
         textureAniAndDirec = new TextureAtlas("animation_image.atlas");
         textureODiem = new TextureAtlas("o_diem_image.atlas");
-
 
         //initialize texture regions
         initTextureRegion();
@@ -171,7 +176,28 @@ public class GameScreen implements Screen {
         //
         isGameOver = false;
 
-        //new Thread(new GameDataInfo()).start();
+        // sound
+        initSoundAndMusic();
+    }
+
+    private void initSoundAndMusic() {
+        dropSound = Gdx.audio.newSound(Gdx.files.internal("audio/drop_rock.mp3"));
+        grabSound = Gdx.audio.newSound(Gdx.files.internal("audio/grab_rock.mp3"));
+        backgroundMusic = new Music[3];
+        backgroundMusic[0] = Gdx.audio.newMusic(Gdx.files.internal("audio/bensound-ukulele.mp3"));
+        backgroundMusic[1] = Gdx.audio.newMusic(Gdx.files.internal("audio/bensound-sunny.mp3"));
+        backgroundMusic[2] = Gdx.audio.newMusic(Gdx.files.internal("audio/bensound-buddy.mp3"));
+        backgroundMusic[0].play();
+        for (int i=0;i<3;i++) {
+            final int finalI = i;
+            backgroundMusic[i].setVolume(0.1f);
+            backgroundMusic[i].setOnCompletionListener(new Music.OnCompletionListener() {
+                @Override
+                public void onCompletion(Music music) {
+                    backgroundMusic[(finalI +1)%3].play();
+                }
+            });
+        }
     }
 
     @Override
@@ -346,6 +372,10 @@ public class GameScreen implements Screen {
                     hand.curCell=next2;
                     hand.grabAnimation.setPosition(oCo[next2].boundingBox);
                     this.ListGrabAnimation.add(hand.grabAnimation);
+
+                    //sound
+                    long id = grabSound.play(0.1f);
+                    grabSound.setPitch(id, 2f);
 
                     int dst = (turnNumber%2==0)?12:13;
                     oCo[dst].setNumberCo(oCo[dst].getNumberCo() + oCo[next2].getNumberCo());
@@ -785,12 +815,14 @@ public class GameScreen implements Screen {
             moveMessage = moveMessage.replaceFirst("400", "");
             String[] listStringMove = moveMessage.split("\\/\\*\\*\\/");
 
-
-
             ODuocChon = Integer.valueOf(listStringMove[0]);
 
             direction.grabAnimation.setPosition(oCo[ODuocChon].boundingBox);
             ListGrabAnimation.add(direction.grabAnimation);
+
+            //sound
+            long id = this.grabSound.play(0.2f);
+            this.grabSound.setPitch(id, 2f);
 
             // set direction for hand
             hand.setDirection(Integer.valueOf(listStringMove[1]));
@@ -801,7 +833,6 @@ public class GameScreen implements Screen {
             // cap nhat diem cho oCo
             hand.grabCell=ODuocChon;
             //oCO[gs.ODuocChon].setNumberCo(0);
-
 
         }
     }
