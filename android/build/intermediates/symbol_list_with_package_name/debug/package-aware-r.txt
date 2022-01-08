@@ -2630,6 +2630,7 @@ id bounceStart
 id bt_back_A_choose_room
 id bt_back_A_edit_info
 id bt_back_A_menu
+id bt_back_A_rank
 id bt_back_A_singup
 id bt_back_A_waiting_room
 id bt_create_A_choose_room
@@ -2643,6 +2644,7 @@ id bt_logout_A_menu
 id bt_menu_A_choosegame
 id bt_rank_A_choose_room
 id bt_refresh_A_choose_room
+id bt_refresh_A_rank
 id bt_signup
 id bt_signup_A_signup
 id bt_start_A_waiting_room
@@ -2800,6 +2802,9 @@ id linear
 id listMode
 id list_item
 id ll_item_room
+id ll_player_rank_item_A_item_rank
+id ll_rank_name_point_title_A_rank
+id lv_list_player_A_rank
 id masked
 id match_constraint
 id match_parent
@@ -3035,14 +3040,19 @@ id tv_oanquan
 id tv_password_A_signup
 id tv_player1_A_waiting_room
 id tv_player2_A_waiting_room
+id tv_player_name_A_item_rank
+id tv_point_A_item_rank
+id tv_rank_A_item_rank
 id tv_repassword_A_signup
 id tv_roomname_A_waiting_room
 id tv_roomname_item_room
 id tv_tabplay_A_edit_info
 id tv_tabplay_A_menu
 id tv_title_A_signup
+id tv_title_rank_A_rank
 id tv_title_room_A_choose_room
 id tv_title_welcome_A_choose_room
+id tv_title_welcome_A_rank
 id tv_username_A_signup
 id unchecked
 id uniform
@@ -3158,6 +3168,7 @@ layout activity_choose_room
 layout activity_edit_info
 layout activity_login
 layout activity_menu
+layout activity_rank
 layout activity_sign_up
 layout activity_tab_play
 layout activity_waiting_room
@@ -3177,6 +3188,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout item_rank
 layout item_room
 layout m3_alert_dialog
 layout m3_alert_dialog_actions

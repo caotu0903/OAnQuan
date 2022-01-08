@@ -23,30 +23,29 @@
         android:testOnly="true"
         android:theme="@style/GdxTheme" >
         <activity
+            android:name="com.mygdx.gameco.Rank"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.mygdx.gameco.Waiting_Room"
             android:exported="true"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.mygdx.gameco.ChooseRoom"
             android:exported="true"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.mygdx.gameco.EditInfo"
             android:exported="true"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.mygdx.gameco.Menu"
             android:exported="true"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.mygdx.gameco.ChooseGame"
             android:exported="true"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.mygdx.gameco.SignUp"
             android:exported="true"
@@ -54,8 +53,7 @@
         <activity
             android:name="com.mygdx.gameco.Login"
             android:exported="true"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.mygdx.gameco.TabPlay"
             android:exported="true"

@@ -670,15 +670,22 @@ public class GameScreen implements Screen {
 
                         //show end game dialog
                         String winner="";
+                        String SendResultInfo = "402";
                         if (players[0].score>players[1].score) {
+                            SendResultInfo += "OAQ/**/win";
                             winner = userName;
+
                         }
                         else if (players[0].score<players[1].score) {
+                            SendResultInfo += "OAQ/**/lose";
                             winner = opponentName;
                         }
                         else {
+                            SendResultInfo += "OAQ/**/draw";
                             winner = "Hoa";
                         }
+                        operationNetwork.SendMessage(SendResultInfo);
+
                         initGameOverDialog(winner);
                         gameOverDialog.setVisible(true);
 
