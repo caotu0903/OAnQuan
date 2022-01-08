@@ -60,8 +60,8 @@ public class GameScreen implements Screen{
     private int backgroundOffset;
 
     //world parameters
-    private final int WORLD_WIDTH = 128;
-    private final int WORLD_HEIGHT = 72;
+    private final int WORLD_WIDTH = 1280;
+    private final int WORLD_HEIGHT = 720;
 
     //game objects
     private OCo[] oCo;
@@ -147,8 +147,8 @@ public class GameScreen implements Screen{
 
         // test ne
         textureCuaQuay = new Texture("cua_quay.png");
-        cuaQuay1 = new CuaQuay(textureCuaQuay, 0.05f, WORLD_WIDTH*0.332f, WORLD_HEIGHT*0.230f, 15, 15);
-        cuaQuay2 = new CuaQuay(textureCuaQuay, 0.05f, WORLD_WIDTH*0.693f, WORLD_HEIGHT*0.800f, 15, 15);
+        cuaQuay1 = new CuaQuay(textureCuaQuay, 0.05f, WORLD_WIDTH*0.332f, WORLD_HEIGHT*0.230f, 150, 150);
+        cuaQuay2 = new CuaQuay(textureCuaQuay, 0.05f, WORLD_WIDTH*0.693f, WORLD_HEIGHT*0.800f, 150, 150);
 
         // lượt chơi (false - player, true - opponent)
         turnNumber = 0;
@@ -483,20 +483,20 @@ public class GameScreen implements Screen{
 
     private void initCellArray() {
         oCo = new OCo[14];
-        oCo[0] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.700f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
-        oCo[1] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.600f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
-        oCo[2] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
-        oCo[3] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
-        oCo[4] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.300f, WORLD_HEIGHT*0.415f, 15, 15, oCoThuongRegions[5]);
-        oCo[5] = new OCo(10, true, false, true, true, WORLD_WIDTH*0.200f, WORLD_HEIGHT*0.502f, 10, 20, oCoYellow[0]);
-        oCo[6] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.300f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
-        oCo[7] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
-        oCo[8] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
-        oCo[9] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.600f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
-        oCo[10] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.700f, WORLD_HEIGHT*0.590f, 15, 15, oCoThuongRegions[5]);
-        oCo[11] = new OCo(0, false, true, true, true, WORLD_WIDTH*0.800f, WORLD_HEIGHT*0.502f, 10, 20, oCoBlue[0]);
-        oCo[12] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.180f, 30, 10, oCoThuongRegions[0]);
-        oCo[13] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.850f, 30, 10, oCoThuongRegions[0]);
+        oCo[0] = new OCo(0, false, false, false, false, WORLD_WIDTH*0.700f, WORLD_HEIGHT*0.415f, 150, 150, oCoThuongRegions[5]);
+        oCo[1] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.600f, WORLD_HEIGHT*0.415f, 150, 150, oCoThuongRegions[5]);
+        oCo[2] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.415f, 150, 150, oCoThuongRegions[5]);
+        oCo[3] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.415f, 150, 150, oCoThuongRegions[5]);
+        oCo[4] = new OCo(5, false, false, false, false, WORLD_WIDTH*0.300f, WORLD_HEIGHT*0.415f, 150, 150, oCoThuongRegions[5]);
+        oCo[5] = new OCo(88, true, false, true, true, WORLD_WIDTH*0.200f, WORLD_HEIGHT*0.502f, 100, 200, oCoYellow[0]);
+        oCo[6] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.300f, WORLD_HEIGHT*0.590f, 150, 150, oCoThuongRegions[5]);
+        oCo[7] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.400f, WORLD_HEIGHT*0.590f, 150, 150, oCoThuongRegions[5]);
+        oCo[8] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.590f, 150, 150, oCoThuongRegions[5]);
+        oCo[9] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.600f, WORLD_HEIGHT*0.590f, 150, 150, oCoThuongRegions[5]);
+        oCo[10] = new OCo(1, false, false, false, false, WORLD_WIDTH*0.700f, WORLD_HEIGHT*0.590f, 150, 150, oCoThuongRegions[5]);
+        oCo[11] = new OCo(88, false, true, true, true, WORLD_WIDTH*0.800f, WORLD_HEIGHT*0.502f, 100, 200, oCoBlue[0]);
+        oCo[12] = new OCo(88, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.180f, 300, 100, oCoThuongRegions[0]);
+        oCo[13] = new OCo(88, false, false, false, false, WORLD_WIDTH*0.500f, WORLD_HEIGHT*0.850f, 300, 100, oCoThuongRegions[0]);
     }
 
     public void resetOCo() {
@@ -588,30 +588,33 @@ public class GameScreen implements Screen{
 //        font.setColor(Color.BLACK);
 //        fontBorrow.setColor(Color.RED);
 
-        //scale the font to fit world
-        font.getData().setScale(0.085f);
-        fontBorrow.getData().setScale(0.085f);
+//        //scale the font to fit world
+//        font.getData().setScale(0.085f);
+//        fontBorrow.getData().setScale(0.085f);
     }
 
     private void updateAndRenderHUD() {
         //render
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[0].getNumberCo()), WORLD_WIDTH*0.661f, WORLD_HEIGHT*0.353f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[1].getNumberCo()), WORLD_WIDTH*0.559f, WORLD_HEIGHT*0.353f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[2].getNumberCo()), WORLD_WIDTH*0.458f, WORLD_HEIGHT*0.353f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[3].getNumberCo()), WORLD_WIDTH*0.358f, WORLD_HEIGHT*0.353f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[4].getNumberCo()), WORLD_WIDTH*0.258f, WORLD_HEIGHT*0.353f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[5].getNumberCo()), WORLD_WIDTH*0.225f, WORLD_HEIGHT*0.353f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[6].getNumberCo()), WORLD_WIDTH*0.258f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[7].getNumberCo()), WORLD_WIDTH*0.358f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[8].getNumberCo()), WORLD_WIDTH*0.458f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[9].getNumberCo()), WORLD_WIDTH*0.559f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[10].getNumberCo()), WORLD_WIDTH*0.661f, WORLD_HEIGHT*0.535f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[11].getNumberCo()), WORLD_WIDTH*0.755f, WORLD_HEIGHT*0.353f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[12].getNumberCo()), WORLD_WIDTH*0.485f, WORLD_HEIGHT*0.100f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[13].getNumberCo()), WORLD_WIDTH*0.485f, WORLD_HEIGHT*0.756f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[0].getNumberCo()), WORLD_WIDTH*0.661f, WORLD_HEIGHT*0.362f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[1].getNumberCo()), WORLD_WIDTH*0.559f, WORLD_HEIGHT*0.362f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[2].getNumberCo()), WORLD_WIDTH*0.458f, WORLD_HEIGHT*0.362f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[3].getNumberCo()), WORLD_WIDTH*0.358f, WORLD_HEIGHT*0.362f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[4].getNumberCo()), WORLD_WIDTH*0.258f, WORLD_HEIGHT*0.362f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[5].getNumberCo()), WORLD_WIDTH*0.222f, WORLD_HEIGHT*0.362f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[6].getNumberCo()), WORLD_WIDTH*0.258f, WORLD_HEIGHT*0.544f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[7].getNumberCo()), WORLD_WIDTH*0.358f, WORLD_HEIGHT*0.544f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[8].getNumberCo()), WORLD_WIDTH*0.458f, WORLD_HEIGHT*0.544f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[9].getNumberCo()), WORLD_WIDTH*0.559f, WORLD_HEIGHT*0.544f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[10].getNumberCo()), WORLD_WIDTH*0.661f, WORLD_HEIGHT*0.544f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[11].getNumberCo()), WORLD_WIDTH*0.755f, WORLD_HEIGHT*0.362f, 0, Align.left, false);
 
-        fontBorrow.draw(batch, String.format(Locale.getDefault(), "%d", players[0].borrow), WORLD_WIDTH*0.535f, WORLD_HEIGHT*0.100f, 0, Align.left, false);
-        fontBorrow.draw(batch, String.format(Locale.getDefault(), "%d", players[1].borrow), WORLD_WIDTH*0.535f, WORLD_HEIGHT*0.756f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[12].getNumberCo()), WORLD_WIDTH*0.458f, WORLD_HEIGHT*0.122f, 0, Align.center, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[13].getNumberCo()), WORLD_WIDTH*0.458f, WORLD_HEIGHT*0.778f, 0, Align.center, false);
+
+//        fontBorrow.draw(batch, String.format(Locale.getDefault(), "%d", players[0].borrow), WORLD_WIDTH*0.535f, WORLD_HEIGHT*0.100f, 0, Align.left, false);
+//        fontBorrow.draw(batch, String.format(Locale.getDefault(), "%d", players[1].borrow), WORLD_WIDTH*0.535f, WORLD_HEIGHT*0.756f, 0, Align.left, false);
+        fontBorrow.draw(batch, String.format(Locale.getDefault(), "%d", 88), WORLD_WIDTH*0.558f, WORLD_HEIGHT*0.122f, 0, Align.left, false);
+        fontBorrow.draw(batch, String.format(Locale.getDefault(), "%d", 88), WORLD_WIDTH*0.558f, WORLD_HEIGHT*0.778f, 0, Align.left, false);
 
 //        font.draw(batch, String.format(Locale.getDefault(), "Player 1: %d\nPlayer 2: %d", players[0].score, players[1].score),
 //                oCo[11].getCenterXY()[0] + oCo[11].boundingBox.width, oCo[11].getCenterXY()[1], 0, Align.left, false);
