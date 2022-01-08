@@ -7,6 +7,7 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -29,6 +30,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
@@ -70,6 +72,7 @@ public class GameScreen implements Screen{
     //Head-Up Display
     BitmapFont font;
     BitmapFont fontBorrow;
+    BitmapFont fontName;
 
     //direction
     int index;
@@ -103,6 +106,8 @@ public class GameScreen implements Screen{
     Sound dropSound;
     Sound grabSound;
     Music[] backgroundMusic;
+    ImageButton soundButton;
+    ImageButton musicButton;
 
     GameScreen() {
 
@@ -164,11 +169,35 @@ public class GameScreen implements Screen{
         isGameOver = false;
         //initQuitGameDialog();
 
-//        //sound
-//        long idBackgroundMusic = backgroundMusic.play(0.1f);
-//        backgroundMusic.setLooping(idBackgroundMusic, true);
-//        backgroundMusic.
+        //sound
         initSoundAndMusic();
+        initSoundAndMusicButton();
+    }
+
+    private void initSoundAndMusicButton() {
+        soundButton = new ImageButton(new TextureRegionDrawable(new Texture("icon/sound_enable_icon.png")));
+        musicButton = new ImageButton(new TextureRegionDrawable(new Texture("icon/music_enable_icon.png")));
+
+        Button bt = new Button(new TextureRegionDrawable(new Texture("icon/sound_enable_icon.png")));
+
+        soundButton.setWidth(WORLD_WIDTH*0.047f);
+        soundButton.setHeight(WORLD_HEIGHT*0.083f);
+        musicButton.setWidth(WORLD_WIDTH*0.047f);
+        musicButton.setHeight(WORLD_HEIGHT*0.083f);
+
+        soundButton.setPosition(WORLD_WIDTH*0.896f, WORLD_HEIGHT*0.907f);
+        musicButton.setPosition(WORLD_WIDTH*0.948f, WORLD_HEIGHT*0.907f);
+
+        soundButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+            }
+        });
+
+        stage.addActor(soundButton);
+        stage.addActor(musicButton);
+        stage.addActor(bt);
     }
 
     private void initSoundAndMusic() {
@@ -575,13 +604,21 @@ public class GameScreen implements Screen{
         FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("PartyConfettiRegular-eZOn3.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
 
-        fontParameter.size = 30;
+        Gdx.gl.glEnable(GL20.GL_BLEND);
+
+        fontParameter.size = 27;
         fontParameter.color = new Color(Color.BLACK);
         font = fontGenerator.generateFont(fontParameter);
 
-        fontParameter.size = 30;
+        fontParameter.size = 27;
         fontParameter.color = new Color(Color.RED);
         fontBorrow = fontGenerator.generateFont(fontParameter);
+
+        FreeTypeFontGenerator fontGenerator1 = new FreeTypeFontGenerator(Gdx.files.internal("font/Choko-6O9A.ttf"));
+        FreeTypeFontGenerator.FreeTypeFontParameter fontParameter1 = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        fontParameter1.size = 36;
+        fontParameter1.color = new Color(141f/255f, 99f/255f,42f/255f,1f);
+        fontName = fontGenerator1.generateFont(fontParameter1);
 
 //        font = new BitmapFont(Gdx.files.internal("font/Arial.fnt"));
 //        fontBorrow = new BitmapFont(Gdx.files.internal("font/Arial.fnt"));
@@ -606,16 +643,18 @@ public class GameScreen implements Screen{
         font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[8].getNumberCo()), WORLD_WIDTH*0.458f, WORLD_HEIGHT*0.544f, 0, Align.left, false);
         font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[9].getNumberCo()), WORLD_WIDTH*0.559f, WORLD_HEIGHT*0.544f, 0, Align.left, false);
         font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[10].getNumberCo()), WORLD_WIDTH*0.661f, WORLD_HEIGHT*0.544f, 0, Align.left, false);
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[11].getNumberCo()), WORLD_WIDTH*0.755f, WORLD_HEIGHT*0.362f, 0, Align.left, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[11].getNumberCo()), WORLD_WIDTH*0.757f, WORLD_HEIGHT*0.362f, 0, Align.left, false);
 
-        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[12].getNumberCo()), WORLD_WIDTH*0.458f, WORLD_HEIGHT*0.122f, 0, Align.center, false);
+        font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[12].getNumberCo()), WORLD_WIDTH*0.458f, WORLD_HEIGHT*0.112f, 0, Align.center, false);
         font.draw(batch, String.format(Locale.getDefault(), "%d", oCo[13].getNumberCo()), WORLD_WIDTH*0.458f, WORLD_HEIGHT*0.778f, 0, Align.center, false);
 
 //        fontBorrow.draw(batch, String.format(Locale.getDefault(), "%d", players[0].borrow), WORLD_WIDTH*0.535f, WORLD_HEIGHT*0.100f, 0, Align.left, false);
 //        fontBorrow.draw(batch, String.format(Locale.getDefault(), "%d", players[1].borrow), WORLD_WIDTH*0.535f, WORLD_HEIGHT*0.756f, 0, Align.left, false);
-        fontBorrow.draw(batch, String.format(Locale.getDefault(), "%d", 88), WORLD_WIDTH*0.558f, WORLD_HEIGHT*0.122f, 0, Align.left, false);
-        fontBorrow.draw(batch, String.format(Locale.getDefault(), "%d", 88), WORLD_WIDTH*0.558f, WORLD_HEIGHT*0.778f, 0, Align.left, false);
+        fontBorrow.draw(batch, String.format(Locale.getDefault(), "%d", players[0].borrow), WORLD_WIDTH*0.528f, WORLD_HEIGHT*0.112f, 0, Align.left, false);
+        fontBorrow.draw(batch, String.format(Locale.getDefault(), "%d", players[1].borrow), WORLD_WIDTH*0.528f, WORLD_HEIGHT*0.778f, 0, Align.left, false);
 
+        fontName.draw(batch, "Hello world 12", WORLD_WIDTH*0.093f, WORLD_HEIGHT*0.829f, 0, Align.center, false);
+        fontName.draw(batch, "Hello world 12", WORLD_WIDTH*0.894f, WORLD_HEIGHT*0.148f, 0, Align.center, false);
 //        font.draw(batch, String.format(Locale.getDefault(), "Player 1: %d\nPlayer 2: %d", players[0].score, players[1].score),
 //                oCo[11].getCenterXY()[0] + oCo[11].boundingBox.width, oCo[11].getCenterXY()[1], 0, Align.left, false);
 //        font.draw(batch, "Gia Bảo",
