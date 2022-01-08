@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+    <LinearLayout
+        android:id="@+id/ll_player_rank_item_A_item_rank"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_rank_A_item_rank"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="100"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_marginStart="15sp"
+            android:layout_marginEnd="15sp"
+            android:layout_weight="1.5"/>
+
+        <TextView
+            android:id="@+id/tv_player_name_A_item_rank"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Tustal"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:gravity="left|center"
+            android:layout_marginStart="15sp"
+            android:layout_marginEnd="15sp"
+            android:layout_weight="4"/>
+
+        <TextView
+            android:id="@+id/tv_point_A_item_rank"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="10"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:gravity="right|center"
+            android:layout_marginStart="15sp"
+            android:layout_marginEnd="15sp"
+            android:layout_weight="2"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

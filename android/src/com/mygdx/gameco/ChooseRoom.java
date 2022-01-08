@@ -84,13 +84,16 @@ public class ChooseRoom extends Activity {
             @Override
             public void onClick(View v) {
                 GetRoomInfo();
+                Toast.makeText(getApplicationContext(), "Đã cập nhật", Toast.LENGTH_SHORT).show();
             }
         });
 
         bt_Rank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent_show_rank = new Intent(ChooseRoom.this, Rank.class);
+                startActivity(intent_show_rank);
+                overridePendingTransition(R.anim.anim_in_right, R.anim.anim_out_left);
             }
         });
 
@@ -162,10 +165,6 @@ public class ChooseRoom extends Activity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        /*while (ReceiveData.isEmpty()) {
-            ReceiveData = Login.getLoginActivity().GetMessage();
-        }*/
 
         ReceiveData = ReceiveData.replaceFirst("222", "");
 

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mygdx.gameco">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -13,39 +13,37 @@
         android:label="@string/app_name"
         android:theme="@style/GdxTheme">
         <activity
-            android:name=".Waiting_Room"
-            android:exported="true"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".ChooseRoom"
-            android:exported="true"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".EditInfo"
-            android:exported="true"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".Menu"
-            android:exported="true"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".ChooseGame"
-            android:exported="true"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".SignUp"
+            android:name=".Rank"
             android:exported="true"
             android:screenOrientation="portrait"/>
         <activity
+            android:name=".Waiting_Room"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ChooseRoom"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".EditInfo"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Menu"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ChooseGame"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".SignUp"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Login"
             android:exported="true"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".TabPlay"
             android:exported="true"
@@ -59,15 +57,17 @@
         <activity
             android:name=".AndroidLauncher"
             android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize|screenLayout"
+            android:exported="true"
             android:label="@string/app_name"
-            android:screenOrientation="landscape"
-            android:exported="true">
+            android:screenOrientation="landscape">
 
-            <!--<intent-filter>
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
     </application>
 

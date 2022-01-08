@@ -139,7 +139,6 @@ public class Waiting_Room extends AppCompatActivity {
         public void run() {
             while (!gameStart) {
 
-                // test
                 String roomInfoMessage = "";
                 String startInfoMessage = "";
 
