@@ -284,7 +284,7 @@ public class GameScreen implements Screen{
                 text("Are you sure you want to quit?");
                 button("Sure", "1");
                 button("Cancel", "0");
-                setScale(0.3f);
+                setScale(3f);
                 setKeepWithinStage(false);
                 setMovable(false);
             }
@@ -302,8 +302,8 @@ public class GameScreen implements Screen{
             }
         };
         quitGameDialog.pack();
-        quitGameDialog.setPosition(WORLD_WIDTH / 2 - quitGameDialog.getWidth() / 2 * 0.3f,
-                WORLD_HEIGHT / 2 - quitGameDialog.getHeight() / 2 * 0.3f);
+        quitGameDialog.setPosition(WORLD_WIDTH / 2 - quitGameDialog.getWidth() / 2 * 3f,
+                WORLD_HEIGHT / 2 - quitGameDialog.getHeight() / 2 * 3f);
         //quitGameDialog.setVisible(false);
         stage.addActor(quitGameDialog);
 
@@ -316,7 +316,7 @@ public class GameScreen implements Screen{
             {
                 text("Winner: " + winner);
                 button("OK");
-                setScale(0.3f);
+                setScale(3f);
                 setKeepWithinStage(false);
                 setMovable(false);
             }
@@ -329,8 +329,8 @@ public class GameScreen implements Screen{
             }
         };
         gameOverDialog.pack();
-        gameOverDialog.setPosition(WORLD_WIDTH/2 - gameOverDialog.getWidth()/2*0.3f,
-                WORLD_HEIGHT/2 - gameOverDialog.getHeight()/2*0.3f);
+        gameOverDialog.setPosition(WORLD_WIDTH/2 - gameOverDialog.getWidth()/2*3f,
+                WORLD_HEIGHT/2 - gameOverDialog.getHeight()/2*3f);
         gameOverDialog.setVisible(false);
         stage.addActor(gameOverDialog);
     }
