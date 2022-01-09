@@ -109,6 +109,8 @@ public class GameScreen implements Screen {
     Sound dropSound;
     Sound grabSound;
     Music[] backgroundMusic;
+    ImageButton soundButton;
+    ImageButton musicButton;
 
     GameScreen(OperationNetwork operationNetwork, String roomID, String userName, String opponentName, boolean canGo) {
         this.operationNetwork = operationNetwork;
@@ -180,6 +182,30 @@ public class GameScreen implements Screen {
 
         // sound
         initSoundAndMusic();
+        initSoundAndMusicButton();
+    }
+
+    private void initSoundAndMusicButton() {
+        soundButton = new ImageButton(new TextureRegionDrawable(new Texture("icon/sound_enable_icon.png")),
+                new TextureRegionDrawable(new Texture("icon/sound_disable_icon.png")),
+                new TextureRegionDrawable(new Texture("icon/sound_disable_icon.png")));
+        musicButton = new ImageButton(new TextureRegionDrawable(new Texture("icon/music_enable_icon.png")),
+                new TextureRegionDrawable(new Texture("icon/music_disable_icon.png")),
+                new TextureRegionDrawable(new Texture("icon/music_disable_icon.png")));
+
+        soundButton.setWidth(WORLD_WIDTH*0.047f);
+        soundButton.setHeight(WORLD_HEIGHT*0.083f);
+        musicButton.setWidth(WORLD_WIDTH*0.047f);
+        musicButton.setHeight(WORLD_HEIGHT*0.083f);
+
+        soundButton.setPosition(WORLD_WIDTH*0.896f, WORLD_HEIGHT*0.907f);
+        musicButton.setPosition(WORLD_WIDTH*0.948f, WORLD_HEIGHT*0.907f);
+
+        musicButton.setVisible(true);
+        soundButton.setVisible(true);
+
+        stage.addActor(soundButton);
+        stage.addActor(musicButton);
     }
 
     private void initSoundAndMusic() {
@@ -239,8 +265,25 @@ public class GameScreen implements Screen {
         if (Gdx.input.isKeyJustPressed(Input.Keys.BACK)) {
             initQuitGameDialog();
         }
+
+        //check audio button
+        checkMusicButton();
+
         stage.act();
         stage.draw();
+    }
+
+    private void checkMusicButton() {
+        if (musicButton.isChecked()) {
+            for(int i=0; i<3; i++) {
+                backgroundMusic[i].setVolume(0f);
+            }
+        }
+        else {
+            for(int i=0; i<3; i++) {
+                backgroundMusic[i].setVolume(0.1f);
+            }
+        }
     }
 
     private void initQuitGameDialog() {
@@ -339,6 +382,16 @@ public class GameScreen implements Screen {
             if (this.ListGrabAnimation.isEmpty()) {
                 hand.grabAnimation.setPosition(oCo[index].boundingBox);
                 this.ListGrabAnimation.add(hand.grabAnimation);
+
+                if (index==13||index==12) {
+                    long id = grabSound.play(soundButton.isChecked()? 0f : 0.1f);
+                    grabSound.setPitch(id, 2f);
+                }
+                else {
+                    //sound
+                    long id = dropSound.play(soundButton.isChecked()? 0f : 0.2f);
+                    dropSound.setPitch(id, 2f);
+                }
             }
         }
     }
@@ -378,7 +431,7 @@ public class GameScreen implements Screen {
                     this.ListGrabAnimation.add(hand.grabAnimation);
 
                     //sound
-                    long id = grabSound.play(0.1f);
+                    long id = grabSound.play(soundButton.isChecked()? 0f : 0.1f);
                     grabSound.setPitch(id, 2f);
 
                     int dst = (turnNumber%2==0)?12:13;
@@ -847,7 +900,7 @@ public class GameScreen implements Screen {
             ListGrabAnimation.add(direction.grabAnimation);
 
             //sound
-            long id = this.grabSound.play(0.2f);
+            long id = this.grabSound.play(soundButton.isChecked()? 0f : 0.1f);
             this.grabSound.setPitch(id, 2f);
 
             // set direction for hand

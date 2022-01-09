@@ -33,9 +33,11 @@ com/mygdx/gameco/Rank.java
 com/mygdx/gameco/TabPlay.java
  com.mygdx.gameco.TabPlay
  com.mygdx.gameco.TabPlay$1
-com/mygdx/gameco/AndroidLauncher.java
- com.mygdx.gameco.AndroidLauncher
- com.mygdx.gameco.AndroidLauncher$1
+com/mygdx/gameco/Menu.java
+ com.mygdx.gameco.Menu
+ com.mygdx.gameco.Menu$1
+ com.mygdx.gameco.Menu$2
+ com.mygdx.gameco.Menu$3
 com/mygdx/gameco/Waiting_Room.java
  com.mygdx.gameco.Waiting_Room
  com.mygdx.gameco.Waiting_Room$1
@@ -50,8 +52,6 @@ com/mygdx/gameco/Login.java
  com.mygdx.gameco.Login$ListenThread
  com.mygdx.gameco.Login$NetworkThread
  com.mygdx.gameco.Login$SendThread
-com/mygdx/gameco/Menu.java
- com.mygdx.gameco.Menu
- com.mygdx.gameco.Menu$1
- com.mygdx.gameco.Menu$2
- com.mygdx.gameco.Menu$3
+com/mygdx/gameco/AndroidLauncher.java
+ com.mygdx.gameco.AndroidLauncher
+ com.mygdx.gameco.AndroidLauncher$1
