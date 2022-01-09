@@ -4,27 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/HocTap/UIT/HK211/PTUDDD/Code/OAnQuan/android/res/layout/activity_choose_game.xml" value="0.13385416666666666" />
+        <entry key="..\:/HocTap/UIT/HK211/PTUDDD/Code/OAnQuan/android/res/layout/activity_rank.xml" value="0.259375" />
         <entry key="..\:/Users/19521/AndroidStudioProjects/OAnQuan-git/android/res/layout/activity_choose_game.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/19521/AndroidStudioProjects/OAnQuan-git/android/res/layout/activity_login.xml" value="0.176" />
         <entry key="..\:/Users/19521/AndroidStudioProjects/OAnQuan-git/android/res/layout/activity_sign_up.xml" value="0.176" />
         <entry key="..\:/Users/19521/AndroidStudioProjects/OAnQuan-git/android/res/layout/activity_tab_play.xml" value="0.176" />
         <entry key="..\:/Users/19521/AndroidStudioProjects/OAnQuan-git/android/res/layout/activity_wait_room.xml" value="0.176" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/drawable/mydivider.xml" value="0.12708333333333333" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/activity_choose_game.xml" value="0.2" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/activity_choose_room.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/activity_edit_info.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/activity_choose_game.xml" value="0.1408514492753623" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/activity_login.xml" value="0.18" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/activity_menu.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/activity_rank.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/activity_sign_up.xml" value="0.21041666666666667" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/activity_tab_play.xml" value="0.1408514492753623" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/activity_tab_play_opening.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/activity_wait_room.xml" value="0.25" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/activity_waiting_host.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/activity_waiting_player.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/item_rank.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/item_room.xml" value="0.25" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/mipmap-anydpi-v26/icon.xml" value="0.240625" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/OAnQuan/android/res/layout/activity_wait_room.xml" value="0.1408514492753623" />
       </map>
     </option>
   </component>

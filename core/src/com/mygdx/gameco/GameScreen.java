@@ -424,7 +424,7 @@ public class GameScreen implements Screen {
         if (hand.isShowAnLinh) {
             int next1 = hand.calcNextIndex(hand.curCell, hand.direction);
             int next2 = hand.calcNextIndex(next1, hand.direction);
-            if (oCo[next1].getNumberCo() == 0 && hand.checkGrabContinueNumber(hand.curCell, hand.direction, 2) && hand.isFinishMove()) {
+            if (oCo[next1].getNumberCo() == 0 && oCo[next2].getNumberCo()!=0 && hand.isFinishMove()) {
                 if (this.ListGrabAnimation.size()==0) {
                     hand.curCell=next2;
                     hand.grabAnimation.setPosition(oCo[next2].boundingBox);
@@ -673,8 +673,8 @@ public class GameScreen implements Screen {
         fontBorrow.draw(batch, String.format(Locale.getDefault(), "%d", players[0].borrow), WORLD_WIDTH*0.528f, WORLD_HEIGHT*0.112f, 0, Align.left, false);
         fontBorrow.draw(batch, String.format(Locale.getDefault(), "%d", players[1].borrow), WORLD_WIDTH*0.528f, WORLD_HEIGHT*0.778f, 0, Align.left, false);
 
-        fontName.draw(batch, "Hello world 12", WORLD_WIDTH*0.093f, WORLD_HEIGHT*0.829f, 0, Align.center, false);
-        fontName.draw(batch, "Hello world 12", WORLD_WIDTH*0.894f, WORLD_HEIGHT*0.148f, 0, Align.center, false);
+        fontName.draw(batch, opponentName, WORLD_WIDTH*0.093f, WORLD_HEIGHT*0.829f, 0, Align.center, false);
+        fontName.draw(batch, userName, WORLD_WIDTH*0.894f, WORLD_HEIGHT*0.148f, 0, Align.center, false);
 //        font.draw(batch, String.format(Locale.getDefault(), "Player 1: %d\nPlayer 2: %d", players[0].score, players[1].score),
 //                oCo[11].getCenterXY()[0] + oCo[11].boundingBox.width, oCo[11].getCenterXY()[1], 0, Align.left, false);
 //        font.draw(batch, "Gia Bảo",
@@ -759,6 +759,9 @@ public class GameScreen implements Screen {
                         operationNetwork.SendMessage(SendResultInfo);
 
                         initGameOverDialog(winner);
+                        isDetectInput=false;
+                        spreadingLinhCount=0;
+                        return;
 //                        gameOverDialog.setVisible(true);
 
                     }
