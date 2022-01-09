@@ -65,7 +65,7 @@ public class Direction {
                 gs.ListGrabAnimation.add(grabAnimation);
 
                 //sound
-                long id = gs.grabSound.play(0.2f);
+                long id = gs.grabSound.play(gs.soundButton.isChecked()? 0f: 0.2f);
                 gs.grabSound.setPitch(id, 2f);
 
                 // set direction for hand
@@ -93,7 +93,7 @@ public class Direction {
                 gs.ListGrabAnimation.add(grabAnimation);
 
                 //sound
-                long id = gs.grabSound.play(0.2f);
+                long id = gs.grabSound.play(gs.soundButton.isChecked()? 0f: 0.1f);
                 gs.grabSound.setPitch(id, 2f);
 
                 // set direction for hand

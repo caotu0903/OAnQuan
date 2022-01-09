@@ -129,7 +129,7 @@ public class Hand {
             gameScreen.ListGrabAnimation.add(grabAnimation);
 
             //sound
-            long id = gameScreen.grabSound.play(0.1f);
+            long id = gameScreen.grabSound.play(gameScreen.soundButton.isChecked()? 0f: 0.1f);
             gameScreen.grabSound.setPitch(id, 2f);
 
             this.isMoving = false;
@@ -158,7 +158,7 @@ public class Hand {
                 gameScreen.ListGrabAnimation.add(grabAnimation);
 
                 //sound
-                long id = gameScreen.dropSound.play(0.2f);
+                long id = gameScreen.dropSound.play(gameScreen.soundButton.isChecked()? 0f: 0.2f);
                 gameScreen.dropSound.setPitch(id, 2f);
 
                 // kiem tra xem co duoc lay da tiep hay k

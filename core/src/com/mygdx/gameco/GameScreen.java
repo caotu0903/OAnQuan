@@ -175,11 +175,13 @@ public class GameScreen implements Screen{
     }
 
     private void initSoundAndMusicButton() {
-        soundButton = new ImageButton(new TextureRegionDrawable(new Texture("icon/sound_enable_icon.png")));
-        musicButton = new ImageButton(new TextureRegionDrawable(new Texture("icon/music_enable_icon.png")));
-
-        Button bt = new Button(new TextureRegionDrawable(new Texture("icon/sound_enable_icon.png")));
-
+        soundButton = new ImageButton(new TextureRegionDrawable(new Texture("icon/sound_enable_icon.png")),
+                new TextureRegionDrawable(new Texture("icon/sound_disable_icon.png")),
+                new TextureRegionDrawable(new Texture("icon/sound_disable_icon.png")));
+        musicButton = new ImageButton(new TextureRegionDrawable(new Texture("icon/music_enable_icon.png")),
+                new TextureRegionDrawable(new Texture("icon/music_disable_icon.png")),
+                new TextureRegionDrawable(new Texture("icon/music_disable_icon.png")));
+        
         soundButton.setWidth(WORLD_WIDTH*0.047f);
         soundButton.setHeight(WORLD_HEIGHT*0.083f);
         musicButton.setWidth(WORLD_WIDTH*0.047f);
@@ -188,16 +190,11 @@ public class GameScreen implements Screen{
         soundButton.setPosition(WORLD_WIDTH*0.896f, WORLD_HEIGHT*0.907f);
         musicButton.setPosition(WORLD_WIDTH*0.948f, WORLD_HEIGHT*0.907f);
 
-        soundButton.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                super.clicked(event, x, y);
-            }
-        });
+        musicButton.setVisible(true);
+        soundButton.setVisible(true);
 
         stage.addActor(soundButton);
         stage.addActor(musicButton);
-        stage.addActor(bt);
     }
 
     private void initSoundAndMusic() {
@@ -252,14 +249,29 @@ public class GameScreen implements Screen{
         updateSpreadLinh(delta);
 
         batch.end();
+
         if (Gdx.input.isKeyJustPressed(Input.Keys.BACK)) {
             initQuitGameDialog();
         }
-//        if (!this.ListGrabAnimation.isEmpty()) {
-//            oggSound.play(0.5f);
-//        }
+
+        //check audio button
+        checkMusicButton();
+
         stage.act();
         stage.draw();
+    }
+
+    private void checkMusicButton() {
+        if (musicButton.isChecked()) {
+            for(int i=0; i<3; i++) {
+                backgroundMusic[i].setVolume(0f);
+            }
+        }
+        else {
+            for(int i=0; i<3; i++) {
+                backgroundMusic[i].setVolume(0.1f);
+            }
+        }
     }
 
     boolean isSwipeBack = false;
@@ -299,7 +311,7 @@ public class GameScreen implements Screen{
 
     private void initGameOverDialog(final String winner) {
         Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
-        Dialog gameOverDialog = new Dialog("Game Over", skin) {
+        gameOverDialog = new Dialog("Game Over", skin) {
 
             {
                 text("Winner: " + winner);
@@ -359,12 +371,12 @@ public class GameScreen implements Screen{
                 this.ListGrabAnimation.add(hand.grabAnimation);
 
                 if (index==13||index==12) {
-                    long id = grabSound.play(0.1f);
+                    long id = grabSound.play(soundButton.isChecked()? 0f : 0.1f);
                     grabSound.setPitch(id, 2f);
                 }
                 else {
                     //sound
-                    long id = dropSound.play(0.2f);
+                    long id = dropSound.play(soundButton.isChecked()? 0f : 0.2f);
                     dropSound.setPitch(id, 2f);
                 }
             }
@@ -406,7 +418,7 @@ public class GameScreen implements Screen{
                     this.ListGrabAnimation.add(hand.grabAnimation);
 
                     //sound
-                    long id = grabSound.play(0.1f);
+                    long id = grabSound.play(soundButton.isChecked()? 0f : 0.1f);
                     grabSound.setPitch(id, 2f);
 
                     int dst = (turnNumber%2==0)?12:13;

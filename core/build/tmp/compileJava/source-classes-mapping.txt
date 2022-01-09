@@ -13,7 +13,6 @@ com/mygdx/gameco/GameScreen.java
  com.mygdx.gameco.GameScreen$1
  com.mygdx.gameco.GameScreen$2
  com.mygdx.gameco.GameScreen$3
- com.mygdx.gameco.GameScreen$4
 com/mygdx/gameco/Direction.java
  com.mygdx.gameco.Direction
  com.mygdx.gameco.Direction$1
