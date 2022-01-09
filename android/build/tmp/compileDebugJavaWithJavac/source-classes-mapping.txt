@@ -1,15 +1,35 @@
+com/mygdx/gameco/Room.java
+ com.mygdx.gameco.Room
+com/mygdx/gameco/ListRoomAdapter.java
+ com.mygdx.gameco.ListRoomAdapter
+com/mygdx/gameco/EditInfo.java
+ com.mygdx.gameco.EditInfo
+ com.mygdx.gameco.EditInfo$1
+com/mygdx/gameco/PlayerRankItem.java
+ com.mygdx.gameco.PlayerRankItem
+com/mygdx/gameco/ListRankAdapter.java
+ com.mygdx.gameco.ListRankAdapter
+com/mygdx/gameco/BuildConfig.java
+ com.mygdx.gameco.BuildConfig
+com/mygdx/gameco/ChooseGame.java
+ com.mygdx.gameco.ChooseGame
+ com.mygdx.gameco.ChooseGame$1
+ com.mygdx.gameco.ChooseGame$2
 com/mygdx/gameco/SignUp.java
  com.mygdx.gameco.SignUp
  com.mygdx.gameco.SignUp$1
  com.mygdx.gameco.SignUp$2
-com/mygdx/gameco/ListRoomAdapter.java
- com.mygdx.gameco.ListRoomAdapter
+com/mygdx/gameco/ChooseRoom.java
+ com.mygdx.gameco.ChooseRoom
+ com.mygdx.gameco.ChooseRoom$1
+ com.mygdx.gameco.ChooseRoom$2
+ com.mygdx.gameco.ChooseRoom$3
+ com.mygdx.gameco.ChooseRoom$4
+ com.mygdx.gameco.ChooseRoom$5
 com/mygdx/gameco/Rank.java
  com.mygdx.gameco.Rank
  com.mygdx.gameco.Rank$1
  com.mygdx.gameco.Rank$2
-com/mygdx/gameco/PlayerRankItem.java
- com.mygdx.gameco.PlayerRankItem
 com/mygdx/gameco/TabPlay.java
  com.mygdx.gameco.TabPlay
  com.mygdx.gameco.TabPlay$1
@@ -23,31 +43,6 @@ com/mygdx/gameco/Waiting_Room.java
  com.mygdx.gameco.Waiting_Room$WaitingRoomInfo
  com.mygdx.gameco.Waiting_Room$WaitingRoomInfo$1
  com.mygdx.gameco.Waiting_Room$WaitingRoomInfo$2
-com/mygdx/gameco/Menu.java
- com.mygdx.gameco.Menu
- com.mygdx.gameco.Menu$1
- com.mygdx.gameco.Menu$2
- com.mygdx.gameco.Menu$3
-com/mygdx/gameco/Room.java
- com.mygdx.gameco.Room
-com/mygdx/gameco/ChooseGame.java
- com.mygdx.gameco.ChooseGame
- com.mygdx.gameco.ChooseGame$1
- com.mygdx.gameco.ChooseGame$2
-com/mygdx/gameco/ChooseRoom.java
- com.mygdx.gameco.ChooseRoom
- com.mygdx.gameco.ChooseRoom$1
- com.mygdx.gameco.ChooseRoom$2
- com.mygdx.gameco.ChooseRoom$3
- com.mygdx.gameco.ChooseRoom$4
- com.mygdx.gameco.ChooseRoom$5
-com/mygdx/gameco/ListRankAdapter.java
- com.mygdx.gameco.ListRankAdapter
-com/mygdx/gameco/EditInfo.java
- com.mygdx.gameco.EditInfo
- com.mygdx.gameco.EditInfo$1
-com/mygdx/gameco/BuildConfig.java
- com.mygdx.gameco.BuildConfig
 com/mygdx/gameco/Login.java
  com.mygdx.gameco.Login
  com.mygdx.gameco.Login$1
@@ -55,3 +50,8 @@ com/mygdx/gameco/Login.java
  com.mygdx.gameco.Login$ListenThread
  com.mygdx.gameco.Login$NetworkThread
  com.mygdx.gameco.Login$SendThread
+com/mygdx/gameco/Menu.java
+ com.mygdx.gameco.Menu
+ com.mygdx.gameco.Menu$1
+ com.mygdx.gameco.Menu$2
+ com.mygdx.gameco.Menu$3
