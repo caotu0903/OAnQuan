@@ -2630,11 +2630,13 @@ id bounceStart
 id bt_back_A_choose_room
 id bt_back_A_edit_account_name
 id bt_back_A_edit_info
+id bt_back_A_edit_password
 id bt_back_A_menu
 id bt_back_A_rank
 id bt_back_A_singup
 id bt_back_A_waiting_room
 id bt_change_account_name_A_edit_account_name
+id bt_change_password_A_edit_password
 id bt_create_A_choose_room
 id bt_edit_account_name_A_edit_info
 id bt_edit_info_A_menu
@@ -2731,7 +2733,10 @@ id enterAlways
 id enterAlwaysCollapsed
 id et_accountname_A_edit_account_name
 id et_accountname_A_signup
+id et_confirm_password_A_edit_password
+id et_current_password_A_edit_password
 id et_email_A_signup
+id et_new_password_A_edit_password
 id et_password_A_login
 id et_password_A_signup
 id et_repassword_A_signup
@@ -3009,7 +3014,10 @@ id textinput_prefix_text
 id textinput_suffix_text
 id til_accountname_A_edit_account_name
 id til_accountname_A_signup
+id til_confirm_password_A_edit_password
+id til_current_password_A_edit_password
 id til_email_A_signup
+id til_new_password_A_edit_password
 id til_password_A_login
 id til_password_A_signup
 id til_repassword_A_signup
@@ -3035,8 +3043,11 @@ id tv
 id tv_accountname_A_edit_account_name
 id tv_accountname_A_signup
 id tv_chongame
+id tv_confirm_password_A_edit_password
+id tv_current_password_A_edit_password
 id tv_email_A_signup
 id tv_gamename_A_waiting_room
+id tv_new_password_A_edit_password
 id tv_noaccount_A_login
 id tv_numberplayer_item_room
 id tv_oanquan
@@ -3052,6 +3063,7 @@ id tv_roomname_A_waiting_room
 id tv_roomname_item_room
 id tv_tabplay_A_edit_account_name
 id tv_tabplay_A_edit_info
+id tv_tabplay_A_edit_password
 id tv_tabplay_A_menu
 id tv_title_A_signup
 id tv_title_login_A_login

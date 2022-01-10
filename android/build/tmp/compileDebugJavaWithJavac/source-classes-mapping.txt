@@ -1,3 +1,10 @@
+com/mygdx/gameco/PlayerRankItem.java
+ com.mygdx.gameco.PlayerRankItem
+com/mygdx/gameco/BuildConfig.java
+ com.mygdx.gameco.BuildConfig
+com/mygdx/gameco/AndroidLauncher.java
+ com.mygdx.gameco.AndroidLauncher
+ com.mygdx.gameco.AndroidLauncher$1
 com/mygdx/gameco/SignUp.java
  com.mygdx.gameco.SignUp
  com.mygdx.gameco.SignUp$1
@@ -8,10 +15,10 @@ com/mygdx/gameco/Rank.java
  com.mygdx.gameco.Rank
  com.mygdx.gameco.Rank$1
  com.mygdx.gameco.Rank$2
-com/mygdx/gameco/PlayerRankItem.java
- com.mygdx.gameco.PlayerRankItem
 com/mygdx/gameco/EditPassword.java
  com.mygdx.gameco.EditPassword
+ com.mygdx.gameco.EditPassword$1
+ com.mygdx.gameco.EditPassword$2
 com/mygdx/gameco/EditAccountName.java
  com.mygdx.gameco.EditAccountName
  com.mygdx.gameco.EditAccountName$1
@@ -19,9 +26,6 @@ com/mygdx/gameco/EditAccountName.java
 com/mygdx/gameco/TabPlay.java
  com.mygdx.gameco.TabPlay
  com.mygdx.gameco.TabPlay$1
-com/mygdx/gameco/AndroidLauncher.java
- com.mygdx.gameco.AndroidLauncher
- com.mygdx.gameco.AndroidLauncher$1
 com/mygdx/gameco/Waiting_Room.java
  com.mygdx.gameco.Waiting_Room
  com.mygdx.gameco.Waiting_Room$1
@@ -54,8 +58,6 @@ com/mygdx/gameco/EditInfo.java
  com.mygdx.gameco.EditInfo$1
  com.mygdx.gameco.EditInfo$2
  com.mygdx.gameco.EditInfo$3
-com/mygdx/gameco/BuildConfig.java
- com.mygdx.gameco.BuildConfig
 com/mygdx/gameco/Login.java
  com.mygdx.gameco.Login
  com.mygdx.gameco.Login$1

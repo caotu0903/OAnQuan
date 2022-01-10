@@ -2629,11 +2629,13 @@ int id bounceStart 0x7f080061
 int id bt_back_A_choose_room 0x7f080062
 int id bt_back_A_edit_account_name 0x7f080063
 int id bt_back_A_edit_info 0x7f080064
+int id bt_back_A_edit_password 0x7f08022c
 int id bt_back_A_menu 0x7f080065
 int id bt_back_A_rank 0x7f080066
 int id bt_back_A_singup 0x7f080067
 int id bt_back_A_waiting_room 0x7f080068
 int id bt_change_account_name_A_edit_account_name 0x7f080069
+int id bt_change_password_A_edit_password 0x7f08022d
 int id bt_create_A_choose_room 0x7f08006a
 int id bt_edit_account_name_A_edit_info 0x7f08006b
 int id bt_edit_info_A_menu 0x7f08006c
@@ -2730,7 +2732,10 @@ int id enterAlways 0x7f0800c6
 int id enterAlwaysCollapsed 0x7f0800c7
 int id et_accountname_A_edit_account_name 0x7f0800c8
 int id et_accountname_A_signup 0x7f0800c9
+int id et_confirm_password_A_edit_password 0x7f08022e
+int id et_current_password_A_edit_password 0x7f08022f
 int id et_email_A_signup 0x7f0800ca
+int id et_new_password_A_edit_password 0x7f080230
 int id et_password_A_login 0x7f0800cb
 int id et_password_A_signup 0x7f0800cc
 int id et_repassword_A_signup 0x7f0800cd
@@ -3008,7 +3013,10 @@ int id textinput_prefix_text 0x7f0801dc
 int id textinput_suffix_text 0x7f0801dd
 int id til_accountname_A_edit_account_name 0x7f0801de
 int id til_accountname_A_signup 0x7f0801df
+int id til_confirm_password_A_edit_password 0x7f080231
+int id til_current_password_A_edit_password 0x7f080232
 int id til_email_A_signup 0x7f0801e0
+int id til_new_password_A_edit_password 0x7f080233
 int id til_password_A_login 0x7f0801e1
 int id til_password_A_signup 0x7f0801e2
 int id til_repassword_A_signup 0x7f0801e3
@@ -3034,8 +3042,11 @@ int id tv 0x7f0801f6
 int id tv_accountname_A_edit_account_name 0x7f0801f7
 int id tv_accountname_A_signup 0x7f0801f8
 int id tv_chongame 0x7f0801f9
+int id tv_confirm_password_A_edit_password 0x7f080234
+int id tv_current_password_A_edit_password 0x7f080235
 int id tv_email_A_signup 0x7f0801fa
 int id tv_gamename_A_waiting_room 0x7f0801fb
+int id tv_new_password_A_edit_password 0x7f080236
 int id tv_noaccount_A_login 0x7f0801fc
 int id tv_numberplayer_item_room 0x7f0801fd
 int id tv_oanquan 0x7f0801fe
@@ -3051,6 +3062,7 @@ int id tv_roomname_A_waiting_room 0x7f080207
 int id tv_roomname_item_room 0x7f080208
 int id tv_tabplay_A_edit_account_name 0x7f080209
 int id tv_tabplay_A_edit_info 0x7f08020a
+int id tv_tabplay_A_edit_password 0x7f080237
 int id tv_tabplay_A_menu 0x7f08020b
 int id tv_title_A_signup 0x7f08020c
 int id tv_title_login_A_login 0x7f08020d

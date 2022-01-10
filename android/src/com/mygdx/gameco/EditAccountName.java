@@ -27,15 +27,6 @@ public class EditAccountName extends AppCompatActivity {
 
         Init();
 
-        bt_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent_back = new Intent(EditAccountName.this, EditInfo.class);
-                startActivity(intent_back);
-                overridePendingTransition(R.anim.anim_in_right, R.anim.anim_out_left);
-            }
-        });
-
         bt_change_account_name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +60,15 @@ public class EditAccountName extends AppCompatActivity {
                 else {
                     Toast.makeText(getApplicationContext(), "Vui lòng nhập tên hiển thị muốn đổi", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        bt_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent_back = new Intent(EditAccountName.this, EditInfo.class);
+                startActivity(intent_back);
+                overridePendingTransition(R.anim.anim_in_right, R.anim.anim_out_left);
             }
         });
     }
