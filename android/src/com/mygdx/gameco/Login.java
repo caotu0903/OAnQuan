@@ -216,7 +216,7 @@ public class Login extends Activity {
         return base64;
     }
 
-    public String DecryptBase64 (String input) {
+    /*public String DecryptBase64 (String input) {
         byte[] data = Base64.decode(input, Base64.DEFAULT);
         String text = "";
         try {
@@ -226,5 +226,14 @@ public class Login extends Activity {
         }
         text = text.replace("\n", "");
         return text;
+    }*/
+
+    private String DecryptBase64(String coded){
+        byte[] valueDecoded= new byte[0];
+        try {
+            valueDecoded = Base64.decode(coded.getBytes("UTF-8"), Base64.DEFAULT);
+        } catch (UnsupportedEncodingException e) {
+        }
+        return new String(valueDecoded);
     }
 }

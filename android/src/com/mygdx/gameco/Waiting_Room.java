@@ -264,6 +264,14 @@ public class Waiting_Room extends AppCompatActivity {
                 bt_Start.setActivated(false);
             }
         }
+        else {
+            if (room.getPlayerReady()) {
+                tv_ready.setVisibility(View.VISIBLE);
+            }
+            else {
+                tv_ready.setVisibility(View.INVISIBLE);
+            }
+        }
         tv_roomname.setText(room.getRoomName());
         tv_nameHost.setText(room.getNameHost());
         tv_namePlayer.setText(room.getNamePlayer());
