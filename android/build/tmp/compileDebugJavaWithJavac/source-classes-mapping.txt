@@ -4,15 +4,15 @@ com/mygdx/gameco/BuildConfig.java
  com.mygdx.gameco.BuildConfig
 com/mygdx/gameco/Room.java
  com.mygdx.gameco.Room
+com/mygdx/gameco/ListRankAdapter.java
+ com.mygdx.gameco.ListRankAdapter
+com/mygdx/gameco/ListRoomAdapter.java
+ com.mygdx.gameco.ListRoomAdapter
 com/mygdx/gameco/EditInfo.java
  com.mygdx.gameco.EditInfo
  com.mygdx.gameco.EditInfo$1
  com.mygdx.gameco.EditInfo$2
  com.mygdx.gameco.EditInfo$3
-com/mygdx/gameco/ListRoomAdapter.java
- com.mygdx.gameco.ListRoomAdapter
-com/mygdx/gameco/ListRankAdapter.java
- com.mygdx.gameco.ListRankAdapter
 com/mygdx/gameco/ChooseGame.java
  com.mygdx.gameco.ChooseGame
  com.mygdx.gameco.ChooseGame$1

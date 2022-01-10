@@ -52,8 +52,7 @@ public class EditPassword extends AppCompatActivity {
                             ReceiveData = ReceiveData.replaceFirst("104", "");
 
                             if (ReceiveData.startsWith("001")) {
-                                Intent intent_back = new Intent(EditPassword.this, EditInfo.class);
-                                startActivity(intent_back);
+                                finish();
                                 overridePendingTransition(R.anim.anim_in_right, R.anim.anim_out_left);
                                 Toast.makeText(getApplicationContext(), "Đổi mật khẩu thành công", Toast.LENGTH_SHORT).show();
                             }
@@ -79,8 +78,7 @@ public class EditPassword extends AppCompatActivity {
         bt_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_back = new Intent(EditPassword.this, EditInfo.class);
-                startActivity(intent_back);
+                finish();
                 overridePendingTransition(R.anim.anim_in_right, R.anim.anim_out_left);
             }
         });
@@ -116,8 +114,7 @@ public class EditPassword extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
 
-        Intent intent_back = new Intent(EditPassword.this, EditInfo.class);
-        startActivity(intent_back);
+        finish();
         overridePendingTransition(R.anim.anim_in_right, R.anim.anim_out_left);
     }
 }

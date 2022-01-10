@@ -41,8 +41,7 @@ public class Rank extends AppCompatActivity {
         bt_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_back = new Intent(Rank.this, ChooseRoom.class);
-                startActivity(intent_back);
+                finish();
                 overridePendingTransition(R.anim.anim_in_left, R.anim.anim_out_right);
             }
         });
@@ -88,8 +87,7 @@ public class Rank extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
 
-        Intent intent_back = new Intent(Rank.this, ChooseRoom.class);
-        startActivity(intent_back);
+        finish();
         overridePendingTransition(R.anim.anim_in_left, R.anim.anim_out_right);
     }
 }

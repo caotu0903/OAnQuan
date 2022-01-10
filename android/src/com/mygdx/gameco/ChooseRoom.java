@@ -39,8 +39,7 @@ public class ChooseRoom extends Activity {
         bt_Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_joinroom = new Intent(ChooseRoom.this, ChooseGame.class);
-                startActivity(intent_joinroom);
+                finish();
                 overridePendingTransition(R.anim.anim_in_left, R.anim.anim_out_right);
             }
         });
@@ -186,8 +185,7 @@ public class ChooseRoom extends Activity {
     public void onBackPressed() {
         super.onBackPressed();
 
-        Intent intent_back = new Intent(ChooseRoom.this, ChooseGame.class);
-        startActivity(intent_back);
+        finish();
         overridePendingTransition(R.anim.anim_in_left, R.anim.anim_out_right);
     }
 }

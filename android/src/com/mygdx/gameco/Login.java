@@ -71,12 +71,14 @@ public class Login extends Activity {
             public void onClick(View v) {
                 if (!et_Username.getText().toString().isEmpty()) {
                     if (!et_Pass.getText().toString().isEmpty()) {
+
                         String encryptPass = EncryptBase64(et_Pass.getText().toString().trim());
                         String LoginMess = "101" + et_Username.getText().toString().trim() + "/**/" + encryptPass;
                         SendMessage(LoginMess);
-                        String ReceiveData = "/**/";
-                        while (ReceiveData.equals("/**/")) {
-                            ReceiveData = GetMessageLogin();
+
+                        String ReceiveData = "";
+                        while (ReceiveData.equals("")) {
+                            ReceiveData = GetMessage();
                         }
 
                         if (ReceiveData.startsWith("001")) {
@@ -180,17 +182,6 @@ public class Login extends Activity {
         }
     }
 
-    public String GetMessageLogin () {
-        if (!listenArrayMessage.isEmpty()) {
-            String getMessage = listenArrayMessage.get(0);
-            listenArrayMessage.remove(0);
-            return getMessage;
-        }
-        else {
-            return "/**/";
-        }
-    }
-
     public String GetMessage () {
         if (!listenArrayMessage.isEmpty()) {
             String getMessage = listenArrayMessage.get(0);
@@ -227,7 +218,7 @@ public class Login extends Activity {
 
     public String DecryptBase64 (String input) {
         byte[] data = Base64.decode(input, Base64.DEFAULT);
-        String text = null;
+        String text = "";
         try {
             text = new String(data, "UTF-8");
         } catch (UnsupportedEncodingException e) {

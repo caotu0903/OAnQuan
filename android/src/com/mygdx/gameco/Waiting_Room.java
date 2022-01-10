@@ -91,8 +91,7 @@ public class Waiting_Room extends AppCompatActivity {
                 }
 
                 if (ReceiveData.startsWith("001")) {
-                    Intent intent_outroom = new Intent(Waiting_Room.this, ChooseRoom.class);
-                    startActivity(intent_outroom);
+                    finish();
                     overridePendingTransition(R.anim.anim_in_left, R.anim.anim_out_right);
                 }
             }
@@ -304,8 +303,7 @@ public class Waiting_Room extends AppCompatActivity {
         }
 
         if (ReceiveData.startsWith("001")) {
-            Intent intent_outroom = new Intent(Waiting_Room.this, ChooseRoom.class);
-            startActivity(intent_outroom);
+            finish();
             overridePendingTransition(R.anim.anim_in_left, R.anim.anim_out_right);
         }
     }

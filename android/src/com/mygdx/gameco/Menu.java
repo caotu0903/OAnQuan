@@ -30,8 +30,7 @@ public class Menu extends AppCompatActivity {
         bt_Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_back = new Intent(Menu.this, ChooseGame.class);
-                startActivity(intent_back);
+                finish();
                 overridePendingTransition(R.anim.anim_in_right, R.anim.anim_out_left);
             }
         });
@@ -66,8 +65,7 @@ public class Menu extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
 
-        Intent intent_back = new Intent(Menu.this, ChooseGame.class);
-        startActivity(intent_back);
+        finish();
         overridePendingTransition(R.anim.anim_in_right, R.anim.anim_out_left);
     }
 }

@@ -52,8 +52,7 @@ public class ChooseGame extends AppCompatActivity {
             logoutMessage = Login.getLoginActivity().GetMessage();
         }
         if (logoutMessage.contains("102")) {
-            Intent intent_logout = new Intent(ChooseGame.this, Login.class);
-            startActivity(intent_logout);
+            finish();
             Toast.makeText(getApplicationContext(), "Đã đăng xuất", Toast.LENGTH_SHORT).show();
         }
     }

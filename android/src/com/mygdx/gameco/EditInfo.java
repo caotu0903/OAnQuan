@@ -43,8 +43,7 @@ public class EditInfo extends AppCompatActivity {
         bt_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_back = new Intent(EditInfo.this, Menu.class);
-                startActivity(intent_back);
+                finish();
                 overridePendingTransition(R.anim.anim_in_right, R.anim.anim_out_left);
             }
         });
@@ -60,8 +59,7 @@ public class EditInfo extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
 
-        Intent intent_back = new Intent(EditInfo.this, Menu.class);
-        startActivity(intent_back);
+        finish();
         overridePendingTransition(R.anim.anim_in_right, R.anim.anim_out_left);
     }
 }
