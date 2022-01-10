@@ -186,8 +186,8 @@ public class ChooseRoom extends Activity {
     public void onBackPressed() {
         super.onBackPressed();
 
-        Intent intent_joinroom = new Intent(ChooseRoom.this, ChooseGame.class);
-        startActivity(intent_joinroom);
+        Intent intent_back = new Intent(ChooseRoom.this, ChooseGame.class);
+        startActivity(intent_back);
         overridePendingTransition(R.anim.anim_in_left, R.anim.anim_out_right);
     }
 }

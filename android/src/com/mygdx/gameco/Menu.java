@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -46,6 +47,7 @@ public class Menu extends AppCompatActivity {
                 if (logoutMessage.contains("102")) {
                     Intent intent_logout = new Intent(Menu.this, Login.class);
                     startActivity(intent_logout);
+                    Toast.makeText(getApplicationContext(), "Đã đăng xuất", Toast.LENGTH_SHORT).show();
                 }
             }
         });

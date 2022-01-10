@@ -19,6 +19,7 @@ public class Waiting_Room extends AppCompatActivity {
     TextView tv_roomname;
     TextView tv_nameHost;
     TextView tv_namePlayer;
+    TextView tv_ready;
     Button bt_Start;
     Button bt_Invite;
     Button bt_Kick;
@@ -39,6 +40,15 @@ public class Waiting_Room extends AppCompatActivity {
         getSupportActionBar().hide();
 
         Init();
+
+        bt_Kick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (room.getNumberPlayer() == 2) {
+                    Login.getLoginActivity().SendMessage("303" + roomID);
+                }
+            }
+        });
 
         bt_Start.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
@@ -94,6 +104,7 @@ public class Waiting_Room extends AppCompatActivity {
         tv_roomname = (TextView) findViewById(R.id.tv_roomname_A_waiting_room);
         tv_nameHost = (TextView) findViewById(R.id.tv_player1_A_waiting_room);
         tv_namePlayer = (TextView) findViewById(R.id.tv_player2_A_waiting_room);
+        tv_ready = (TextView) findViewById(R.id.tv_ready_A_waiting_room);
         bt_Start = (Button) findViewById(R.id.bt_start_A_waiting_room);
         bt_Invite = (Button) findViewById(R.id.bt_invite_A_waiting_room);
         bt_Kick = (Button) findViewById(R.id.bt_kick_A_waiting_room);
@@ -111,8 +122,10 @@ public class Waiting_Room extends AppCompatActivity {
         SendGetInfo();
         GetRoomInfo();
 
+        tv_ready.setVisibility(View.INVISIBLE);
+
         if (role.equals("player")) {
-            room = new Room(roomID, 1);
+            room = new Room(roomID, 2);
             bt_Kick.setActivated(false);
             bt_Kick.setVisibility(View.INVISIBLE);
             bt_Invite.setActivated(false);
@@ -120,7 +133,7 @@ public class Waiting_Room extends AppCompatActivity {
             bt_Start.setText("Sẵn sàng");
         }
         else {
-            room = new Room(roomID, 2);
+            room = new Room(roomID, 1);
             bt_Start.setActivated(false);
         }
     }
@@ -141,6 +154,7 @@ public class Waiting_Room extends AppCompatActivity {
 
                 String roomInfoMessage = "";
                 String startInfoMessage = "";
+                String kickInfoMessage = "";
 
                 try {
                     semaphore.acquire();
@@ -158,17 +172,29 @@ public class Waiting_Room extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
+                try {
+                    semaphore.acquire();
+                    kickInfoMessage = Login.getLoginActivity().GetMessage("303");
+                    semaphore.release();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
                 if (roomInfoMessage.length() != 0) {
                     roomInfoMessage = roomInfoMessage.replaceFirst("310", "");
                     String[] listStringRoom = roomInfoMessage.split("\\/\\*\\*\\/");
                     room.setNameHost(listStringRoom[1]);
+
                     if (!listStringRoom[2].equals("unknown")) {
                         room.setNamePlayer(listStringRoom[2]);
+                        room.setNumberPlayer(2);
                     }
                     else {
                         role = "host";
                         room.setNamePlayer("Player2");
+                        room.setNumberPlayer(1);
                     }
+
                     if (listStringRoom[3].equals("true")) {
                         room.setPlayerReady(true);
                     }
@@ -204,6 +230,20 @@ public class Waiting_Room extends AppCompatActivity {
                         }
                     });
                 }
+
+                if (kickInfoMessage.length() != 0) {
+                    gameStart = true;
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent intent_outroom = new Intent(Waiting_Room.this, ChooseRoom.class);
+                            startActivity(intent_outroom);
+                            overridePendingTransition(R.anim.anim_in_left, R.anim.anim_out_right);
+                            Toast.makeText(getApplicationContext(), "Bạn đã bị đuổi khỏi phòng", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
             }
         }
     }
@@ -217,9 +257,11 @@ public class Waiting_Room extends AppCompatActivity {
             bt_Invite.setVisibility(View.VISIBLE);
             bt_Start.setText("Bắt đầu");
             if (room.getPlayerReady()) {
+                tv_ready.setVisibility(View.VISIBLE);
                 bt_Start.setActivated(true);
             }
             else {
+                tv_ready.setVisibility(View.INVISIBLE);
                 bt_Start.setActivated(false);
             }
         }

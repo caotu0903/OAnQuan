@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class ChooseGame extends AppCompatActivity {
 
@@ -39,5 +40,21 @@ public class ChooseGame extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Login.getLoginActivity().SendMessage("102");
+        String logoutMessage = "";
+        while (logoutMessage.equals("")) {
+            logoutMessage = Login.getLoginActivity().GetMessage();
+        }
+        if (logoutMessage.contains("102")) {
+            Intent intent_logout = new Intent(ChooseGame.this, Login.class);
+            startActivity(intent_logout);
+            Toast.makeText(getApplicationContext(), "Đã đăng xuất", Toast.LENGTH_SHORT).show();
+        }
     }
 }
