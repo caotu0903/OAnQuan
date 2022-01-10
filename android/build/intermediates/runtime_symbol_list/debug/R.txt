@@ -2637,7 +2637,7 @@ int id bt_change_account_name_A_edit_account_name 0x7f080069
 int id bt_create_A_choose_room 0x7f08006a
 int id bt_edit_account_name_A_edit_info 0x7f08006b
 int id bt_edit_info_A_menu 0x7f08006c
-int id bt_edit_pass_A_edit_info 0x7f08006d
+int id bt_edit_password_A_edit_info 0x7f08022b
 int id bt_invite_A_waiting_room 0x7f08006e
 int id bt_kick_A_waiting_room 0x7f08006f
 int id bt_login_A_login 0x7f080070

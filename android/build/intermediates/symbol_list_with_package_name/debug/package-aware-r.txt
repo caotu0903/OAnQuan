@@ -2638,7 +2638,7 @@ id bt_change_account_name_A_edit_account_name
 id bt_create_A_choose_room
 id bt_edit_account_name_A_edit_info
 id bt_edit_info_A_menu
-id bt_edit_pass_A_edit_info
+id bt_edit_password_A_edit_info
 id bt_invite_A_waiting_room
 id bt_kick_A_waiting_room
 id bt_login_A_login

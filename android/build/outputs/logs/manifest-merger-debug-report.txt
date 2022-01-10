@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:2:1-74:12
-INJECTED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:2:1-74:12
-INJECTED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:2:1-74:12
-INJECTED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:2:1-74:12
+ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:2:1-94:12
+INJECTED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:2:1-94:12
+INJECTED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:2:1-94:12
+INJECTED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:2:1-94:12
 MERGED from [com.google.android.material:material:1.6.0-alpha01] C:\Users\ASUS\.gradle\caches\transforms-3\27e978d968aa817d3406d9fb9e07df4b\transformed\material-1.6.0-alpha01\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.2] C:\Users\ASUS\.gradle\caches\transforms-3\102de147192b5ae927c001061465296f\transformed\constraintlayout-2.1.2\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.4.0] C:\Users\ASUS\.gradle\caches\transforms-3\9079c9694b4d4270d7cd62242948af25\transformed\appcompat-1.4.0\AndroidManifest.xml:17:1-24:12
@@ -43,33 +43,35 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\ASUS\.gradle\cac
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-3\eb3bd80f829817dc46cef00554f9b4ab\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-3\998ecad2e598076d0444e5b886cc28b2\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-3\abd986d958258d7e8503cbe4ed7e75cb\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
-INJECTED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:2:1-74:12
-INJECTED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:2:1-74:12
-INJECTED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:2:1-74:12
+INJECTED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:2:1-94:12
+INJECTED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:2:1-94:12
+INJECTED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:2:1-94:12
 	package
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:3:5-31
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:4:5-31
 		INJECTED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml
 		INJECTED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:2:1-74:12
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:2:1-94:12
 		INJECTED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml
+	xmlns:tools
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:2:1-74:12
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:2:1-94:12
 		INJECTED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:5:5-67
+ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:6:5-67
 	android:name
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:5:22-64
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:6:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:6:5-79
+ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:7:5-79
 	android:name
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:6:22-76
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:7:22-76
 application
-ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:8:5-72:19
+ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:9:5-92:19
 MERGED from [com.google.android.material:material:1.6.0-alpha01] C:\Users\ASUS\.gradle\caches\transforms-3\27e978d968aa817d3406d9fb9e07df4b\transformed\material-1.6.0-alpha01\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.6.0-alpha01] C:\Users\ASUS\.gradle\caches\transforms-3\27e978d968aa817d3406d9fb9e07df4b\transformed\material-1.6.0-alpha01\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.2] C:\Users\ASUS\.gradle\caches\transforms-3\102de147192b5ae927c001061465296f\transformed\constraintlayout-2.1.2\AndroidManifest.xml:9:5-20
@@ -87,111 +89,149 @@ MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\ASUS\.gradle\cache
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.7.0] C:\Users\ASUS\.gradle\caches\transforms-3\21249a56641fb0309777a5ae16ce99ff\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:13:9-41
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:14:9-41
 	android:appCategory
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:10:9-35
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:11:9-35
 	android:icon
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:11:9-45
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:12:9-45
 	android:allowBackup
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:9:9-35
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:10:9-35
 	android:theme
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:14:9-40
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:15:9-40
 	android:isGame
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:12:9-30
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:13:9-30
+activity#com.mygdx.gameco.EditAccountName
+ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:16:9-20:56
+	android:screenOrientation
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:19:13-49
+	android:exported
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:18:13-36
+	tools:ignore
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:20:13-53
+	android:name
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:17:13-44
+activity#com.mygdx.gameco.EditPassword
+ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:21:9-25:56
+	android:screenOrientation
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:24:13-49
+	android:exported
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:23:13-36
+	tools:ignore
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:25:13-53
+	android:name
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:22:13-41
 activity#com.mygdx.gameco.Rank
-ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:15:9-18:51
+ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:26:9-30:56
 	android:screenOrientation
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:18:13-49
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:29:13-49
 	android:exported
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:17:13-36
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:28:13-36
+	tools:ignore
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:30:13-53
 	android:name
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:16:13-33
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:27:13-33
 activity#com.mygdx.gameco.Waiting_Room
-ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:19:9-22:61
-	android:screenOrientation
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:22:13-49
-	android:exported
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:21:13-36
-	android:name
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:20:13-41
-activity#com.mygdx.gameco.ChooseRoom
-ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:23:9-26:61
-	android:screenOrientation
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:26:13-49
-	android:exported
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:25:13-36
-	android:name
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:24:13-39
-activity#com.mygdx.gameco.EditInfo
-ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:27:9-30:61
-	android:screenOrientation
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:30:13-49
-	android:exported
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:29:13-36
-	android:name
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:28:13-37
-activity#com.mygdx.gameco.Menu
-ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:31:9-34:61
+ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:31:9-35:56
 	android:screenOrientation
 		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:34:13-49
 	android:exported
 		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:33:13-36
+	tools:ignore
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:35:13-53
 	android:name
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:32:13-33
-activity#com.mygdx.gameco.ChooseGame
-ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:35:9-38:61
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:32:13-41
+activity#com.mygdx.gameco.ChooseRoom
+ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:36:9-40:56
 	android:screenOrientation
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:38:13-49
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:39:13-49
 	android:exported
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:37:13-36
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:38:13-36
+	tools:ignore
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:40:13-53
 	android:name
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:36:13-39
-activity#com.mygdx.gameco.SignUp
-ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:39:9-42:52
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:37:13-39
+activity#com.mygdx.gameco.EditInfo
+ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:41:9-45:56
 	android:screenOrientation
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:42:13-49
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:44:13-49
 	android:exported
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:41:13-36
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:43:13-36
+	tools:ignore
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:45:13-53
 	android:name
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:40:13-35
-activity#com.mygdx.gameco.Login
-ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:43:9-46:61
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:42:13-37
+activity#com.mygdx.gameco.Menu
+ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:46:9-50:56
 	android:screenOrientation
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:46:13-49
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:49:13-49
 	android:exported
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:45:13-36
-	android:name
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:44:13-34
-activity#com.mygdx.gameco.TabPlay
-ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:47:9-56:20
-	android:screenOrientation
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:50:13-49
-	android:exported
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:49:13-36
-	android:name
 		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:48:13-36
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:51:13-55:29
-action#android.intent.action.MAIN
-ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:52:17-69
+	tools:ignore
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:50:13-53
 	android:name
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:52:25-66
-category#android.intent.category.LAUNCHER
-ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:54:17-77
-	android:name
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:54:27-74
-activity#com.mygdx.gameco.AndroidLauncher
-ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:57:9-71:20
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:47:13-33
+activity#com.mygdx.gameco.ChooseGame
+ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:51:9-55:56
 	android:screenOrientation
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:62:13-50
-	android:label
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:61:13-45
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:54:13-49
 	android:exported
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:60:13-36
-	android:configChanges
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:59:13-107
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:53:13-36
+	tools:ignore
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:55:13-53
 	android:name
-		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:58:13-44
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:52:13-39
+activity#com.mygdx.gameco.SignUp
+ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:56:9-60:56
+	android:screenOrientation
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:59:13-49
+	android:exported
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:58:13-36
+	tools:ignore
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:60:13-53
+	android:name
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:57:13-35
+activity#com.mygdx.gameco.Login
+ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:61:9-65:56
+	android:screenOrientation
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:64:13-49
+	android:exported
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:63:13-36
+	tools:ignore
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:65:13-53
+	android:name
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:62:13-34
+activity#com.mygdx.gameco.TabPlay
+ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:66:9-76:20
+	android:screenOrientation
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:69:13-49
+	android:exported
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:68:13-36
+	tools:ignore
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:70:13-53
+	android:name
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:67:13-36
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:71:13-75:29
+action#android.intent.action.MAIN
+ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:72:17-69
+	android:name
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:72:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:74:17-77
+	android:name
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:74:27-74
+activity#com.mygdx.gameco.AndroidLauncher
+ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:77:9-91:20
+	android:screenOrientation
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:82:13-50
+	android:label
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:81:13-45
+	android:exported
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:80:13-36
+	android:configChanges
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:79:13-107
+	android:name
+		ADDED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml:78:13-44
 uses-sdk
 INJECTED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Users\ASUS\AndroidStudioProjects\OAnQuan\android\AndroidManifest.xml

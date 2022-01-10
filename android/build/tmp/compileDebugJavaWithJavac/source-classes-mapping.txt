@@ -14,6 +14,8 @@ com/mygdx/gameco/EditPassword.java
  com.mygdx.gameco.EditPassword
 com/mygdx/gameco/EditAccountName.java
  com.mygdx.gameco.EditAccountName
+ com.mygdx.gameco.EditAccountName$1
+ com.mygdx.gameco.EditAccountName$2
 com/mygdx/gameco/TabPlay.java
  com.mygdx.gameco.TabPlay
  com.mygdx.gameco.TabPlay$1
@@ -50,6 +52,8 @@ com/mygdx/gameco/ListRankAdapter.java
 com/mygdx/gameco/EditInfo.java
  com.mygdx.gameco.EditInfo
  com.mygdx.gameco.EditInfo$1
+ com.mygdx.gameco.EditInfo$2
+ com.mygdx.gameco.EditInfo$3
 com/mygdx/gameco/BuildConfig.java
  com.mygdx.gameco.BuildConfig
 com/mygdx/gameco/Login.java

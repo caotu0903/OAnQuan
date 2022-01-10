@@ -6,7 +6,7 @@
     android:background="@color/light_yellow"
     >
     <Button
-        android:id="@+id/bt_edit_pass_A_edit_info"
+        android:id="@+id/bt_edit_password_A_edit_info"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:text="Đổi Mật Khẩu"
@@ -23,7 +23,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="100dp"
         android:backgroundTint="@color/orange"
-        android:text="Đổi tên tài khoản"
+        android:text="Đổi tên hiển thị"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"

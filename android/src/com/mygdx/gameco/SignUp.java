@@ -57,9 +57,9 @@ public class SignUp extends Activity {
                                     startActivity(intent);
                                     Toast.makeText(getApplicationContext(), "Tạo tài khoản thành công", Toast.LENGTH_SHORT).show();
                                 } else if (ReceiveData.startsWith("002")) {
-                                    Toast.makeText(getApplicationContext(), "Tài khoản đã tồn tại", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Tên đăng nhập đã tồn tại", Toast.LENGTH_SHORT).show();
                                 } else if (ReceiveData.startsWith("003")) {
-                                    Toast.makeText(getApplicationContext(), "Tên tài khoản đã tồn tại", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Tên hiển thị đã tồn tại", Toast.LENGTH_SHORT).show();
                                 }
 
                             } else {

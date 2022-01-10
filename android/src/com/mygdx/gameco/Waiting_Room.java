@@ -158,7 +158,7 @@ public class Waiting_Room extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                if (!roomInfoMessage.isEmpty()) {
+                if (roomInfoMessage.length() != 0) {
                     roomInfoMessage = roomInfoMessage.replaceFirst("310", "");
                     String[] listStringRoom = roomInfoMessage.split("\\/\\*\\*\\/");
                     room.setNameHost(listStringRoom[1]);
@@ -183,7 +183,7 @@ public class Waiting_Room extends AppCompatActivity {
                         }
                     });
                 }
-                if (!startInfoMessage.isEmpty()) {
+                if (startInfoMessage.length() != 0) {
                     gameStart = true;
                     runOnUiThread(new Runnable() {
                         @Override

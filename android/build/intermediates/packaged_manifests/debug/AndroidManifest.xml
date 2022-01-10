@@ -23,6 +23,14 @@
         android:testOnly="true"
         android:theme="@style/GdxTheme" >
         <activity
+            android:name="com.mygdx.gameco.EditAccountName"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mygdx.gameco.EditPassword"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.mygdx.gameco.Rank"
             android:exported="true"
             android:screenOrientation="portrait" />

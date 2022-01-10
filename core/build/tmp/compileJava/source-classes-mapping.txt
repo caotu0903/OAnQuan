@@ -1,5 +1,8 @@
-com/mygdx/gameco/OCo.java
- com.mygdx.gameco.OCo
+com/mygdx/gameco/GameScreen.java
+ com.mygdx.gameco.GameScreen
+ com.mygdx.gameco.GameScreen$1
+ com.mygdx.gameco.GameScreen$2
+ com.mygdx.gameco.GameScreen$3
 com/mygdx/gameco/OperationNetwork.java
  com.mygdx.gameco.OperationNetwork
 com/mygdx/gameco/Assets.java
@@ -8,18 +11,15 @@ com/mygdx/gameco/GrabAnimation.java
  com.mygdx.gameco.GrabAnimation
 com/mygdx/gameco/CuaQuay.java
  com.mygdx.gameco.CuaQuay
-com/mygdx/gameco/Player.java
- com.mygdx.gameco.Player
-com/mygdx/gameco/GameScreen.java
- com.mygdx.gameco.GameScreen
- com.mygdx.gameco.GameScreen$1
- com.mygdx.gameco.GameScreen$2
- com.mygdx.gameco.GameScreen$3
 com/mygdx/gameco/Direction.java
  com.mygdx.gameco.Direction
  com.mygdx.gameco.Direction$1
  com.mygdx.gameco.Direction$2
 com/mygdx/gameco/OAnQuanGame.java
  com.mygdx.gameco.OAnQuanGame
+com/mygdx/gameco/Player.java
+ com.mygdx.gameco.Player
 com/mygdx/gameco/Hand.java
  com.mygdx.gameco.Hand
+com/mygdx/gameco/OCo.java
+ com.mygdx.gameco.OCo

@@ -37,7 +37,7 @@
         android:id="@+id/tv_accountname_A_edit_account_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tên hiển thị muốn đổi:"
+        android:text="Tên hiển thị:"
         android:textSize="22sp"
         android:textColor="@color/black"
         android:layout_marginTop="40dp"
