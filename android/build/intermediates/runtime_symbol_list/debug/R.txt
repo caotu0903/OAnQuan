@@ -3057,6 +3057,7 @@ int id tv_player2_A_waiting_room 0x7f080202
 int id tv_player_name_A_item_rank 0x7f080203
 int id tv_point_A_item_rank 0x7f080204
 int id tv_rank_A_item_rank 0x7f080205
+int id tv_ready_A_waiting_room 0x7f080238
 int id tv_repassword_A_signup 0x7f080206
 int id tv_roomname_A_waiting_room 0x7f080207
 int id tv_roomname_item_room 0x7f080208

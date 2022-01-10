@@ -74,9 +74,9 @@ public class Login extends Activity {
                         String encryptPass = EncryptBase64(et_Pass.getText().toString().trim());
                         String LoginMess = "101" + et_Username.getText().toString().trim() + "/**/" + encryptPass;
                         SendMessage(LoginMess);
-                        String ReceiveData = "";
-                        while (ReceiveData.length() == 0) {
-                            ReceiveData = GetMessage();
+                        String ReceiveData = "/**/";
+                        while (ReceiveData.equals("/**/")) {
+                            ReceiveData = GetMessageLogin();
                         }
 
                         if (ReceiveData.startsWith("001")) {
@@ -177,6 +177,17 @@ public class Login extends Activity {
         }
         else {
             return "";
+        }
+    }
+
+    public String GetMessageLogin () {
+        if (!listenArrayMessage.isEmpty()) {
+            String getMessage = listenArrayMessage.get(0);
+            listenArrayMessage.remove(0);
+            return getMessage;
+        }
+        else {
+            return "/**/";
         }
     }
 

@@ -3058,6 +3058,7 @@ id tv_player2_A_waiting_room
 id tv_player_name_A_item_rank
 id tv_point_A_item_rank
 id tv_rank_A_item_rank
+id tv_ready_A_waiting_room
 id tv_repassword_A_signup
 id tv_roomname_A_waiting_room
 id tv_roomname_item_room
