@@ -52,11 +52,11 @@ public class Login extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        bt_Signup = (Button)findViewById(R.id.bt_signup);
-        bt_Login = (Button)findViewById(R.id.bt_login);
+        bt_Signup = (Button)findViewById(R.id.bt_signup_A_login);
+        bt_Login = (Button)findViewById(R.id.bt_login_A_login);
 
-        et_Username = (EditText)findViewById(R.id.edt_username);
-        et_Pass = (EditText)findViewById(R.id.edt_password);
+        et_Username = (EditText)findViewById(R.id.et_username_A_login);
+        et_Pass = (EditText)findViewById(R.id.et_password_A_login);
 
         semaphore = new Semaphore(1);
 
@@ -75,7 +75,7 @@ public class Login extends Activity {
                         String LoginMess = "101" + et_Username.getText().toString().trim() + "/**/" + encryptPass;
                         SendMessage(LoginMess);
                         String ReceiveData = "";
-                        while (ReceiveData.isEmpty()) {
+                        while (ReceiveData.length() == 0) {
                             ReceiveData = GetMessage();
                         }
 

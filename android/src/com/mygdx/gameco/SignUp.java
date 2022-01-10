@@ -41,34 +41,36 @@ public class SignUp extends Activity {
                 String repassword = et_Repassword.getText().toString().trim();
                 if (!accountName.isEmpty() && !userName.isEmpty() && !email.isEmpty()
                         && !password.isEmpty() && !repassword.isEmpty()) {
-                    if (Password_Validation(password)) {
-                        if (password.equals(repassword)) {
-                            password = Login.getLoginActivity().EncryptBase64(password);
-                            String signUpMessage = "100" + userName + "/**/" + accountName + "/**/" + email + "/**/" + password;
-                            Login.getLoginActivity().SendMessage(signUpMessage);
-                            String ReceiveData = "";
-                            while (ReceiveData.isEmpty()) {
-                                ReceiveData = Login.getLoginActivity().GetMessage();
-                            }
+                    if (AccountName_Validation(accountName)) {
+                        if (Password_Validation(password)) {
+                            if (password.equals(repassword)) {
+                                password = Login.getLoginActivity().EncryptBase64(password);
+                                String signUpMessage = "100" + userName + "/**/" + accountName + "/**/" + email + "/**/" + password;
+                                Login.getLoginActivity().SendMessage(signUpMessage);
+                                String ReceiveData = "";
+                                while (ReceiveData.isEmpty()) {
+                                    ReceiveData = Login.getLoginActivity().GetMessage();
+                                }
 
-                            if (ReceiveData.startsWith("001")) {
-                                Intent intent = new Intent(SignUp.this, Login.class);
-                                startActivity(intent);
-                                Toast.makeText(getApplicationContext(), "Tạo tài khoản thành công", Toast.LENGTH_SHORT).show();
-                            }
-                            else if (ReceiveData.startsWith("002")) {
-                                Toast.makeText(getApplicationContext(), "Tài khoản đã tồn tại", Toast.LENGTH_SHORT).show();
-                            }
-                            else if (ReceiveData.startsWith("003")) {
-                                Toast.makeText(getApplicationContext(), "Tên tài khoản đã tồn tại", Toast.LENGTH_SHORT).show();
-                            }
+                                if (ReceiveData.startsWith("001")) {
+                                    Intent intent = new Intent(SignUp.this, Login.class);
+                                    startActivity(intent);
+                                    Toast.makeText(getApplicationContext(), "Tạo tài khoản thành công", Toast.LENGTH_SHORT).show();
+                                } else if (ReceiveData.startsWith("002")) {
+                                    Toast.makeText(getApplicationContext(), "Tài khoản đã tồn tại", Toast.LENGTH_SHORT).show();
+                                } else if (ReceiveData.startsWith("003")) {
+                                    Toast.makeText(getApplicationContext(), "Tên tài khoản đã tồn tại", Toast.LENGTH_SHORT).show();
+                                }
 
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Sai mật khẩu xác nhận", Toast.LENGTH_SHORT).show();
+                            }
                         } else {
-                            Toast.makeText(getApplicationContext(), "Sai mật khẩu xác nhận", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Vui lòng sử dụng mật khẩu mạnh", Toast.LENGTH_SHORT).show();
                         }
                     }
                     else {
-                        Toast.makeText(getApplicationContext(), "Vui lòng sử dụng mật khẩu mạnh", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Tên hiển thị không hợp lệ", Toast.LENGTH_SHORT).show();
                     }
                 }
                 else {
@@ -123,6 +125,25 @@ public class SignUp extends Activity {
             Matcher hasSpecial = special.matcher(username);
 
             return hasSpecial.find();
+        }
+        else
+            return false;
+    }
+
+    public static boolean AccountName_Validation(String accountname)
+    {
+        if(accountname.length()<=12)
+        {
+            Pattern special = Pattern.compile ("[!@#$%&*()_+=|<>?{}\\[\\]~-]");
+
+            Matcher hasSpecial = special.matcher(accountname);
+
+            if (hasSpecial.find()) {
+                return false;
+            }
+            else {
+                return true;
+            }
         }
         else
             return false;
