@@ -141,7 +141,7 @@ public class GameScreen implements Screen {
 
         //set up game object
         initCellArray();
-        hand = new Hand(3, 0.1f, textureAniAndDirec.findRegion("grab"), oCo, this);
+        hand = new Hand(3, 0.3f, textureAniAndDirec.findRegion("grab"), oCo, this);
 
         //set up direction and animation
         initAnimationAndDirec();
