@@ -236,8 +236,7 @@ public class Waiting_Room extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Intent intent_outroom = new Intent(Waiting_Room.this, ChooseRoom.class);
-                            startActivity(intent_outroom);
+                            finish();
                             overridePendingTransition(R.anim.anim_in_left, R.anim.anim_out_right);
                             Toast.makeText(getApplicationContext(), "Bạn đã bị đuổi khỏi phòng", Toast.LENGTH_SHORT).show();
                         }

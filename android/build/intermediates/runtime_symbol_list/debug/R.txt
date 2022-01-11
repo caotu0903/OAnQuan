@@ -2807,6 +2807,7 @@ int id linear 0x7f080113
 int id listMode 0x7f080114
 int id list_item 0x7f080115
 int id ll_item_room 0x7f080116
+int id ll_option_A_choose_room 0x7f080238
 int id ll_player_rank_item_A_item_rank 0x7f080117
 int id ll_rank_name_point_title_A_rank 0x7f080118
 int id lv_list_player_A_rank 0x7f080119
