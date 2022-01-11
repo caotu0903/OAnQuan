@@ -53,8 +53,7 @@ public class SignUp extends Activity {
                                 }
 
                                 if (ReceiveData.startsWith("001")) {
-                                    Intent intent = new Intent(SignUp.this, Login.class);
-                                    startActivity(intent);
+                                    finish();
                                     Toast.makeText(getApplicationContext(), "Tạo tài khoản thành công", Toast.LENGTH_SHORT).show();
                                 } else if (ReceiveData.startsWith("002")) {
                                     Toast.makeText(getApplicationContext(), "Tên đăng nhập đã tồn tại", Toast.LENGTH_SHORT).show();
@@ -82,8 +81,7 @@ public class SignUp extends Activity {
         bt_Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent back_to_login = new Intent(SignUp.this, Login.class);
-                startActivity(back_to_login);
+                finish();
             }
         });
     }
@@ -147,5 +145,12 @@ public class SignUp extends Activity {
         }
         else
             return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        finish();
     }
 }
