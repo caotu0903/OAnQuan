@@ -2808,6 +2808,7 @@ id linear
 id listMode
 id list_item
 id ll_item_room
+id ll_option_A_choose_room
 id ll_player_rank_item_A_item_rank
 id ll_rank_name_point_title_A_rank
 id lv_list_player_A_rank

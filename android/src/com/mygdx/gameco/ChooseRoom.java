@@ -72,7 +72,7 @@ public class ChooseRoom extends Activity {
                     Room room = new Room(ReceiveData, 1);
                     intent_join_room.putExtra("RoomID", ReceiveData);
                     intent_join_room.putExtra("Role", "host");
-                    startActivity(intent_join_room);
+                    startActivityForResult(intent_join_room, 1111);
                     overridePendingTransition(R.anim.anim_in_right, R.anim.anim_out_left);
                 }
 
@@ -122,7 +122,7 @@ public class ChooseRoom extends Activity {
                     Intent intent_join_room = new Intent(ChooseRoom.this, Waiting_Room.class);
                     intent_join_room.putExtra("RoomID", listRoom.get(position).getRoomID());
                     intent_join_room.putExtra("Role", "player");
-                    startActivity(intent_join_room);
+                    startActivityForResult(intent_join_room, 1111);
                     overridePendingTransition(R.anim.anim_in_right, R.anim.anim_out_left);
                 }
                 else if (ReceiveData.startsWith("220")) {
@@ -179,6 +179,13 @@ public class ChooseRoom extends Activity {
             listRoom.clear();
         }
         listRoomAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        GetRoomInfo();
     }
 
     @Override
