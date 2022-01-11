@@ -307,6 +307,8 @@ public class GameScreen implements Screen {
                 String res = (String) object;
                 if (res == "1") {
                     //xu ly quit game - ve lai phong cho
+                    String SendQuitGameInfo = "401OAQ/**/" + userName + "/**/" + opponentName;
+                    operationNetwork.SendMessage(SendQuitGameInfo);
                     operationNetwork.CallFinish();
                 } else if (res == "0") {
                     setVisible(false);
@@ -896,28 +898,64 @@ public class GameScreen implements Screen {
     public void receiveData() {
         String moveMessage = operationNetwork.GetMessage();
         if (!moveMessage.isEmpty()) {
-            moveMessage = moveMessage.replaceFirst("400", "");
-            String[] listStringMove = moveMessage.split("\\/\\*\\*\\/");
+            if (moveMessage.startsWith("400")) {
+                moveMessage = moveMessage.replaceFirst("400", "");
+                String[] listStringMove = moveMessage.split("\\/\\*\\*\\/");
 
-            ODuocChon = Integer.valueOf(listStringMove[0]);
+                ODuocChon = Integer.valueOf(listStringMove[0]);
 
-            direction.grabAnimation.setPosition(oCo[ODuocChon].boundingBox);
-            ListGrabAnimation.add(direction.grabAnimation);
+                direction.grabAnimation.setPosition(oCo[ODuocChon].boundingBox);
+                ListGrabAnimation.add(direction.grabAnimation);
 
-            //sound
-            long id = this.grabSound.play(soundButton.isChecked()? 0f : 0.1f);
-            this.grabSound.setPitch(id, 2f);
+                //sound
+                long id = this.grabSound.play(soundButton.isChecked() ? 0f : 0.1f);
+                this.grabSound.setPitch(id, 2f);
 
-            // set direction for hand
-            hand.setDirection(Integer.valueOf(listStringMove[1]));
-            hand.setPoint(oCo[ODuocChon].numberCo);
-            hand.setCurCell(ODuocChon);
-            hand.isEndTurn=false;
+                // set direction for hand
+                hand.setDirection(Integer.valueOf(listStringMove[1]));
+                hand.setPoint(oCo[ODuocChon].numberCo);
+                hand.setCurCell(ODuocChon);
+                hand.isEndTurn = false;
 
-            // cap nhat diem cho oCo
-            hand.grabCell=ODuocChon;
-            //oCO[gs.ODuocChon].setNumberCo(0);
-
+                // cap nhat diem cho oCo
+                hand.grabCell = ODuocChon;
+                //oCO[gs.ODuocChon].setNumberCo(0);
+            }
+            else if (moveMessage.startsWith("401")) {
+                initInfoQuitGameDialog();
+            }
         }
+    }
+
+    private void initInfoQuitGameDialog() {
+        this.isDetectInput=false;
+        Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
+        final float scale = 3f;
+        Dialog quitGameDialog = new Dialog("Notification", skin) {
+
+            {
+                text(opponentName + " quit, you win!");
+                button("OK", "0");
+                setScale(scale);
+                setKeepWithinStage(false);
+                setMovable(false);
+            }
+
+            @Override
+            protected void result(Object object) {
+                //xu ly khi click button OK
+                String res = (String) object;
+                if (res == "0") {
+                    //xu ly quit game - ve lai phong cho
+                    operationNetwork.CallFinish();
+                }
+            }
+        };
+        quitGameDialog.pack();
+        quitGameDialog.setPosition(WORLD_WIDTH / 2 - quitGameDialog.getWidth() / 2 * scale,
+                WORLD_HEIGHT / 2 - quitGameDialog.getHeight() / 2 * scale);
+        //quitGameDialog.setVisible(false);
+        stage.addActor(quitGameDialog);
+
     }
 }
