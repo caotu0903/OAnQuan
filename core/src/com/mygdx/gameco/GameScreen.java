@@ -287,6 +287,7 @@ public class GameScreen implements Screen {
     }
 
     private void initQuitGameDialog() {
+        this.isDetectInput=false;
         Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
         final float scale = 3f;
         Dialog quitGameDialog = new Dialog("Quit Game", skin) {
@@ -309,6 +310,7 @@ public class GameScreen implements Screen {
                     operationNetwork.CallFinish();
                 } else if (res == "0") {
                     setVisible(false);
+                    isDetectInput = true;
                 }
             }
         };
@@ -493,7 +495,7 @@ public class GameScreen implements Screen {
         }
 
         //Direction direction = null;
-        if (index>=0 && index<=4) {
+        if (index>=0 && index<=4 && oCo[index].getNumberCo()!=0) {
             if (!oCo[index].isQuan) {
                 direction.translate(oCo[index]);
                 direction.setVisible(true, true);
